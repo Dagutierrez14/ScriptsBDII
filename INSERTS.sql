@@ -574,3 +574,7 @@ INSERT INTO MODELO_AUTO (Datos_modelo_auto,capacidad,Foto,Marca_fk)
 VALUES (datosbasicos('Elantra 2019','Carro ideal para ir por la ciudad'),4,bfilename('FOTOS','modelo_auto/elantra.jpg'),4);
 INSERT INTO MODELO_AUTO (Datos_modelo_auto,capacidad,Foto,Marca_fk) 
 VALUES (datosbasicos('Genesis 2019','Carro promedio de buen rendimiento'),4,bfilename('FOTOS','modelo_auto/genesis.jpg'),4);
+INSERT INTO MODELO_AUTO (Datos_modelo_auto,capacidad,Foto,Marca_fk) 
+VALUES (datosbasicos('500X 2019','Carro promedio de buen rendimiento'),4,bfilename('FOTOS','modelo_auto/500X.jpg'),5);
+INSERT INTO MODELO_AUTO (Datos_modelo_auto,capacidad,Foto,Marca_fk) 
+VALUES (datosbasicos('Punto 2019','Carro promedio de buen rendimiento'),4,bfilename('FOTOS','modelo_auto/500X.jpg'),5);
