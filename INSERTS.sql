@@ -578,3 +578,43 @@ INSERT INTO MODELO_AUTO (Datos_modelo_auto,capacidad,Foto,Marca_fk)
 VALUES (datosbasicos('500X 2019','Carro promedio de buen rendimiento'),4,bfilename('FOTOS','modelo_auto/500X.jpg'),5);
 INSERT INTO MODELO_AUTO (Datos_modelo_auto,capacidad,Foto,Marca_fk) 
 VALUES (datosbasicos('Punto 2019','Carro promedio de buen rendimiento'),4,bfilename('FOTOS','modelo_auto/500X.jpg'),5);
+INSERT INTO MODELO_AUTO (Datos_modelo_auto,capacidad,Foto,Marca_fk) 
+VALUES (datosbasicos('CX-3 2019','Carro promedio de buen rendimiento'),4,bfilename('FOTOS','modelo_auto/cx-3.jpg'),6);
+INSERT INTO MODELO_AUTO (Datos_modelo_auto,capacidad,Foto,Marca_fk) 
+VALUES (datosbasicos('MX-5 2019','Carro promedio de buen rendimiento'),2,bfilename('FOTOS','modelo_auto/mx-5.jpg'),6);
+INSERT INTO MODELO_AUTO (Datos_modelo_auto,capacidad,Foto,Marca_fk) 
+VALUES (datosbasicos('Fiesta SE 2019','Carro promedio de buen rendimiento'),4,bfilename('FOTOS','modelo_auto/fiestase.jpg'),7);
+INSERT INTO MODELO_AUTO (Datos_modelo_auto,capacidad,Foto,Marca_fk) 
+VALUES (datosbasicos('Mustang GT 2019','Carro deportivo de muy buen rendimiento'),4,bfilename('FOTOS','modelo_auto/mustanggt.jpg'),7);
+INSERT INTO MODELO_AUTO (Datos_modelo_auto,capacidad,Foto,Marca_fk) 
+VALUES (datosbasicos('Grand Cherokee 2019','Camioneta todo terreno muy funcional'),4,bfilename('FOTOS','modelo_auto/grandcherokee.jpg'),8);
+INSERT INTO MODELO_AUTO (Datos_modelo_auto,capacidad,Foto,Marca_fk) 
+VALUES (datosbasicos('Compass','Camioneta todo terreno muy funcional'),4,bfilename('FOTOS','modelo_auto/compass.jpg'),8);
+INSERT INTO MODELO_AUTO (Datos_modelo_auto,capacidad,Foto,Marca_fk) 
+VALUES (datosbasicos('Serie 3 2019','Carro promedio de buen rendimiento'),4,bfilename('FOTOS','modelo_auto/serie3.jpg'),9);
+INSERT INTO MODELO_AUTO (Datos_modelo_auto,capacidad,Foto,Marca_fk) 
+VALUES (datosbasicos('I3 2019','Carro promedio de buen rendimiento'),4,bfilename('FOTOS','modelo_auto/i3.jpg'),9);
+INSERT INTO MODELO_AUTO (Datos_modelo_auto,capacidad,Foto,Marca_fk) 
+VALUES (datosbasicos('Qashqai 2019','Carro promedio de buen rendimiento'),4,bfilename('FOTOS','modelo_auto/qashqai.jpg'),10);
+INSERT INTO MODELO_AUTO (Datos_modelo_auto,capacidad,Foto,Marca_fk) 
+VALUES (datosbasicos('Leaf 2019','Carro promedio de buen rendimiento'),4,bfilename('FOTOS','modelo_auto/leaf.jpg'),10);
+INSERT INTO MODELO_AUTO (Datos_modelo_auto,capacidad,Foto,Marca_fk) 
+VALUES (datosbasicos('Jazz 2019','Carro promedio de buen rendimiento'),4,bfilename('FOTOS','modelo_auto/jazz.jpg'),11);
+INSERT INTO MODELO_AUTO (Datos_modelo_auto,capacidad,Foto,Marca_fk) 
+VALUES (datosbasicos('Civic 2019','Carro promedio de buen rendimiento'),4,bfilename('FOTOS','modelo_auto/civic.jpg'),11);
+INSERT INTO MODELO_AUTO (Datos_modelo_auto,capacidad,Foto,Marca_fk) 
+VALUES (datosbasicos('Pacifica 2019','Carro promedio de buen rendimiento'),4,bfilename('FOTOS','modelo_auto/pacifica.jpg'),12);
+INSERT INTO MODELO_AUTO (Datos_modelo_auto,capacidad,Foto,Marca_fk) 
+VALUES (datosbasicos('Hybrid 2019','Carro promedio de buen rendimiento'),4,bfilename('FOTOS','modelo_auto/hybrid.jpg'),12);
+INSERT INTO MODELO_AUTO (Datos_modelo_auto,capacidad,Foto,Marca_fk) 
+VALUES (datosbasicos('Yaris 2019','Carro promedio de buen rendimiento'),4,bfilename('FOTOS','modelo_auto/yaris.jpg'),13);
+INSERT INTO MODELO_AUTO (Datos_modelo_auto,capacidad,Foto,Marca_fk) 
+VALUES (datosbasicos('Prius 2019','Carro promedio de buen rendimiento'),4,bfilename('FOTOS','modelo_auto/prius.jpg'),13);
+INSERT INTO MODELO_AUTO (Datos_modelo_auto,capacidad,Foto,Marca_fk) 
+VALUES (datosbasicos('Space Star 2019','Carro promedio de buen rendimiento'),4,bfilename('FOTOS','modelo_auto/spacestar.jpg'),14);
+INSERT INTO MODELO_AUTO (Datos_modelo_auto,capacidad,Foto,Marca_fk) 
+VALUES (datosbasicos('ASX 2019','Carro promedio de buen rendimiento'),4,bfilename('FOTOS','modelo_auto/asx.jpg'),14);
+INSERT INTO MODELO_AUTO (Datos_modelo_auto,capacidad,Foto,Marca_fk) 
+VALUES (datosbasicos('Avenger 2019','Carro promedio de buen rendimiento'),4,bfilename('FOTOS','modelo_auto/avenger.jpg'),15);
+INSERT INTO MODELO_AUTO (Datos_modelo_auto,capacidad,Foto,Marca_fk) 
+VALUES (datosbasicos('Viper 2019','Carro promedio de buen rendimiento'),4,bfilename('FOTOS','modelo_auto/viper.jpg'),15);
