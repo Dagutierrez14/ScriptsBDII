@@ -1,5 +1,13 @@
 CREATE OR REPLACE DIRECTORY FOTOS AS 'C:\Imagenes-Inserts';
 
+---------------------------------------------Triggers de Creacion----------------------------------------------
+CREATE OR REPLACE TRIGGER CREAR_CUENTA_MILLA
+AFTER INSERT ON Usuario
+FOR EACH ROW
+    BEGIN
+       INSERT INTO CUENTA_MILLA (cantidad,usuario_fk) VALUES (200,:new.clave); 
+    END;
+/
 ----------------------------------------Lugar-Paises-------------------------------------------------------------------------------
 /*1*/  INSERT INTO LUGAR (Nombre,Tipo) VALUES ('Venezuela','Pais'); 
 /*2*/  INSERT INTO LUGAR (Nombre,Tipo) VALUES ('USA','Pais');
