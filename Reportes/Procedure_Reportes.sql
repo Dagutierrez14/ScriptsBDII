@@ -1,3 +1,7 @@
+
+
+
+
 -----------------------------PROCEDURE REPORTE 1---------------------------
 CREATE OR REPLACE PROCEDURE REPORTE1(c OUT SYS_REFCURSOR)
 IS
