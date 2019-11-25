@@ -1,7 +1,14 @@
 ---------------------------- 1.- INICIAR SIMULACION ----------------------------
 ---------------------------- 2.- GENERAR RESERVA ----------------------------
 ---------------------------- 3.- GENERAR FECHA ALEATORIA ----------------------------
-select to_date('2010-01-01', 'yyyy-mm-dd HH24:MI:SS')+dbms_random.value(1,10000) from dual;
+CREATE OR REPLACE FUNCTION GENERAR_FECHA_ALEATORIA(fecha_base IN DATE, periodo in NUMBER)
+    RETURN DATE
+    IS
+        fecha_aleatoria DATE;
+    BEGIN
+        select (fecha_base+dbms_random.value(1,periodo)) INTO fecha_aleatoria from dual;
+        RETURN fecha_aleatoria;
+    END;       
 ---------------------------- 4.- GENERAR LUGAR ALEATORIO AEROPUERTO ----------------------------
 ---------------------------- 5.- GENERAR RESERVA VUELO ----------------------------
 ---------------------------- 6.- GENERAR VUELOS ----------------------------
@@ -22,4 +29,4 @@ select to_date('2010-01-01', 'yyyy-mm-dd HH24:MI:SS')+dbms_random.value(1,10000)
 ---------------------------- 21.- PAGO TIPO PAGO ----------------------------
 ---------------------------- 22.- ABONANDO CUENTA MILLAS ----------------------------
 ---------------------------- 23.- CANCELAR RESERVAS ----------------------------
->>>>>>> 843caa2f96b6ee624cd81892f3496fa251c0476f
+
