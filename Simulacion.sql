@@ -2,6 +2,16 @@
 ---------------------------- 2.- GENERAR RESERVA ----------------------------
 ---------------------------- 3.- GENERAR FECHA ALEATORIA ----------------------------
 ---------------------------- 4.- GENERAR LUGAR ALEATORIO AEROPUERTO ----------------------------
+CREATE OR REPLACE FUNCTION lugar_aleatorio_aeropuerto return number
+IS
+    numero_aeropuertos NUMBER;
+    id_lugar NUMBER;
+BEGIN
+    SELECT COUNT(*) INTO numero_aeropuertos FROM AEROPUERTO;
+    SELECT AE.lugar_fk INTO id_lugar FROM AEROPUERTO AE WHERE AE.clave = ROUND(DBMS_RANDOM.VALUE(1,numero_aeropuertos));
+    return id_lugar;
+END;
+/
 ---------------------------- 5.- GENERAR RESERVA VUELO ----------------------------
 ---------------------------- 6.- GENERAR VUELOS ----------------------------
 ---------------------------- 7.- FECHA ESTIMADA LLEGADA ----------------------------
