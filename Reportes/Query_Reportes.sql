@@ -35,7 +35,11 @@ SELECT correo AS "Correo de usuario", foto AS "Foto", primer_nombre || ' ' || se
 
 -----------------------------QUERY REPORTE 5---------------------------
 
---SELECT A.logo, U.correo, FROM VUELO V, RESERVA_USUARIO_VUELO RUV, RESERVA_USUARIO REU WHERE REU.factura_reserva_fk = id_factura_reserva AND REU.usuario_fk = id_persona AND RUV.reserva_usuario_fk = REU.clave AND RUV.vuelo_fk = V.clave;
+/*SELECT AE.logo AS "Logo de Aerolinea", "albaass@gmail.com" AS "Correo de usuario", LO.Nombre || '-' || LD.nombre || '-' || V.Intinerario_estimado.fecha_inicio AS Vuelo, to_date('2018-01-28 00:00:00','yyyy-mm-dd HH24:MI:SS') AS "Fecha de Salida", to_date('2018-12-31 00:00:00','yyyy-mm-dd HH24:MI:SS') AS "Fecha de regreso", V.Intinerario_estimado.fecha_inicio || ' ' || LO.nombre || ' (' || AEO.codigo || ')' AS "Sale", 
+V.Intinerario_estimado.fecha_fin || ' ' || LD.nombre || ' (' || AED.codigo || ')' AS "Llega",  V.Intinerario_real.calcular_duracion_horas(V.Intinerario_estimado.fecha_inicio,V.Intinerario_estimado.fecha_fin) AS "Duracion" 
+FROM VUELO V, RESERVA_USUARIO_VUELO RUV, RESERVA_USUARIO REU, AEROPUERTO AEO,  AEROPUERTO AED, LUGAR LO, LUGAR LD, AEROLINEA A, USUARIO U, PAGO P, FACTURA_RESERVA FR
+WHERE U.correo = "albaass@gmail.com" AND FR.usuario_fk = U.clave AND REU.factura_reserva_fk = FR.clave AND RUV.reserva_usuario_fk = REU.clave AND RUV.vuelo_fk = V.clave AND V.Aeropuerto_llegada_fk = AED.clave AND AED.lugar_fk = LD.clave 
+AND V.Aeropuerto_salida_fk = AEO.clave AND AEO.lugar_fk = LO.clave AND P.factura_reserva_fk = FR.clave;*/
 
 -----------------------------QUERY REPORTE 6---------------------------
 
