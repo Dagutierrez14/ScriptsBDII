@@ -3964,3 +3964,436 @@ INSERT INTO HABITACION (Numero,Tipo_habitacion_fk) VALUES ('R-821',600);
 INSERT INTO HABITACION (Numero,Tipo_habitacion_fk) VALUES ('R-777',600);
 INSERT INTO HABITACION (Numero,Tipo_habitacion_fk) VALUES ('R-413',600);
 INSERT INTO HABITACION (Numero,Tipo_habitacion_fk) VALUES ('R-446',600);
+---------------------------------------------------------Aseguradora----------------------------------------------------------------------
+/*1*/  INSERT INTO ASEGURADORA (Datos_aseguradora, Logo) VALUES (datosbasicos('Columbus Direct', 'Ofrece políticas flexibles de un solo viaje que cubren destinos tanto europeos como mundiales.'), bfilename('FOTOS','aseguradora/columbusdirect.png'));
+/*2*/  INSERT INTO ASEGURADORA (Datos_aseguradora, Logo) VALUES (datosbasicos('Direct Line', 'Compañía de seguros de distintos tipos, entre ellos seguros de viajes completos'), bfilename('FOTOS','aseguradora/directline.jpg'));
+/*3*/  INSERT INTO ASEGURADORA (Datos_aseguradora, Logo) VALUES (datosbasicos('Churchill', 'Ofrece seguros de viaje que se puede adaptar para satisfacer todas as necesidades del cliente.'), bfilename('FOTOS','aseguradora/churchill.jpg'));
+/*4*/  INSERT INTO ASEGURADORA (Datos_aseguradora, Logo) VALUES (datosbasicos('Post Office','Ofrece diferentes tipos de cobertura para lo que haya planeado, considerando todas las condiciones médicas.'), bfilename('FOTOS','aseguradora/postoffice.png'));
+/*5*/  INSERT INTO ASEGURADORA (Datos_aseguradora, Logo) VALUES (datosbasicos('Holiday Rescue','Compañia centrada en atencion medica y valores familiares.'), bfilename('FOTOS','aseguradora/holidayrescue.png'));
+/*6*/  INSERT INTO ASEGURADORA (Datos_aseguradora, Logo) VALUES (datosbasicos('Tick travel Insurance','Ofrece seguros y planes simples y completos.'), bfilename('FOTOS','aseguradora/ticktravelinsurance.png'));
+/*7*/  INSERT INTO ASEGURADORA (Datos_aseguradora, Logo) VALUES (datosbasicos('Travel Guard','Se compromete a proporcionar productos y servicios que superen las expectativas.'), bfilename('FOTOS','aseguradora/travelguard.png'));
+/*8*/  INSERT INTO ASEGURADORA (Datos_aseguradora, Logo) VALUES (datosbasicos('Travelex','Compañía de seguros con precios accesibles'), bfilename('FOTOS','aseguradora/travelex.png'));
+/*9*/  INSERT INTO ASEGURADORA (Datos_aseguradora, Logo) VALUES (datosbasicos('IMGlobal','Compañia de seguros internacional con variados servicios.'), bfilename('FOTOS','aseguradora/img.png'));
+/*10*/ INSERT INTO ASEGURADORA (Datos_aseguradora, Logo) VALUES (datosbasicos('Pacific Cross','Aporta más de 65 años de experiencia a la industria de seguros de salud y viajes en Asia.'), bfilename('FOTOS','aseguradora/pacificcross.png'));
+/*11*/ INSERT INTO ASEGURADORA (Datos_aseguradora, Logo) VALUES (datosbasicos('Avanti','Ofrece multiples seguros, principalmente médicos'), bfilename('FOTOS','aseguradora/avanti.png'));
+/*12*/ INSERT INTO ASEGURADORA (Datos_aseguradora, Logo) VALUES (datosbasicos('All Clear','Famosos por cubrir varias afecciones médicas, desde artritis, epilepsia, y asma, hasta afecciones cardíacas, diabetes y cáncer.'), bfilename('FOTOS','aseguradora/allclear.png'));
+/*13*/ INSERT INTO ASEGURADORA (Datos_aseguradora, Logo) VALUES (datosbasicos('1cover','Aseguradora que te hará ahorrar tiempo y dinero'), bfilename('FOTOS','aseguradora/1cover.png'));
+/*14*/ INSERT INTO ASEGURADORA (Datos_aseguradora, Logo) VALUES (datosbasicos('Get Going','Su especialidad son servicios de seguro médico'), bfilename('FOTOS','aseguradora/getgoing.png'));
+/*15*/ INSERT INTO ASEGURADORA (Datos_aseguradora, Logo) VALUES (datosbasicos('Arch Insurance','Ofrece seguraos de viajes completos y especializados'), bfilename('FOTOS','aseguradora/archinsurance.jpg'));
+---------------------------------------------------------Servicios----------------------------------------------------------------------
+/*1*/  INSERT INTO SERVICIO (Datos_servicio) VALUES (datosbasicos('Servicio de atención medica primaria', 'Cubre gastos derivados de tratamiento medico de emergencia'));
+/*2*/  INSERT INTO SERVICIO (Datos_servicio) VALUES (datosbasicos('Servicio contra desastre natural', 'Cubre los gastos por terremostos, tsunamis, erupciiones, etc.'));
+/*3*/  INSERT INTO SERVICIO (Datos_servicio) VALUES (datosbasicos('Servicio de equipaje perdido', 'Cubre gastos originados por equipaje perdido o robado en cualquier estapa de su viaje.'));
+/*4*/  INSERT INTO SERVICIO (Datos_servicio) VALUES (datosbasicos('Servicio de perdida de documentos', 'Cubre la perdidas de docuemntos importantes como pasaportes, CI, seguro social, etc.'));
+/*5*/  INSERT INTO SERVICIO (Datos_servicio) VALUES (datosbasicos('Servicio de cancelación de viaje', 'Devolución de parte del dinero invertido en el viaje cancelado por causas como enfermedad.'));
+/*6*/  INSERT INTO SERVICIO (Datos_servicio) VALUES (datosbasicos('Servicio de hospitalizacion', 'Cubre todos los gastos medico que requieran hospitalizacion de los viajeros'));
+/*7*/  INSERT INTO SERVICIO (Datos_servicio) VALUES (datosbasicos('Servicio de familiares menores de edad', 'Cubre cualquier aspecto medico para hijos, sobrinos, nietos, netre otros, que sean menores de edad.'));
+/*8*/  INSERT INTO SERVICIO (Datos_servicio) VALUES (datosbasicos('Servicio de mascotas', 'Cubre cualquier situacion medica o de extravio para las mascotas del viajero'));
+/*9*/  INSERT INTO SERVICIO (Datos_servicio) VALUES (datosbasicos('Servicio de accidente personal', 'Cubre gastos de accidentes de automoviles o culaquier otro en el que se vea involucrado el viajero'));
+/*10*/ INSERT INTO SERVICIO (Datos_servicio) VALUES (datosbasicos('Servicio de gastos legales', 'Cubre gastos por abogados, docuemntos legales, etc.'));
+/*11*/ INSERT INTO SERVICIO (Datos_servicio) VALUES (datosbasicos('Servicio de contingencia contra terrorismo', 'Cubre todos los gastos generados por situaciones de terrorismo en el destino del viajero.'));
+/*12*/ INSERT INTO SERVICIO (Datos_servicio) VALUES (datosbasicos('Servicio de dispositivos electronicos', 'Cubre perdida o averia de equipos electronicos'));
+/*13*/ INSERT INTO SERVICIO (Datos_servicio) VALUES (datosbasicos('Servicio de deportes', 'Cubre heridas, perdidas de objetos, etc. Al relizar alguna actividad deportiva'));
+/*14*/ INSERT INTO SERVICIO (Datos_servicio) VALUES (datosbasicos('Servicio de golf', 'Cubre perdidas de equipos de golf y heridas.'));
+/*15*/ INSERT INTO SERVICIO (Datos_servicio) VALUES (datosbasicos('Servicio de condiciones medicas existentes', 'Cubre lo necesario en cuanto equipos y asistencia para condiciones como asma, diabetes, etc.'));
+---------------------------------------------------------Seguro----------------------------------------------------------------------
+----Columbus Direct----
+/*1*/  INSERT INTO SEGURO (Datos_seguro, Aseguradora_fk) VALUES (datosbasicos( 'Seguro medico completo','Contempla todas las necesidades medicas'), 1);
+/*2*/  INSERT INTO SEGURO (Datos_seguro, Aseguradora_fk) VALUES (datosbasicos( 'Seguro vacacional', 'Involucra todo lo que un viaje vacacional necesita'), 1);
+/*3*/  INSERT INTO SEGURO (Datos_seguro, Aseguradora_fk) VALUES (datosbasicos( 'Seguro deportivo', 'Todo tipo de servicios médicos y deportivos'), 1);
+
+----Direct Line----
+/*4*/  INSERT INTO SEGURO (Datos_seguro, Aseguradora_fk) VALUES (datosbasicos( 'Seguro catastofre','Cubre todo los eventos grandes e inesperados.'), 2);
+/*5*/  INSERT INTO SEGURO (Datos_seguro, Aseguradora_fk) VALUES (datosbasicos( 'Seguro variado','Incluye servicios variados'), 2);
+/*6*/  INSERT INTO SEGURO (Datos_seguro, Aseguradora_fk) VALUES (datosbasicos( 'Seguro full trip','Incluye servicios variados'), 2);
+
+----Churchill----
+/*7*/  INSERT INTO SEGURO (Datos_seguro, Aseguradora_fk) VALUES (datosbasicos( 'Seguro Full','Contempla alto rango de servicios'), 3);
+/*8*/  INSERT INTO SEGURO (Datos_seguro, Aseguradora_fk) VALUES (datosbasicos( 'Seguro viajero economico','Servicios basicos y baratos'), 3);
+/*9*/  INSERT INTO SEGURO (Datos_seguro, Aseguradora_fk) VALUES (datosbasicos( 'Seguro viajero plus','3 servicios basicos mas 2 plus'), 3);
+
+----Post Office----
+/*10*/ INSERT INTO SEGURO (Datos_seguro, Aseguradora_fk) VALUES (datosbasicos('Seguro legal','Cubre asuntos legales'), 4);
+/*11*/ INSERT INTO SEGURO (Datos_seguro, Aseguradora_fk) VALUES (datosbasicos('Seguro medico','Cubre sevicios medicos completos'), 4);
+
+----Holiday Rescue----
+/*12*/ INSERT INTO SEGURO (Datos_seguro, Aseguradora_fk) VALUES (datosbasicos('Seguro de perdidas','Contempla servicios de perdida de cualquier cosa'), 5);
+/*13*/ INSERT INTO SEGURO (Datos_seguro, Aseguradora_fk) VALUES (datosbasicos('Seguro de golf','Cubre solo el servicio de golf'), 5);
+
+----Tick travel Insurance----
+/*14*/ INSERT INTO SEGURO (Datos_seguro, Aseguradora_fk) VALUES (datosbasicos('Seguro completo + desastre','Incluye vsriados servicios mas el servicio de desastre'), 6);
+/*15*/ INSERT INTO SEGURO (Datos_seguro, Aseguradora_fk) VALUES (datosbasicos('Seguro desastre y deportes','Incluye servicios de desastre natural y ejercicios'), 6);
+
+----Travel Guard----
+/*16*/ INSERT INTO SEGURO (Datos_seguro, Aseguradora_fk) VALUES (datosbasicos('Seguro cobertura full','Incluye diversos servicios.'), 7);
+/*17*/ INSERT INTO SEGURO (Datos_seguro, Aseguradora_fk) VALUES (datosbasicos('Seguro economico','Incluye servicios esenciales y baratos.'), 7);
+
+----Travelex----
+/*18*/ INSERT INTO SEGURO (Datos_seguro, Aseguradora_fk) VALUES (datosbasicos('Seguro premiun','Incluye muchos servicios costosos.'), 8);
+/*19*/ INSERT INTO SEGURO (Datos_seguro, Aseguradora_fk) VALUES (datosbasicos('Seguro plata','Incluye servicios relativamente baratos.'), 8);
+
+----IMGlobal----
+/*20*/ INSERT INTO SEGURO (Datos_seguro, Aseguradora_fk) VALUES (datosbasicos('Seguro familiar','Incluye servicios medicos y familiares'), 9);
+/*21*/ INSERT INTO SEGURO (Datos_seguro, Aseguradora_fk) VALUES (datosbasicos('Seguro  deportivo','Cubre accidentes por deportes.'), 9);
+
+----Pacific Cross----
+/*22*/ INSERT INTO SEGURO (Datos_seguro, Aseguradora_fk) VALUES (datosbasicos('Seguro vacacional','Cubre todo lo posible en cuantos a viajes vacacionales.'), 10);
+/*23*/ INSERT INTO SEGURO (Datos_seguro, Aseguradora_fk) VALUES (datosbasicos('Seguro sitiuacion extrema','Cubre desastre, hopitalizaciones y terrorismo.'), 10);
+
+----Avanti----
+/*24*/ INSERT INTO SEGURO (Datos_seguro, Aseguradora_fk) VALUES (datosbasicos('Seguro de lujo','Seguro con muchas comodidades y servicios.'), 11);
+/*25*/ INSERT INTO SEGURO (Datos_seguro, Aseguradora_fk) VALUES (datosbasicos('Seguro de perdidas','Contempla servicios de perdida de cualquier cosa'), 11);
+
+----All Clear----
+/*26*/ INSERT INTO SEGURO (Datos_seguro, Aseguradora_fk) VALUES (datosbasicos('Seguro accidentes','Cubre accidentes y aspectos legales'), 12);
+/*27*/ INSERT INTO SEGURO (Datos_seguro, Aseguradora_fk) VALUES (datosbasicos('Seguro estandar','Cubre 5 servicios cualesquiera.'), 12);
+
+----1cover----
+/*28*/ INSERT INTO SEGURO (Datos_seguro, Aseguradora_fk) VALUES (datosbasicos('Seguro normal','Cubre 5 servicios no extraordinarios'), 13);
+/*29*/ INSERT INTO SEGURO (Datos_seguro, Aseguradora_fk) VALUES (datosbasicos('Seguro variado','Cubre diversos seguros de varias áreas.'), 13);
+
+----Get Going----
+/*30*/ INSERT INTO SEGURO (Datos_seguro, Aseguradora_fk) VALUES (datosbasicos('Seguro legal','Cubre asuntos legales'), 14);
+/*31*/ INSERT INTO SEGURO (Datos_seguro, Aseguradora_fk) VALUES (datosbasicos('Seguro estandar','Inclye servicios basicos'), 14);
+
+----Arch Insurance----
+/*32*/ INSERT INTO SEGURO (Datos_seguro, Aseguradora_fk) VALUES (datosbasicos('Seguro medico','Inlcuye sevicios medicos completos.'), 15);
+/*33*/ INSERT INTO SEGURO (Datos_seguro, Aseguradora_fk) VALUES (datosbasicos('Seguro viajero','Cubre todo lo relacionado a sevicios centrados en el viajero.'), 15);
+/*34*/ INSERT INTO SEGURO (Datos_seguro, Aseguradora_fk) VALUES (datosbasicos('Seguro plus','Cubre diversos servicios.'), 15);
+---------------------------------------------------------Serivico_Seguro----------------------------------------------------------------------
+----Columbus Direct----
+--1--
+/*1*/  INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(100), 1, 1);
+/*2*/  INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(300), 6, 1);
+/*3*/  INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(150), 15, 1);
+--2--
+/*4*/  INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(50), 7, 2);
+/*5*/  INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(75), 1, 2);
+/*6*/  INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(100), 13, 2);
+/*7*/  INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(130), 3, 2);
+/*8*/  INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(245), 4, 2);
+--3--
+/*9*/  INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(90), 13, 3);
+/*10*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(200), 14, 3);
+/*11*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(450), 1, 3);
+
+----Direct Line----
+--1--
+/*12*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(320), 2, 4);
+/*13*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(400), 11, 4);
+/*14*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(300), 6, 4);
+/*15*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(150), 1, 4);
+--2--
+/*16*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(150), 11, 5);
+/*17*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(350), 5, 5);
+/*18*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(135), 13, 5);
+/*19*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(285), 7, 5);
+/*20*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(300), 3, 5);
+--3--
+/*21*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(500), 8, 6);
+/*22*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(495), 11, 6);
+/*23*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(430), 13, 6);
+/*24*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(135), 3, 6);
+/*25*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(70), 7, 6);
+
+----Churchill----
+--1--
+/*26*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) values (datosprecio(345), 9, 7);
+/*27*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) values (datosprecio(230), 10, 7);
+/*28*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) values (datosprecio(75), 13, 7);
+/*29*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) values (datosprecio(30), 14, 7);
+/*30*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) values (datosprecio(250), 1, 7);
+/*31*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) values (datosprecio(255), 6, 7);
+/*32*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) values (datosprecio(65), 2, 7);
+/*33*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) values (datosprecio(490), 8, 7);
+--2--
+/*34*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(25), 3, 8);
+/*35*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(140), 1, 8);
+/*36*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(115), 4, 8);
+--3--
+/*37*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(25), 3, 9);
+/*38*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(140), 1, 9);
+/*39*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(115), 4, 9);
+/*40*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(200), 6, 9);
+/*41*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(300), 2, 9);
+----Post Office----
+--1--
+/*42*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(300), 10, 10);
+--2--
+/*43*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(100), 1, 11);
+/*44*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(300), 6, 11);
+/*45*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(150), 15, 11);
+----Holiday Rescue----
+--1--
+/*46*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(220), 3, 12);
+/*47*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(175), 4, 12);
+/*48*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(205), 12, 12);
+/*49*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(100), 10, 12);
+--2--
+/*50*/INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(100), 14, 13); 
+----Tick travel Insurance----
+--1--
+/*51*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) values (datosprecio(455), 2, 14);
+/*52*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(420), 9, 14);
+/*53*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(65), 3, 14);
+/*54*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(240), 1, 14);
+/*55*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(384), 12, 14);
+/*56*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(455), 6, 14);
+/*57*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(160), 10, 14);
+/*58*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(125), 15, 14);
+--2--
+/*59*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(125), 14, 15);
+/*60*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(200), 13, 15);
+/*61*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(185), 2, 15);
+----Travel Guard----
+--1--
+/*62*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(305), 14, 16);
+/*63*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(240), 6, 16);
+/*64*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(230), 1, 16);
+/*65*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(140), 11, 16);
+/*66*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(255), 4, 16);
+/*67*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(225), 15, 16);
+/*68*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(160), 5, 16);
+/*69*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(285), 7, 16);
+--2--
+/*70*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(100), 1, 17);
+/*71*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(200), 3, 17);
+/*72*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(125), 4, 17);
+----Travelex----
+--1--
+/*73*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(233), 6, 18);
+/*74*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(100), 10, 18);
+/*75*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(445), 9, 18);
+/*76*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(435), 7, 18);
+/*77*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(130), 8, 18);
+/*78*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(225), 13, 18);
+/*79*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(135), 11, 18);
+/*80*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(440), 15, 18);
+--2--
+/*81*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(390), 6, 19);
+/*82*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(35), 4, 19);
+/*83*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(150), 7, 19);
+/*84*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(470), 8, 19);
+----IMGlobal----
+--1--
+/*85*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(175), 1, 20);
+/*86*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(470), 7, 20);
+/*87*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(300), 6, 20);
+--2--
+/*88*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(500), 8, 21);
+/*89*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(495), 11, 21);
+/*90*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(430), 13, 21);
+/*91*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(135), 3, 21);
+/*92*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(70), 7, 21);
+----Pacific Cross----
+--1--
+/*93*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(420), 8, 22);
+/*94*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(335), 2, 22);
+/*95*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(385), 3, 22);
+/*96*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(145), 6, 22);
+/*97*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(265), 11, 22);
+/*98*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(440), 1, 22);
+/*99*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(390), 10, 22);
+--2--
+/*100*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(400), 2, 23);
+/*101*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(400), 11, 23);
+/*102*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(225), 1, 23);
+----Avanti----
+--1--
+/*103*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(483), 3, 24);
+/*104*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(305), 15, 24);
+/*105*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(442), 11, 24);
+/*106*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(150), 12, 24);
+/*107*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(403), 13, 24);
+/*108*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(304), 6, 24);
+/*109*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(149), 4, 24);
+/*110*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(392), 14, 24);
+/*111*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(332), 1, 24);
+--2--
+/*112*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(110), 3, 25);
+/*113*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(130), 4, 25);
+/*114*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(300), 12, 25);
+/*115*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(200), 10, 25);
+----All Clear----
+--1--
+/*116*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(430), 9, 26);
+/*117*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(115), 10, 26);
+/*118*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(200), 1, 26);
+--2--
+/*119*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(405), 2, 27);
+/*120*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(155), 13, 27);
+/*121*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(435), 8, 27);
+/*122*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(455), 3, 27);
+/*123*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(230), 8, 27);
+----1cover----
+--1--
+/*124*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(205), 10, 28);
+/*125*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(255), 5, 28);
+/*126*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(170), 12, 28);
+/*127*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(475), 1, 28);
+/*128*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(190), 11, 28);
+--2-- 
+/*129*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(150), 4, 29);
+/*130*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(440), 10, 29);
+/*131*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(145), 1, 29);
+/*132*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(430), 2, 29);
+----Get Going----
+--1--
+/*133*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(300), 10, 30);
+--2--
+/*134*/INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(472), 6, 31);
+/*135*/INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(500), 5, 31);
+/*136*/INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(346), 1, 31);
+----Arch Insurance----
+--1--
+/*137*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(160), 1, 32);
+/*138*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(245), 6, 32);
+/*139*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(500), 15, 32);
+--2--
+/*140*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(395), 13, 33);
+/*141*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(410), 14, 33);
+/*142*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(415), 6, 33);
+/*143*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(405), 11, 33);
+/*144*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(275), 4, 33);
+--3--
+/*145*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(380), 11, 34);
+/*146*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(425), 7, 34);
+/*147*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(500), 9, 34);
+/*148*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(395), 13, 34);
+/*149*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(300), 5, 34);
+/*150*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(240), 1, 34);
+/*151*/ INSERT INTO SERVICIO_SEGURO (Precio_servicio_seguro, servicio_fk, seguro_fk) VALUES (datosprecio(165), 10, 34);
+---------------------------------------------------------Vuelo----------------------------------------------------------------------
+/*1x*/  INSERT INTO VUELO (Intinerario_estimado, Intinerario_real, Distancia_recorrida, Precio_base_vuelo, Aeropuerto_salida_fk, Aeropuerto_llegada_fk, Modelo_avion_aerolinea_fk) 
+VALUES (intinerario(to_date('2019-02-09 00:45:00','yyyy-mm-dd HH24:MI:SS'), to_date('2019-02-09 07:45:00','yyyy-mm-dd HH24:MI:SS')), intinerario(to_date('2019-02-09 00:45:00','yyyy-mm-dd HH24:MI:SS'), to_date('2019-02-09 07:45:00','yyyy-mm-dd HH24:MI:SS')), 5106, datosprecio(320), 11, 16, 11);
+/*2x*/  INSERT INTO VUELO (Intinerario_estimado, Intinerario_real, Distancia_recorrida, Precio_base_vuelo, Aeropuerto_salida_fk, Aeropuerto_llegada_fk, Modelo_avion_aerolinea_fk) 
+VALUES (intinerario(to_date('2019-03-09 04:00:00','yyyy-mm-dd HH24:MI:SS'), to_date( '2019-03-09 11:00:00','yyyy-mm-dd HH24:MI:SS')), intinerario(to_date('2019-03-09 04:00:00','yyyy-mm-dd HH24:MI:SS'), to_date( '2019-03-09 11:00:00','yyyy-mm-dd HH24:MI:SS')), 5106, datosprecio(400), 16, 11, 60 );
+/*3*/  INSERT INTO VUELO (Intinerario_estimado, Intinerario_real, Distancia_recorrida, Precio_base_vuelo, Aeropuerto_salida_fk, Aeropuerto_llegada_fk, Modelo_avion_aerolinea_fk) 
+VALUES (intinerario(to_date('2019-02-22 06:15:00','yyyy-mm-dd HH24:MI:SS'), to_date( '2019-02-22 23:50:00','yyyy-mm-dd HH24:MI:SS')), intinerario(to_date('2019-02-22 06:15:00','yyyy-mm-dd HH24:MI:SS'), to_date( '2019-02-22 23:50:00','yyyy-mm-dd HH24:MI:SS')), 11656, datosprecio(265), 26, 27, 24);
+/*4+x*/  INSERT INTO VUELO (Intinerario_estimado, Intinerario_real, Distancia_recorrida, Precio_base_vuelo, Aeropuerto_salida_fk, Aeropuerto_llegada_fk, Modelo_avion_aerolinea_fk) 
+VALUES (intinerario(to_date('2019-07-10 03:00:00','yyyy-mm-dd HH24:MI:SS'), to_date( '2019-07-10 17:20:00','yyyy-mm-dd HH24:MI:SS')), intinerario(to_date('2019-07-10 04:00:00','yyyy-mm-dd HH24:MI:SS'), to_date( '2019-07-10 18:20:00','yyyy-mm-dd HH24:MI:SS')), 7940, datosprecio(350), 16, 8, 48);
+/*5x*/  INSERT INTO VUELO (Intinerario_estimado, Intinerario_real, Distancia_recorrida, Precio_base_vuelo, Aeropuerto_salida_fk, Aeropuerto_llegada_fk, Modelo_avion_aerolinea_fk) 
+VALUES (intinerario(to_date('2019-07-28 06:00:00','yyyy-mm-dd HH24:MI:SS'), to_date( '2019-07-28 20:20:00','yyyy-mm-dd HH24:MI:SS')), intinerario(to_date('2019-07-28 06:00:00','yyyy-mm-dd HH24:MI:SS'), to_date( '2019-07-28 20:20:00','yyyy-mm-dd HH24:MI:SS')), 7940, datosprecio(350), 16, 8, 48);
+/*6*/  INSERT INTO VUELO (Intinerario_estimado, Intinerario_real, Distancia_recorrida, Precio_base_vuelo, Aeropuerto_salida_fk, Aeropuerto_llegada_fk, Modelo_avion_aerolinea_fk) 
+VALUES (intinerario(to_date('2019-05-24 01:30:00','yyyy-mm-dd HH24:MI:SS'), to_date( '2019-05-24 14:00:00','yyyy-mm-dd HH24:MI:SS')), intinerario(to_date('2019-05-24 01:30:00','yyyy-mm-dd HH24:MI:SS'), to_date( '2019-05-24 14:00:00','yyyy-mm-dd HH24:MI:SS')), 8342, datosprecio(410), 17, 7, 13);
+/*7+*/  INSERT INTO VUELO (Intinerario_estimado, Intinerario_real, Distancia_recorrida, Precio_base_vuelo, Aeropuerto_salida_fk, Aeropuerto_llegada_fk, Modelo_avion_aerolinea_fk) 
+VALUES (intinerario(to_date('2018-10-12 18:30:00','yyyy-mm-dd HH24:MI:SS'), to_date( '2018-10-12 21:00:00','yyyy-mm-dd HH24:MI:SS')), intinerario(to_date('2018-10-12 19:30:00','yyyy-mm-dd HH24:MI:SS'), to_date( '2018-10-12 22:00:00','yyyy-mm-dd HH24:MI:SS')), 1331, datosprecio(200), 13, 15, 36);
+/*8*/  INSERT INTO VUELO (Intinerario_estimado, Intinerario_real, Distancia_recorrida, Precio_base_vuelo, Aeropuerto_salida_fk, Aeropuerto_llegada_fk, Modelo_avion_aerolinea_fk) 
+VALUES (intinerario(to_date('2018-01-29 06:00:00','yyyy-mm-dd HH24:MI:SS'), to_date( '2018-01-29 09:40:00','yyyy-mm-dd HH24:MI:SS')), intinerario(to_date('2018-01-29 06:00:00','yyyy-mm-dd HH24:MI:SS'), to_date( '2018-01-29 09:40:00','yyyy-mm-dd HH24:MI:SS')), 2435, datosprecio(495),  5, 10, 16);
+/*9*/  INSERT INTO VUELO (Intinerario_estimado, Intinerario_real, Distancia_recorrida, Precio_base_vuelo, Aeropuerto_salida_fk, Aeropuerto_llegada_fk, Modelo_avion_aerolinea_fk) 
+VALUES (intinerario(to_date('2019-06-11 03:20:00','yyyy-mm-dd HH24:MI:SS'), to_date( '2019-06-11 06:20:00','yyyy-mm-dd HH24:MI:SS')), intinerario(to_date('2019-06-11 03:20:00','yyyy-mm-dd HH24:MI:SS'), to_date( '2019-06-11 06:20:00','yyyy-mm-dd HH24:MI:SS')), 2161, datosprecio(375), 23, 21, 61);
+/*10+*/  INSERT INTO VUELO (Intinerario_estimado, Intinerario_real, Distancia_recorrida, Precio_base_vuelo, Aeropuerto_salida_fk, Aeropuerto_llegada_fk, Modelo_avion_aerolinea_fk) 
+VALUES (intinerario(to_date('2019-04-16 12:00:00','yyyy-mm-dd HH24:MI:SS'), to_date( '2019-04-16 21:30:00','yyyy-mm-dd HH24:MI:SS')), intinerario(to_date('2019-04-16 12:30:00','yyyy-mm-dd HH24:MI:SS'), to_date( '2019-04-16 22:00:00','yyyy-mm-dd HH24:MI:SS')), 8755, datosprecio(150), 6, 24, 65);
+/*11x*/ INSERT INTO VUELO (Intinerario_estimado, Intinerario_real, Distancia_recorrida, Precio_base_vuelo, Aeropuerto_salida_fk, Aeropuerto_llegada_fk, Modelo_avion_aerolinea_fk) 
+VALUES (intinerario(to_date('2019-05-12 02:50:00','yyyy-mm-dd HH24:MI:SS'), to_date( '2019-05-12 04:50:00','yyyy-mm-dd HH24:MI:SS')), intinerario(to_date('2019-05-12 02:50:00','yyyy-mm-dd HH24:MI:SS'), to_date( '2019-05-12 04:50:00','yyyy-mm-dd HH24:MI:SS')), 915, datosprecio(260), 2, 10, 3);
+/*12x*/ INSERT INTO VUELO (Intinerario_estimado, Intinerario_real, Distancia_recorrida, Precio_base_vuelo, Aeropuerto_salida_fk, Aeropuerto_llegada_fk, Modelo_avion_aerolinea_fk) 
+VALUES (intinerario(to_date('2019-06-13 12:30:00','yyyy-mm-dd HH24:MI:SS'), to_date( '2019-06-13 14:30:00','yyyy-mm-dd HH24:MI:SS')), intinerario(to_date('2019-06-13 12:30:00','yyyy-mm-dd HH24:MI:SS'), to_date( '2019-06-13 14:30:00','yyyy-mm-dd HH24:MI:SS')), 915, datosprecio(260), 10, 2, 3);
+/*13*/ INSERT INTO VUELO (Intinerario_estimado, Intinerario_real, Distancia_recorrida, Precio_base_vuelo, Aeropuerto_salida_fk, Aeropuerto_llegada_fk, Modelo_avion_aerolinea_fk) 
+VALUES (intinerario(to_date('2018-06-28 09:00:00','yyyy-mm-dd HH24:MI:SS'), to_date( '2018-06-28 23:50:00','yyyy-mm-dd HH24:MI:SS')), intinerario(to_date('2018-06-28 09:00:00','yyyy-mm-dd HH24:MI:SS'), to_date( '2018-06-28 23:50:00','yyyy-mm-dd HH24:MI:SS')), 10003, datosprecio(395), 18, 20, 20);
+/*14*/ INSERT INTO VUELO (Intinerario_estimado, Intinerario_real, Distancia_recorrida, Precio_base_vuelo, Aeropuerto_salida_fk, Aeropuerto_llegada_fk, Modelo_avion_aerolinea_fk) 
+VALUES (intinerario(to_date('2018-07-04 10:30:00','yyyy-mm-dd HH24:MI:SS'), to_date( '2018-07-04 21:50:00','yyyy-mm-dd HH24:MI:SS')), intinerario(to_date('2018-07-04 10:30:00','yyyy-mm-dd HH24:MI:SS'), to_date( '2018-07-04 21:50:00','yyyy-mm-dd HH24:MI:SS')), 9655, datosprecio(410), 23, 27, 36);
+/*15*/ INSERT INTO VUELO (Intinerario_estimado, Intinerario_real, Distancia_recorrida, Precio_base_vuelo, Aeropuerto_salida_fk, Aeropuerto_llegada_fk, Modelo_avion_aerolinea_fk) 
+VALUES (intinerario(to_date('2018-08-18 12:15:00','yyyy-mm-dd HH24:MI:SS'), to_date( '2018-08-19 00:35:00','yyyy-mm-dd HH24:MI:SS')), intinerario(to_date('2018-08-18 12:15:00','yyyy-mm-dd HH24:MI:SS'), to_date( '2018-08-19 00:35:00','yyyy-mm-dd HH24:MI:SS')), 9436, datosprecio(270), 15, 19, 76 );
+/*16*/ INSERT INTO VUELO (Intinerario_estimado, Intinerario_real, Distancia_recorrida, Precio_base_vuelo, Aeropuerto_salida_fk, Aeropuerto_llegada_fk, Modelo_avion_aerolinea_fk) 
+VALUES (intinerario(to_date('2018-10-31 04:00:00','yyyy-mm-dd HH24:MI:SS'), to_date( '2018-10-31 23:00:00','yyyy-mm-dd HH24:MI:SS')), intinerario(to_date('2018-10-31 04:00:00','yyyy-mm-dd HH24:MI:SS'), to_date( '2018-10-31 23:00:00','yyyy-mm-dd HH24:MI:SS')), 13205, datosprecio(145), 22, 7, 37);
+/*17x*/ INSERT INTO VUELO (Intinerario_estimado, Intinerario_real, Distancia_recorrida, Precio_base_vuelo, Aeropuerto_salida_fk, Aeropuerto_llegada_fk, Modelo_avion_aerolinea_fk) 
+VALUES (intinerario(to_date('2018-11-20 10:25:00','yyyy-mm-dd HH24:MI:SS'), to_date( '2018-11-20 11:50:00','yyyy-mm-dd HH24:MI:SS')), intinerario(to_date('2018-11-20 10:25:00','yyyy-mm-dd HH24:MI:SS'), to_date( '2018-11-20 11:50:00','yyyy-mm-dd HH24:MI:SS')), 572, datosprecio(195), 9, 4, 40);
+/*18x*/ INSERT INTO VUELO (Intinerario_estimado, Intinerario_real, Distancia_recorrida, Precio_base_vuelo, Aeropuerto_salida_fk, Aeropuerto_llegada_fk, Modelo_avion_aerolinea_fk) 
+VALUES (intinerario(to_date('2018-12-10 04:25:00','yyyy-mm-dd HH24:MI:SS'),  to_date('2018-12-10 05:50:00','yyyy-mm-dd HH24:MI:SS')), intinerario(to_date('2018-12-10 04:25:00','yyyy-mm-dd HH24:MI:SS'), to_date( '2018-12-10 05:50:00','yyyy-mm-dd HH24:MI:SS')), 572, datosprecio(195), 4, 9, 40);
+/*19*/ INSERT INTO VUELO (Intinerario_estimado, Intinerario_real, Distancia_recorrida, Precio_base_vuelo, Aeropuerto_salida_fk, Aeropuerto_llegada_fk, Modelo_avion_aerolinea_fk) 
+VALUES (intinerario(to_date('2018-07-14 10:25:00','yyyy-mm-dd HH24:MI:SS'), to_date( '2018-07-14 23:10:00','yyyy-mm-dd HH24:MI:SS')), intinerario(to_date('2018-07-14 10:25:00','yyyy-mm-dd HH24:MI:SS'), to_date( '2018-07-14 23:10:00','yyyy-mm-dd HH24:MI:SS')), 8222, datosprecio(195), 16, 25, 40);
+/*20*/ INSERT INTO VUELO (Intinerario_estimado, Intinerario_real, Distancia_recorrida, Precio_base_vuelo, Aeropuerto_salida_fk, Aeropuerto_llegada_fk, Modelo_avion_aerolinea_fk) 
+VALUES (intinerario(to_date('2019-06-24 04:00:00','yyyy-mm-dd HH24:MI:SS'),  to_date('2019-06-24 15:50:00','yyyy-mm-dd HH24:MI:SS')), intinerario(to_date('2019-06-24 04:00:00','yyyy-mm-dd HH24:MI:SS'), to_date( '2019-06-24 15:50:00','yyyy-mm-dd HH24:MI:SS')), 9460, datosprecio(195), 26, 19, 40);
+---------------------------------------------------------Estatus Vuelo----------------------------------------------------------------------
+----No iniciado - (1 dia antes)----
+/*1*/  INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-02-08 00:45:00','yyyy-mm-dd HH24:MI:SS'), 8, 1);
+/*2*/  INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-03-08 04:00:00','yyyy-mm-dd HH24:MI:SS'), 8, 2);
+/*3*/  INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-02-21 06:15:00','yyyy-mm-dd HH24:MI:SS'), 8, 3);
+/*4*/  INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-07-09 03:00:00','yyyy-mm-dd HH24:MI:SS'), 8, 4);
+/*5*/  INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-07-27 06:00:00','yyyy-mm-dd HH24:MI:SS'), 8, 5);
+/*6*/  INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-05-23 01:30:00','yyyy-mm-dd HH24:MI:SS'), 8, 6);
+/*7*/  INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2018-10-11 18:30:00','yyyy-mm-dd HH24:MI:SS'), 8, 7);
+/*8*/  INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2018-01-28 06:00:00','yyyy-mm-dd HH24:MI:SS'), 8, 8);
+/*9*/  INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-06-10 03:20:00','yyyy-mm-dd HH24:MI:SS'), 8, 9);
+/*10*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-04-15 12:00:00','yyyy-mm-dd HH24:MI:SS'), 8, 10);
+/*11*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-05-11 02:50:00','yyyy-mm-dd HH24:MI:SS'), 8, 11);
+/*12*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-06-12 12:30:00','yyyy-mm-dd HH24:MI:SS'), 8, 12);
+/*13*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2018-06-27 09:00:00','yyyy-mm-dd HH24:MI:SS'), 8, 13);
+/*14*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2018-07-03 10:30:00','yyyy-mm-dd HH24:MI:SS'), 8, 14);
+/*15*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2018-08-17 12:15:00','yyyy-mm-dd HH24:MI:SS'), 8, 15);
+/*16*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2018-10-30 04:00:00','yyyy-mm-dd HH24:MI:SS'), 8, 16);
+/*17*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2018-11-19 10:25:00','yyyy-mm-dd HH24:MI:SS'), 8, 17);
+/*18*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2018-12-09 04:25:00','yyyy-mm-dd HH24:MI:SS'), 8, 18);
+/*19*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2018-07-13 10:25:00','yyyy-mm-dd HH24:MI:SS'), 8, 19);
+/*20*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-06-23 04:00:00','yyyy-mm-dd HH24:MI:SS'), 8, 20);
+
+----Retrasado- (2 horas antes)----
+/*21*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-07-10 02:00:00','yyyy-mm-dd HH24:MI:SS'), 3, 4);
+/*22*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2018-10-12 17:30:00','yyyy-mm-dd HH24:MI:SS'), 3, 7);
+/*23*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-04-16 11:00:00','yyyy-mm-dd HH24:MI:SS'), 3, 10);
+
+----Abordando - (1 hora antes)----
+/*24*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-02-09 00:00:00','yyyy-mm-dd HH24:MI:SS'), 2, 1);
+/*25*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-03-09 03:00:00','yyyy-mm-dd HH24:MI:SS'), 2, 2);
+/*26*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-02-22 05:15:00','yyyy-mm-dd HH24:MI:SS'), 2, 3);
+/*27*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-07-10 03:00:00','yyyy-mm-dd HH24:MI:SS'), 2, 4);
+/*28*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-07-28 05:00:00','yyyy-mm-dd HH24:MI:SS'), 2, 5);
+/*29*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-05-24 00:30:00','yyyy-mm-dd HH24:MI:SS'), 2, 6);
+/*30*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2018-10-12 18:30:00','yyyy-mm-dd HH24:MI:SS'), 2, 7);
+/*31*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2018-01-29 05:00:00','yyyy-mm-dd HH24:MI:SS'), 2, 8);
+/*32*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-06-11 02:20:00','yyyy-mm-dd HH24:MI:SS'), 2, 9);
+/*33*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-04-16 12:00:00','yyyy-mm-dd HH24:MI:SS'), 2, 10);
+/*34*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-05-12 01:50:00','yyyy-mm-dd HH24:MI:SS'), 2, 11);
+/*35*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-06-13 11:30:00','yyyy-mm-dd HH24:MI:SS'), 2, 12);
+/*36*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2018-06-28 08:00:00','yyyy-mm-dd HH24:MI:SS'), 2, 13);
+/*37*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2018-07-04 09:30:00','yyyy-mm-dd HH24:MI:SS'), 2, 14);
+/*38*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2018-08-18 11:15:00','yyyy-mm-dd HH24:MI:SS'), 2, 15);
+/*39*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2018-10-31 03:00:00','yyyy-mm-dd HH24:MI:SS'), 2, 16);
+/*40*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2018-11-20 09:25:00','yyyy-mm-dd HH24:MI:SS'), 2, 17);
+/*41*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2018-12-10 03:25:00','yyyy-mm-dd HH24:MI:SS'), 2, 18);
+/*42*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2018-07-14 09:25:00','yyyy-mm-dd HH24:MI:SS'), 2, 19);
+/*43*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-06-24 03:00:00','yyyy-mm-dd HH24:MI:SS'), 2, 20);
+
+----En tránsito (fecha inicio real deja de ser null)----
+/*44*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-02-09 00:45:00','yyyy-mm-dd HH24:MI:SS'), 7, 1);
+/*45*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-03-09 04:00:00','yyyy-mm-dd HH24:MI:SS'), 7, 2);
+/*46*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-02-22 06:15:00','yyyy-mm-dd HH24:MI:SS'), 7, 3);
+/*47*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-07-10 04:00:00','yyyy-mm-dd HH24:MI:SS'), 7, 4);
+/*48*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-07-28 06:00:00','yyyy-mm-dd HH24:MI:SS'), 7, 5);
+/*49*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-05-24 01:30:00','yyyy-mm-dd HH24:MI:SS'), 7, 6);
+/*50*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2018-10-12 19:30:00','yyyy-mm-dd HH24:MI:SS'), 7, 7);
+/*51*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2018-01-29 06:00:00','yyyy-mm-dd HH24:MI:SS'), 7, 8);
+/*52*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-06-11 03:20:00','yyyy-mm-dd HH24:MI:SS'), 7, 9);
+/*53*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-04-16 12:30:00','yyyy-mm-dd HH24:MI:SS'), 7, 10);
+/*54*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-05-12 02:50:00','yyyy-mm-dd HH24:MI:SS'), 7, 11);
+/*55*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-06-13 12:30:00','yyyy-mm-dd HH24:MI:SS'), 7, 12);
+/*56*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2018-06-28 09:00:00','yyyy-mm-dd HH24:MI:SS'), 7, 13);
+/*57*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2018-07-04 10:30:00','yyyy-mm-dd HH24:MI:SS'), 7, 14);
+/*58*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2018-08-18 12:15:00','yyyy-mm-dd HH24:MI:SS'), 7, 15);
+/*59*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2018-10-31 04:00:00','yyyy-mm-dd HH24:MI:SS'), 7, 16);
+/*60*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2018-11-20 10:25:00','yyyy-mm-dd HH24:MI:SS'), 7, 17);
+/*61*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2018-12-10 04:25:00','yyyy-mm-dd HH24:MI:SS'), 7, 18);
+/*62*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2018-07-14 10:25:00','yyyy-mm-dd HH24:MI:SS'), 7, 19);
+/*63*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-06-24 04:00:00','yyyy-mm-dd HH24:MI:SS'), 7, 20);
+
+----Aterrizo (fecha fin real deja de ser null)----
+/*64*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date( '2019-02-09 07:45:00','yyyy-mm-dd HH24:MI:SS'), 9, 1);
+/*65*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date( '2019-03-09 11:00:00','yyyy-mm-dd HH24:MI:SS'), 9, 2);
+/*66*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date( '2019-02-22 23:50:00','yyyy-mm-dd HH24:MI:SS'), 9, 3);
+/*67*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date( '2019-07-10 18:20:00','yyyy-mm-dd HH24:MI:SS'), 9, 4);
+/*68*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date( '2019-07-28 20:20:00','yyyy-mm-dd HH24:MI:SS'), 9, 5);
+/*69*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date( '2019-05-24 14:00:00','yyyy-mm-dd HH24:MI:SS'), 9, 6);
+/*70*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date( '2018-10-12 22:00:00','yyyy-mm-dd HH24:MI:SS'), 9, 7);
+/*71*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date( '2018-01-29 09:40:00','yyyy-mm-dd HH24:MI:SS'), 9, 8);
+/*72*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date( '2019-06-11 06:20:00','yyyy-mm-dd HH24:MI:SS'), 9, 9);
+/*73*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date( '2019-04-16 22:00:00','yyyy-mm-dd HH24:MI:SS'), 9, 10);
+/*74*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date( '2019-05-12 04:50:00','yyyy-mm-dd HH24:MI:SS'), 9, 11);
+/*75*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date( '2019-06-13 14:30:00','yyyy-mm-dd HH24:MI:SS'), 9, 12);
+/*76*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date( '2018-06-28 23:50:00','yyyy-mm-dd HH24:MI:SS'), 9, 13);
+/*77*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date( '2018-07-04 21:50:00','yyyy-mm-dd HH24:MI:SS'), 9, 14);
+/*78*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date( '2018-08-19 00:35:00','yyyy-mm-dd HH24:MI:SS'), 9, 15);
+/*79*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date( '2018-10-31 23:00:00','yyyy-mm-dd HH24:MI:SS'), 9, 16);
+/*80*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date( '2018-11-20 11:50:00','yyyy-mm-dd HH24:MI:SS'), 9, 17);
+/*81*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date( '2018-12-10 05:50:00','yyyy-mm-dd HH24:MI:SS'), 9, 18);
+/*82*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date( '2018-07-14 23:10:00','yyyy-mm-dd HH24:MI:SS'), 9, 19);
+/*83*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date( '2019-06-24 15:50:00','yyyy-mm-dd HH24:MI:SS'), 9, 20);
