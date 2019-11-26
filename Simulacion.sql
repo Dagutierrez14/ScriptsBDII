@@ -63,6 +63,34 @@ END;
 ---------------------------- 7.- FECHA ESTIMADA LLEGADA ----------------------------
 ---------------------------- 8.- FECHA PRIMER VUELO REGRESO ----------------------------
 ---------------------------- 9.- GENERAR RESERVA AUTOMOVIL ----------------------------
+CREATE OR REPLACE PROCEDURE GENERAR_RESERVA_AUTOMOVIL(id_destino NUMBER, fecha_estimada_llegada DATE, fecha_vuelo_regreso DATE, id_factura_reserva NUMBER)
+IS
+    id_oficinas_locales_list DBMS_SQL.NUMBER_TABLE;
+    id_carros_list DBMS_SQL.NUMBER_TABLE;
+    id_reserva_usuarios_list DBMS_SQL.NUMBER_TABLE;
+    index_oficina_aleatoria NUMBER;
+    index_carro_aleatorio NUMBER;
+    index_ciclo_reserva_carros_usuarios NUMBER;
+    id_oficina_retorno NUMBER;
+BEGIN
+    SELECT OF.clave BULK COLLECT id_oficinas_locales_list
+        FROM OFICINA OF
+        SELECT OF.lugar_fk = id_destino;
+    index_oficina_aleatoria := ROUND(DBMS_RANDOM.VALUE(1,id_oficinas_locales_list.COUNT));
+    SELECT MAO.clave BULK COLLECT id_carros_list
+        FROM OFICINA OF, MODELO_AUTO_OFICINA MAO
+        WHERE OF.clave = id_oficinas_locales_list(index_oficina_aleatoria) AND OF.clave = MAO.oficina_fk;
+    index_carro_aleatorio :=  ROUND(DBMS_RANDOM.VALUE(1,id_carros_list.COUNT));
+    id_oficina_retorno := OFICINA_RETORNO_AUTOMOVIL(id_oficinas_locales_list(index_oficina_aleatoria));
+    SELECT RU.clave BULK COLLECT INTO id_reserva_usuarios_list
+        FROM FACTURA_RESERVA FR, RESERVA_USUARIO RU
+        WHERE FR.clave = id_factura_reserva AND FR.clave = RU.factura_reserva_fk;
+    index_ciclo_reserva_carros_usuarios := 1;
+    WHILE index_ciclo_reserva_carros_usuarios<=id_reserva_usuarios_list.COUNT LOOP
+        INSERT INTO RESERVA_USUARIO_AUTOMOVIL (Intinerario_reserva_automovil,Modelo_auto_oficina_fk,Oficina_fk,Reserva_usuario_fk) VALUES (intinerario(fecha_estimada_llegada,fecha_vuelo_regreso),id_carros_list(index_carro_aleatorio),id_oficina_retorno,id_reserva_usuarios_list(index_ciclo_reserva_carros_usuarios));
+        index_ciclo_reserva_carros_usuarios := index_ciclo_reserva_carros_usuarios + 1;
+    END LOOP;
+END;
 ---------------------------- 10.- OFICINA RETORNO AUTOMOVIL ----------------------------
 CREATE OR REPLACE FUNCTION OFICINA_RETORNO_AUTOMOVIL(id_oficina NUMBER) RETURN NUMBER
 IS
@@ -71,8 +99,12 @@ IS
     index_oficina_aleatoria NUMBER;
     id_oficina_list DBMS_SQL.NUMBER_TABLE;
 BEGIN
-    SELECT O.rentadora_fk, O.lugar_fk INTO id_rentadora, id_lugar_oficina FROM OFICINA O WHERE O.clave = id_oficina;
-    SELECT O.clave BULK COLLECT INTO id_oficina_list FROM OFICINA O, RENTADORA R WHERE R.clave = O.rentadora_fk AND O.lugar_fk = id_lugar_oficina AND R.clave = id_rentadora;
+    SELECT O.rentadora_fk, O.lugar_fk INTO id_rentadora, id_lugar_oficina 
+        FROM OFICINA O 
+        WHERE O.clave = id_oficina;
+    SELECT O.clave BULK COLLECT INTO id_oficina_list 
+        FROM OFICINA O, RENTADORA R 
+        WHERE R.clave = O.rentadora_fk AND O.lugar_fk = id_lugar_oficina AND R.clave = id_rentadora;
     index_oficina_aleatoria := ROUND(DBMS_RANDOM.VALUE(1,id_oficina_list.COUNT));
     return id_oficina_list((index_oficina_aleatoria));
 END;
