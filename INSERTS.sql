@@ -2,10 +2,18 @@ CREATE OR REPLACE DIRECTORY FOTOS AS 'C:\Imagenes-Inserts';
 
 ---------------------------------------------Triggers de Creacion----------------------------------------------
 CREATE OR REPLACE TRIGGER CREAR_CUENTA_MILLA
-AFTER INSERT ON Usuario
+AFTER INSERT ON USUARIO
 FOR EACH ROW
     BEGIN
        INSERT INTO CUENTA_MILLA (cantidad,usuario_fk) VALUES (200,:new.clave); 
+    END;
+/
+
+CREATE OR REPLACE TRIGGER CREAR_ESTATUS_HABITACION
+AFTER INSERT ON HABITACION
+FOR EACH ROW
+    BEGIN
+        INSERT INTO ESTATUS_HABITACION (fecha,habitacion_fk,estatus_fk) VALUES (to_date('2017-12-01 00:00:00','yyyy-mm-dd HH24:MI:SS'),:new.clave,6);
     END;
 /
 ----------------------------------------Lugar-Paises-------------------------------------------------------------------------------
