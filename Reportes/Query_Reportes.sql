@@ -35,5 +35,7 @@ SELECT correo AS "Correo de usuario", foto AS "Foto", primer_nombre || ' ' || se
 
 -----------------------------QUERY REPORTE 5---------------------------
 
+--SELECT A.logo, U.correo, FROM VUELO V, RESERVA_USUARIO_VUELO RUV, RESERVA_USUARIO REU WHERE REU.factura_reserva_fk = id_factura_reserva AND REU.usuario_fk = id_persona AND RUV.reserva_usuario_fk = REU.clave AND RUV.vuelo_fk = V.clave;
+
 -----------------------------QUERY REPORTE 6---------------------------
 

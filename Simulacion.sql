@@ -206,7 +206,39 @@ BEGIN
 END;
 /
 ---------------------------- 7.- FECHA ESTIMADA LLEGADA ----------------------------
+CREATE OR REPLACE FUNCTION fecha_estimada_llegada( vuelos  DBMS_SQL.NUMBER_TABLE, lugar_inicio NUMBER) return DATE
+IS
+    fecha_vuelo_llegada DATE;
+    id_vuelo NUMBER;
+BEGIN
+    FOR I IN vuelos.FIRST..vuelos.LAST
+    LOOP
+        SELECT V.clave INTO id_vuelo FROM VUELO V, AEROPUERTO A WHERE V.Aeropuerto_salida_fk = A.clave AND A.lugar_fk = lugar_inicio AND V.clave = I;
+        IF id_vuelo IS NOT NULL THEN
+            SELECT V.Intinerario_estimado.fecha_fin FECHA INTO fecha_vuelo_llegada FROM VUELO V WHERE V.clave = id_vuelo;
+            EXIT;
+        END IF;
+    END LOOP;
+    RETURN fecha_vuelo_llegada;
+END;
+/
 ---------------------------- 8.- FECHA PRIMER VUELO REGRESO ----------------------------
+CREATE OR REPLACE FUNCTION fecha_primer_vuelo_regreso( vuelos  DBMS_SQL.NUMBER_TABLE, lugar_destino NUMBER) return DATE
+IS
+    fecha_vuelo_salida DATE;
+    id_vuelo NUMBER;
+BEGIN
+    FOR I IN vuelos.FIRST..vuelos.LAST
+    LOOP
+        SELECT V.clave INTO id_vuelo FROM VUELO V, AEROPUERTO A WHERE V.Aeropuerto_salida_fk = A.clave AND A.lugar_fk = lugar_destino AND V.clave = I;
+        IF id_vuelo IS NOT NULL THEN
+            SELECT V.Intinerario_estimado.fecha_inicio FECHA INTO fecha_vuelo_salida FROM VUELO V WHERE V.clave = id_vuelo;
+            EXIT;
+        END IF;
+    END LOOP;
+    RETURN fecha_vuelo_salida;
+END;
+/
 ---------------------------- 9.- GENERAR RESERVA AUTOMOVIL ----------------------------
 CREATE OR REPLACE PROCEDURE GENERAR_RESERVA_AUTOMOVIL(id_destino NUMBER, fecha_estimada_llegada DATE, fecha_vuelo_regreso DATE, id_factura_reserva NUMBER)
 IS
