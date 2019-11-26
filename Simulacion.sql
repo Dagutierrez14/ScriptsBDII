@@ -11,7 +11,69 @@ BEGIN
 END;
 /
 ---------------------------- 2.- GENERAR RESERVA ----------------------------
+CREATE OR REPLACE PROCEDURE GENERAR_RESERVA(id_usuario_principal NUMBER)
+IS
+    id_usuarios_list DBMS_SQL.NUMBER_TABLE;
+    id_vuelos_list DBMS_SQL.NUMBER_TABLE;
+    fecha_factura_reserva DATE;
+    fecha_inicio DATE;
+    fecha_fin DATE;
+    fecha_llegada DATE;
+    fecha_vuelo_regreso DATE;
+    id_lugar_origen NUMBER;
+    id_lugar_destino NUMBER;
+    id_factura_reserva NUMBER;
+    numero_asociados NUMBER;
+    index_ciclo_asociados NUMBER;
+    index_usuario_asociado_aleatorio NUMBER;
+    vuelo_modalidad NUMBER
+    auto_modalidad NUMBER;
+    alojamiento_modalidad NUMBER;
+    seguro_modalidad NUMBER;
+BEGIN
+    SELECT US.clave BULK COLLECT INTO id_usuarios_list
+        FROM USUARIO US;
+    fecha_factura_reserva := GENERAR_FECHA_ALEATORIA(TO_DATE('2010-01-01 00:00:00'),10000);
+    INSERT INTO FACTURA_RESERVA (Fecha,Usuario_fk) VALUES (fecha_factura_reserva,id_usuario_principal) 
+        RETURNING (clave) INTO id_factura_reserva;
+    fecha_inicio := GENERAR_FECHA_ALEATORIA(fecha_factura_reserva,500);
+    fecha_fin := GENERAR_FECHA_ALEATORIA(fecha_inicio,500);
+    id_lugar_origen := GENERAR_LUGAR_ALEATORIO_AEROPUERTO;
+    id_lugar_destino := GENERAR_LUGAR_ALEATORIO_AEROPUERTO;
+    numero_asociados := ROUND(DBMS_RANDOM.VALUE(0,3));
+    index_ciclo_asociados := 1;
+    WHILE index_ciclo_asociados<=  numero_asociados LOOP
+        index_usuario_asociado_aleatorio := ROUND(DBMS_RANDOM.VALUE(1,id_usuarios_list.COUNT));
+        IF id_usuarios_list(index_usuario_asociado_aleatorio)<>id_usuario_principal THEN
+            INSER INTO RESERVA_USUARIO (Seguro_fk,Usuario_fk,Factura_reserva_fk) VALUES (NULL,id_usuarios_list(index_usuario_asociado_aleatorio),id_factura_reserva);
+            index_ciclo_asociadosc := index_ciclo_asociados + 1;
+        END IF;
+    END LOOP;
+    vuelo_modalidad ROUND(DBMS_RANDOM.VALUE(0,1));
+    id_vuelos_list := GENERAR_RESERVA_VUELO(fecha_inicio,fecha_fin,id_lugar_origen,id_lugar_destino,id_factura_reserva,vuelo_modalidad);
+    fecha_llegada := FECHA_ESTIMADA_LLEGADA(id_lugar_origen,id_vuelos_list);
 
+    IF vuelo_modalidad = 1 THEN
+        fecha_vuelo_regreso := FECHA_PRIMER_VUELO_REGRESO(id_lugar_destino,id_vuelos_list);
+        auto_modalidad := ROUND(DBMS_RANDOM.VALUE(0,1));
+        IF auto_modalidad = 1 THEN
+            GENERAR_RESERVA_AUTOMOVIL(id_lugar_destino,fecha_llegada,fecha_vuelo_regreso,id_factura_reserva);
+        END IF;
+        alojamiento_modalidad := ROUND(DBMS_RANDOM.VALUE(0,1));
+        IF alojamiento_modalidad = 1 THEN
+            GENERAR_RESERVA_ALOJAMIENTO(id_lugar_destino,fecha_llegada,fecha_vuelo_regreso,id_factura_reserva);
+        END IF;
+        seguro_modalidad := ROUND(DBMS_RANDOM.VALUE(0,1));
+        IF seguro_modalidad = 1  THEN
+            GENERAR_RESERVA_SEGURO(fecha_inicio,fecha_fin,id_factura_reserva);
+        END IF;
+    END IF;
+
+    PAGAR_RESERVA(id_usuario_principal,id_factura_reserva);
+
+
+END;
+/
 ---------------------------- 3.- GENERAR FECHA ALEATORIA ----------------------------
 CREATE OR REPLACE FUNCTION GENERAR_FECHA_ALEATORIA(fecha_base IN DATE, periodo in NUMBER) RETURN DATE
 IS
@@ -33,9 +95,8 @@ BEGIN
 END;
 /
 ---------------------------- 5.- GENERAR RESERVA VUELO ----------------------------
-CREATE OR REPLACE PROCEDURE GENERAR_RESERVA_VUELO(fecha_inicio DATE, fecha_retorno DATE, lugar_salida NUMBER, lugar_destino NUMBER, id_factura_reserva NUMBER) 
+CREATE OR REPLACE FUNCTION GENERAR_RESERVA_VUELO(fecha_inicio DATE, fecha_retorno DATE, lugar_salida NUMBER, lugar_destino NUMBER, id_factura_reserva NUMBER,vuelo_modalidad NUMBER) RETURN DBMS_SQL.NUMBER_TABLE;
 IS
-    modalidad NUMBER;
     id_vuelos_list DBMS_SQL.NUMBER_TABLE;
     id_clases_list DBMS_SQL.NUMBER_TABLE;
     id_reserva_usuarios_list DBMS_SQL.NUMBER_TABLE;
@@ -49,8 +110,7 @@ BEGIN
     SELECT RU.clave BULK COLLECT INTO id_reserva_usuarios_list
         FROM FACTURA_RESERVA FR, RESERVA_USUARIO RU
         WHERE FR.clave = id_factura_reserva AND FR.clave = RU.factura_reserva_fk;
-    modalidad := ROUND(DBMS_RANDOM.VALUE(0,1));
-    id_vuelos_list := GENERAR_VUELOS(fecha_inicio,fecha_retorno,modalidad,lugar_salida,lugar_destino);
+    id_vuelos_list := GENERAR_VUELOS(fecha_inicio,fecha_retorno,vuelo_modalidad,lugar_salida,lugar_destino);
     index_ciclo_vuelos :=1;
     WHILE index_ciclo_vuelos<=id_vuelos_list.COUNT LOOP
         SELECT MAC.clave BULK COLLECT INTO id_clases_list
@@ -69,6 +129,7 @@ BEGIN
         END LOOP;
         index_ciclo_vuelos := index_ciclo_vuelos + 1;
     END LOOP;
+    RETURN id_vuelos_list;
 END;
 /
 ---------------------------- 6.- GENERAR VUELOS ----------------------------
@@ -240,7 +301,7 @@ BEGIN
 END;
 /
 ---------------------------- 9.- GENERAR RESERVA AUTOMOVIL ----------------------------
-CREATE OR REPLACE PROCEDURE GENERAR_RESERVA_AUTOMOVIL(id_destino NUMBER, fecha_estimada_llegada DATE, fecha_vuelo_regreso DATE, id_factura_reserva NUMBER)
+CREATE OR REPLACE PROCEDURE GENERAR_RESERVA_AUTOMOVIL(id_destino NUMBER, fecha_llegada DATE, fecha_vuelo_regreso DATE, id_factura_reserva NUMBER)
 IS
     id_oficinas_locales_list DBMS_SQL.NUMBER_TABLE;
     id_carros_list DBMS_SQL.NUMBER_TABLE;
@@ -264,7 +325,7 @@ BEGIN
         WHERE FR.clave = id_factura_reserva AND FR.clave = RU.factura_reserva_fk;
     index_ciclo_reserva_carros_usuarios := 1;
     WHILE index_ciclo_reserva_carros_usuarios<=id_reserva_usuarios_list.COUNT LOOP
-        INSERT INTO RESERVA_USUARIO_AUTOMOVIL (Intinerario_reserva_automovil,Modelo_auto_oficina_fk,Oficina_fk,Reserva_usuario_fk) VALUES (intinerario(fecha_estimada_llegada,fecha_vuelo_regreso),id_carros_list(index_carro_aleatorio),id_oficina_retorno,id_reserva_usuarios_list(index_ciclo_reserva_carros_usuarios));
+        INSERT INTO RESERVA_USUARIO_AUTOMOVIL (Intinerario_reserva_automovil,Modelo_auto_oficina_fk,Oficina_fk,Reserva_usuario_fk) VALUES (intinerario(fecha_llegada,fecha_vuelo_regreso),id_carros_list(index_carro_aleatorio),id_oficina_retorno,id_reserva_usuarios_list(index_ciclo_reserva_carros_usuarios));
         index_ciclo_reserva_carros_usuarios := index_ciclo_reserva_carros_usuarios + 1;
     END LOOP;
 END;
@@ -288,7 +349,7 @@ BEGIN
 END;
 /
 ---------------------------- 11.- GENERAR RESERVA ALOJAMIENTO ----------------------------
-CREATE OR REPLACE PROCEDURE GENERAR_RESERVA_ALOJAMIENTO(id_destino NUMBER, fecha_estimada_llegada DATE, fecha_vuelo_regreso DATE, id_factura_reserva NUMBER)
+CREATE OR REPLACE PROCEDURE GENERAR_RESERVA_ALOJAMIENTO(id_destino NUMBER, fecha_llegada DATE, fecha_vuelo_regreso DATE, id_factura_reserva NUMBER)
 IS
     id_reserva_usuarios_list DBMS_SQL.NUMBER_TABLE;
     id_hoteles_locales_list DBMS_SQL.NUMBER_TABLE;
@@ -322,7 +383,7 @@ BEGIN
     index_habitacion_aleatorio := ROUND(DBMS_RANDOM.VALUE(1,id_habitacion_list.COUNT));
     index_ciclo_reserva_habitacion_usuario := 1;
     WHILE index_ciclo_reserva_habitacion_usuario<=id_reserva_usuarios_list.COUNT LOOP
-        INSERT INTO RESERVA_USUARIO_HABITACION (Intinerario_reserva_habitacion,Puntuacion,Habitacion_fk,Reserva_usuario_fk) VALUES (intinerario(fecha_estimada_llegada,fecha_vuelo_regreso),ROUND(DBMS_RANDOM.VALUE(0,5)),id_habitacion_list(index_habitacion_aleatorio),id_reserva_usuarios_list(index_ciclo_reserva_habitacion_usuario));
+        INSERT INTO RESERVA_USUARIO_HABITACION (Intinerario_reserva_habitacion,Puntuacion,Habitacion_fk,Reserva_usuario_fk) VALUES (intinerario(fecha_llegada,fecha_vuelo_regreso),ROUND(DBMS_RANDOM.VALUE(0,5)),id_habitacion_list(index_habitacion_aleatorio),id_reserva_usuarios_list(index_ciclo_reserva_habitacion_usuario));
         index_ciclo_reserva_habitacion_usuario := index_ciclo_reserva_habitacion_usuario + 1;
     END LOOP;
 END;
