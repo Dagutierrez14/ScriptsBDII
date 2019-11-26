@@ -1,21 +1,6 @@
 CREATE OR REPLACE DIRECTORY FOTOS AS 'C:\Imagenes-Inserts';
 
----------------------------------------------Triggers de Creacion----------------------------------------------
-CREATE OR REPLACE TRIGGER CREAR_CUENTA_MILLA
-AFTER INSERT ON USUARIO
-FOR EACH ROW
-    BEGIN
-       INSERT INTO CUENTA_MILLA (cantidad,usuario_fk) VALUES (200,:new.clave); 
-    END;
-/
 
-CREATE OR REPLACE TRIGGER CREAR_ESTATUS_HABITACION
-AFTER INSERT ON HABITACION
-FOR EACH ROW
-    BEGIN
-        INSERT INTO ESTATUS_HABITACION (fecha,habitacion_fk,estatus_fk) VALUES (to_date('2017-12-01 00:00:00','yyyy-mm-dd HH24:MI:SS'),:new.clave,6);
-    END;
-/
 ----------------------------------------Lugar-Paises-------------------------------------------------------------------------------
 /*1*/  INSERT INTO LUGAR (Nombre,Tipo) VALUES ('Venezuela','Pais'); 
 /*2*/  INSERT INTO LUGAR (Nombre,Tipo) VALUES ('USA','Pais');
@@ -144,7 +129,7 @@ FOR EACH ROW
 /*7*/  INSERT INTO AVION (Nombre,Foto) VALUES ('Airbus A320', bfilename('FOTOS','/avion/airbusa320.jpg'));
 /*8*/  INSERT INTO AVION (Nombre,Foto) VALUES ('Boeing 757', bfilename('FOTOS','/avion/boeing757.jpg'));
 /*9*/  INSERT INTO AVION (Nombre,Foto) VALUES ('Boeing 787', bfilename('FOTOS','/avion/boeing787.jpg'));
-/*10*/ INSERT INTO AVION (Nombre,Foto) VALUES ('Bombardier CRJ 1000', bfilename('FOTOS','/avion/bombardiercrj1000.jpg'));
+/*10*/ INSERT INTO AVION (Nombre,Foto) VALUES ('Bombardier CRJ 100', bfilename('FOTOS','/avion/bombardiercrj100.jpg'));
 /*11*/ INSERT INTO AVION (Nombre,Foto) VALUES ('Bombardier CRJ 700', bfilename('FOTOS','/avion/bombardiercrj700.jpg'));
 /*12*/ INSERT INTO AVION (Nombre,Foto) VALUES ('ATR 72', bfilename('FOTOS','/avion/atr72.jpg'));
 /*13*/ INSERT INTO AVION (Nombre,Foto) VALUES ('Airbus A380', bfilename('FOTOS','/avion/airbusa380.jpg'));

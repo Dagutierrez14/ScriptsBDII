@@ -314,7 +314,120 @@ END;
 ---------------------------- 18.- PRECIO TOTAL SEGURO ----------------------------
 ---------------------------- 19.- PAGOS ----------------------------
 ---------------------------- 20.- PAGO MILLAS ----------------------------
+CREATE OR REPLACE FUNCTION pago_millas(id_persona NUMBER, monto_reserva NUMBER, id_factura_reserva NUMBER) return number
+IS
+    cantidad_millas NUMBER;
+    fecha_factura_reserva DATE;
+    id_cuenta_milla NUMBER;
+    id_pago NUMBER;
+BEGIN
+    SELECT CM.cantidad, CM.clave INTO cantidad_millas, id_cuenta_milla FROM CUENTA_MILLA CM WHERE CM.usuario_fk = id_persona;
+    IF cantidad_millas >= monto_reserva THEN
+        SELECT FR.fecha INTO fecha_factura_reserva FROM FACTURA_RESERVA FR WHERE FR.clave = id_factura_reserva;
+        INSERT INTO PAGO(Precio_pago, Fecha, Cuenta_milla_fk, Tipo_pago_tarjeta_credito_fk, Tipo_pago_tarjeta_debito_fk, Factura_reserva_fk)
+            VALUES (DatosPrecio(monto_reserva), fecha_factura_reserva, id_cuenta_milla, null, null, id_factura_reserva)
+                RETURNING (Clave) INTO id_pago;
+        UPDATE CUENTA_MILLA SET cantidad = cantidad - monto_reserva WHERE clave = id_cuenta_milla;
+        RETURN id_pago;
+    ELSE
+        RETURN NULL;
+    END IF;
+END;
+/
 ---------------------------- 21.- PAGO TIPO PAGO ----------------------------
+CREATE OR REPLACE FUNCTION pago_tipo_pago(id_persona NUMBER, monto_reserva NUMBER, id_factura_reserva NUMBER) return DBMS_SQL.NUMBER_TABLE
+IS
+    aleatorio_tarjeta_credito NUMBER;
+    aleatorio_tarjeta_debito NUMBER;
+    tarjetas_credito_usuario DBMS_SQL.NUMBER_TABLE;
+    index_tarjetas_credito NUMBER;
+    tarjetas_debito_usuario DBMS_SQL.NUMBER_TABLE;
+    index_tarjetas_debito NUMBER;
+    fecha_factura_reserva DATE;
+    id_tarjeta_credito NUMBER;
+    id_tarjeta_debito NUMBER;
+    monto_compartido NUMBER;
+    monto NUMBER;
+    ponderacion_aleatoria NUMBER;
+    id_pago NUMBER;
+    id_pagos DBMS_SQL.NUMBER_TABLE;
+BEGIN
+    aleatorio_tarjeta_credito := ROUND(DBMS_RANDOM.VALUE(0,1));
+    aleatorio_tarjeta_debito := ROUND(DBMS_RANDOM.VALUE(0,1));
+    
+    SELECT FR.fecha INTO fecha_factura_reserva FROM FACTURA_RESERVA FR WHERE FR.clave = id_factura_reserva;
+    
+    SELECT TC.clave BULK COLLECT INTO tarjetas_credito_usuario FROM TIPO_PAGO_TARJETA_CREDITO TC WHERE TC.usuario_fk = id_persona;
+    SELECT TD.clave BULK COLLECT INTO tarjetas_debito_usuario FROM TIPO_PAGO_TARJETA_DEBITO TD WHERE TD.usuario_fk = id_persona;
+    
+    SELECT LEVEL BULK COLLECT INTO id_pagos FROM DUAL CONNECT BY LEVEL <= 1;
+    
+    IF (tarjetas_debito_usuario.COUNT = 0) THEN
+        index_tarjetas_credito := ROUND(DBMS_RANDOM.VALUE(1,tarjetas_credito_usuario.COUNT));
+        id_tarjeta_credito := tarjetas_credito_usuario(index_tarjetas_credito);
+        
+        INSERT INTO PAGO(Precio_pago, Fecha, Cuenta_milla_fk, Tipo_pago_tarjeta_credito_fk, Tipo_pago_tarjeta_debito_fk, Factura_reserva_fk)
+            VALUES (DatosPrecio(monto_reserva), fecha_factura_reserva, null, id_tarjeta_credito, null, id_factura_reserva)
+                RETURNING (Clave) INTO id_pago;
+                
+        id_pagos(1) := id_pago;
+        RETURN id_pagos;
+    ELSIF (tarjetas_credito_usuario.COUNT = 0)  THEN
+        index_tarjetas_debito := ROUND(DBMS_RANDOM.VALUE(1,tarjetas_debito_usuario.COUNT));
+        id_tarjeta_debito := tarjetas_debito_usuario(index_tarjetas_debito);
+        
+        INSERT INTO PAGO(Precio_pago, Fecha, Cuenta_milla_fk, Tipo_pago_tarjeta_credito_fk, Tipo_pago_tarjeta_debito_fk, Factura_reserva_fk)
+            VALUES (DatosPrecio(monto_reserva), fecha_factura_reserva, null, null, id_tarjeta_debito, id_factura_reserva)
+                RETURNING (Clave) INTO id_pago;
+         id_pagos(1) := id_pago;
+        RETURN id_pagos;
+    ELSIF (aleatorio_tarjeta_debito = 0 AND aleatorio_tarjeta_credito = 1) THEN
+        index_tarjetas_credito := ROUND(DBMS_RANDOM.VALUE(1,tarjetas_credito_usuario.COUNT));
+        id_tarjeta_credito := tarjetas_credito_usuario(index_tarjetas_credito);
+        
+        INSERT INTO PAGO(Precio_pago, Fecha, Cuenta_milla_fk, Tipo_pago_tarjeta_credito_fk, Tipo_pago_tarjeta_debito_fk, Factura_reserva_fk)
+            VALUES (DatosPrecio(monto_reserva), fecha_factura_reserva, null, id_tarjeta_credito, null, id_factura_reserva)
+                RETURNING (Clave) INTO id_pago;
+         id_pagos(1) := id_pago;
+        RETURN id_pagos;
+    ELSIF (aleatorio_tarjeta_debito = 1 AND aleatorio_tarjeta_credito = 0) THEN
+        index_tarjetas_debito := ROUND(DBMS_RANDOM.VALUE(1,tarjetas_debito_usuario.COUNT));
+        id_tarjeta_debito := tarjetas_debito_usuario(index_tarjetas_debito);
+        
+        INSERT INTO PAGO(Precio_pago, Fecha, Cuenta_milla_fk, Tipo_pago_tarjeta_credito_fk, Tipo_pago_tarjeta_debito_fk, Factura_reserva_fk)
+            VALUES (DatosPrecio(monto_reserva), fecha_factura_reserva, null, null, id_tarjeta_debito, id_factura_reserva)
+                RETURNING (Clave) INTO id_pago;
+         id_pagos(1) := id_pago;
+        RETURN id_pagos;
+    ELSIF (aleatorio_tarjeta_credito = aleatorio_tarjeta_debito) THEN
+        SELECT LEVEL BULK COLLECT INTO id_pagos FROM DUAL CONNECT BY LEVEL <= 2;
+        ponderacion_aleatoria := DBMS_RANDOM.VALUE(0,1);
+        monto_compartido := round(monto_reserva * ponderacion_aleatoria);
+        monto := round(monto_reserva * (1 - ponderacion_aleatoria));
+        
+        index_tarjetas_credito := ROUND(DBMS_RANDOM.VALUE(1,tarjetas_credito_usuario.COUNT));
+        id_tarjeta_credito := tarjetas_credito_usuario(index_tarjetas_credito);
+        
+        INSERT INTO PAGO(Precio_pago, Fecha, Cuenta_milla_fk, Tipo_pago_tarjeta_credito_fk, Tipo_pago_tarjeta_debito_fk, Factura_reserva_fk)
+            VALUES (DatosPrecio(monto), fecha_factura_reserva, null, id_tarjeta_credito, null, id_factura_reserva)
+                RETURNING (Clave) INTO id_pago;
+                
+        id_pagos(1) := id_pago;
+        
+        
+        index_tarjetas_debito := ROUND(DBMS_RANDOM.VALUE(1,tarjetas_debito_usuario.COUNT));
+        id_tarjeta_debito := tarjetas_debito_usuario(index_tarjetas_debito);
+        
+        INSERT INTO PAGO(Precio_pago, Fecha, Cuenta_milla_fk, Tipo_pago_tarjeta_credito_fk, Tipo_pago_tarjeta_debito_fk, Factura_reserva_fk)
+            VALUES (DatosPrecio(monto_compartido), fecha_factura_reserva, null, null, id_tarjeta_debito, id_factura_reserva)
+                RETURNING (Clave) INTO id_pago;
+        id_pagos(2) := id_pago;
+        
+        
+        RETURN id_pagos;
+    END IF;
+END;
+/
 ---------------------------- 22.- ABONANDO CUENTA MILLAS ----------------------------
 ---------------------------- 23.- CANCELAR RESERVAS ----------------------------
 

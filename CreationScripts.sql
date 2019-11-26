@@ -544,7 +544,7 @@ CREATE TABLE RESERVA_USUARIO_AUTOMOVIL
 
 /*---------------------------------------------------Triggers---------------------------------------------------------------------*/
 -----Estatus Vuelo - Primer estatus(disponible)-----
-CREATE OR REPLACE TRIGGER primer_estatus_vuelo
+CREATE OR REPLACE TRIGGER PRIMER_ESTATUS_VUELO
 AFTER INSERT ON VUELO
 FOR EACH ROW
 BEGIN
@@ -552,7 +552,7 @@ BEGIN
 END;
 /
 -----Estatus Vuelo - Estatus(aterrizo, en transito)-----
-CREATE OR REPLACE TRIGGER cambio_estatus_vuelo
+CREATE OR REPLACE TRIGGER CAMBIO_ESTATUS_VUELO
 AFTER UPDATE ON VUELO
 FOR EACH ROW
 BEGIN
@@ -564,7 +564,22 @@ BEGIN
     END IF;
 END;
 /
-
+-----Cuenta Milla - Usuario - crear cuenta milla-----
+CREATE OR REPLACE TRIGGER CREAR_CUENTA_MILLA
+AFTER INSERT ON USUARIO
+FOR EACH ROW
+    BEGIN
+       INSERT INTO CUENTA_MILLA (cantidad,usuario_fk) VALUES (200,:new.clave); 
+    END;
+/
+-----Estatus Habitacion - Estatus(disponible)-----
+CREATE OR REPLACE TRIGGER CREAR_ESTATUS_HABITACION
+AFTER INSERT ON HABITACION
+FOR EACH ROW
+    BEGIN
+        INSERT INTO ESTATUS_HABITACION (fecha,habitacion_fk,estatus_fk) VALUES (to_date('2017-12-01 00:00:00','yyyy-mm-dd HH24:MI:SS'),:new.clave,6);
+    END;
+/
 
 
 
