@@ -564,6 +564,42 @@ BEGIN
     END IF;
 END;
 /
+---------Aumentar Cuenta_milla
+CREATE OR REPLACE TRIGGER AUMENTAR_CUENTA_MILLA
+AFTER INSERT ON CUENTA_MILLA_VUELO 
+FOR EACH ROW
+    BEGIN
+        UPDATE CUENTA_MILLA SET cantidad = cantidad + :new.monto
+        WHERE clave = :new.cuenta_milla_fk;
+    END;
+/
+---------Disminuir Cuenta_Milla
+CREATE OR REPLACE TRIGGER DISMINUIR_CUENTA_MILLA
+AFTER INSERT ON PAGO 
+FOR EACH ROW
+DECLARE monto NUMBER;
+    BEGIN
+        monto := :new.precio_pago.precio;
+        UPDATE CUENTA_MILLA SET cantidad = cantidad - monto
+        WHERE clave = :new.cuenta_milla_fk;
+    END;
+/
+---------------------------------------------Triggers de Creacion----------------------------------------------
+CREATE OR REPLACE TRIGGER CREAR_CUENTA_MILLA
+AFTER INSERT ON USUARIO
+FOR EACH ROW
+    BEGIN
+       INSERT INTO CUENTA_MILLA (cantidad,usuario_fk) VALUES (200,:new.clave); 
+    END;
+/
+
+CREATE OR REPLACE TRIGGER CREAR_ESTATUS_HABITACION
+AFTER INSERT ON HABITACION
+FOR EACH ROW
+    BEGIN
+        INSERT INTO ESTATUS_HABITACION (fecha,habitacion_fk,estatus_fk) VALUES (to_date('2017-12-01 00:00:00','yyyy-mm-dd HH24:MI:SS'),:new.clave,6);
+    END;
+/
 
 
 
