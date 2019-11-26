@@ -307,6 +307,15 @@ BEGIN
 END;
 /
 ---------------------------- 13.- PAGAR RESERVA ----------------------------
+CREATE OR REPLACE PROCEDURE PAGAR_RESERVA(id_usuario NUMBER,id_factura_reserva NUMBER)
+IS
+    monto_reserva NUMBER;
+BEGIN
+    monto_reserva := CALCULAR_PRECIO_TOTAL(id_factura_reserva);
+    PAGOS(id_usuario,monto_reserva,id_factura_reserva);
+    abonado_cuenta_millas(id_usuario,id_factura_reserva);
+END;
+/
 ---------------------------- 14.- CALCULO PRECIO TOTAL ----------------------------
 CREATE OR REPLACE FUNCTION CALCULAR_PRECIO_TOTAL(id_factura_reserva NUMBER) RETURN NUMBER
 IS
@@ -442,6 +451,18 @@ BEGIN
 END
 /
 ---------------------------- 19.- PAGOS ----------------------------
+CREATE OR REPLACE PROCEDURE PAGOS(id_persona NUMBER, monto_reserva NUMBER, id_factura_reserva NUMBER)
+IS
+    modalidad NUMBER;
+BEGIN
+    modalidad := ROUND(DBMS_RANDOM.VALUE(0,1));
+    IF modalidad=0 THEN
+        pago_millas(id_persona,monto_reserva,id_factura_reserva);
+    ELSE
+        pago_tipo_pago(id_persona,monto_reserva,id_factura_reserva);
+    END_IF
+END;
+/
 ---------------------------- 20.- PAGO MILLAS ----------------------------
 CREATE OR REPLACE FUNCTION pago_millas(id_persona NUMBER, monto_reserva NUMBER, id_factura_reserva NUMBER) return number
 IS
