@@ -1,5 +1,5 @@
 ---------------------------- 1.- INICIAR SIMULACION ----------------------------
-CREATE OR REPLACE INICIAR_SIMULACION
+CREATE OR REPLACE PROCEDURE INICIAR_SIMULACION
 IS
     id_usuarios_list DBMS_SQL.NUMBER_TABLE;
     index_usuario_aleatorio NUMBER;
@@ -26,7 +26,7 @@ IS
     numero_asociados NUMBER;
     index_ciclo_asociados NUMBER;
     index_usuario_asociado_aleatorio NUMBER;
-    vuelo_modalidad NUMBER
+    vuelo_modalidad NUMBER;
     auto_modalidad NUMBER;
     alojamiento_modalidad NUMBER;
     seguro_modalidad NUMBER;
@@ -38,23 +38,23 @@ BEGIN
         RETURNING (clave) INTO id_factura_reserva;
     fecha_inicio := GENERAR_FECHA_ALEATORIA(fecha_factura_reserva,500);
     fecha_fin := GENERAR_FECHA_ALEATORIA(fecha_inicio,500);
-    id_lugar_origen := GENERAR_LUGAR_ALEATORIO_AEROPUERTO;
-    id_lugar_destino := GENERAR_LUGAR_ALEATORIO_AEROPUERTO;
+    id_lugar_origen := LUGAR_ALEATORIO_AEROPUERTO;
+    id_lugar_destino := LUGAR_ALEATORIO_AEROPUERTO;
     numero_asociados := ROUND(DBMS_RANDOM.VALUE(0,3));
     index_ciclo_asociados := 1;
     WHILE index_ciclo_asociados<=  numero_asociados LOOP
         index_usuario_asociado_aleatorio := ROUND(DBMS_RANDOM.VALUE(1,id_usuarios_list.COUNT));
         IF id_usuarios_list(index_usuario_asociado_aleatorio)<>id_usuario_principal THEN
-            INSER INTO RESERVA_USUARIO (Seguro_fk,Usuario_fk,Factura_reserva_fk) VALUES (NULL,id_usuarios_list(index_usuario_asociado_aleatorio),id_factura_reserva);
-            index_ciclo_asociadosc := index_ciclo_asociados + 1;
+            INSERT INTO RESERVA_USUARIO (Seguro_fk,Usuario_fk,Factura_reserva_fk) VALUES (NULL,id_usuarios_list(index_usuario_asociado_aleatorio),id_factura_reserva);
+            index_ciclo_asociados := index_ciclo_asociados + 1;
         END IF;
     END LOOP;
-    vuelo_modalidad ROUND(DBMS_RANDOM.VALUE(0,1));
+    vuelo_modalidad := ROUND(DBMS_RANDOM.VALUE(0,1));
     id_vuelos_list := GENERAR_RESERVA_VUELO(fecha_inicio,fecha_fin,id_lugar_origen,id_lugar_destino,id_factura_reserva,vuelo_modalidad);
-    fecha_llegada := FECHA_ESTIMADA_LLEGADA(id_lugar_origen,id_vuelos_list);
+    fecha_llegada := FECHA_ESTIMADA_LLEGADA(id_vuelos_list,id_lugar_origen);
 
     IF vuelo_modalidad = 1 THEN
-        fecha_vuelo_regreso := FECHA_PRIMER_VUELO_REGRESO(id_lugar_destino,id_vuelos_list);
+        fecha_vuelo_regreso := FECHA_PRIMER_VUELO_REGRESO(id_vuelos_list,id_lugar_destino);
         auto_modalidad := ROUND(DBMS_RANDOM.VALUE(0,1));
         IF auto_modalidad = 1 THEN
             GENERAR_RESERVA_AUTOMOVIL(id_lugar_destino,fecha_llegada,fecha_vuelo_regreso,id_factura_reserva);
@@ -84,7 +84,7 @@ BEGIN
 END;
 /       
 ---------------------------- 4.- GENERAR LUGAR ALEATORIO AEROPUERTO ----------------------------
-CREATE OR REPLACE FUNCTION GENERAR_LUGAR_ALEATORIO_AEROPUERTO RETURN NUMBER
+CREATE OR REPLACE FUNCTION LUGAR_ALEATORIO_AEROPUERTO RETURN NUMBER
 IS
     numero_aeropuertos NUMBER;
     id_lugar NUMBER;
@@ -95,7 +95,7 @@ BEGIN
 END;
 /
 ---------------------------- 5.- GENERAR RESERVA VUELO ----------------------------
-CREATE OR REPLACE FUNCTION GENERAR_RESERVA_VUELO(fecha_inicio DATE, fecha_retorno DATE, lugar_salida NUMBER, lugar_destino NUMBER, id_factura_reserva NUMBER,vuelo_modalidad NUMBER) RETURN DBMS_SQL.NUMBER_TABLE;
+CREATE OR REPLACE FUNCTION GENERAR_RESERVA_VUELO(fecha_inicio DATE, fecha_retorno DATE, lugar_salida NUMBER, lugar_destino NUMBER, id_factura_reserva NUMBER,vuelo_modalidad NUMBER) RETURN DBMS_SQL.NUMBER_TABLE
 IS
     id_vuelos_list DBMS_SQL.NUMBER_TABLE;
     id_clases_list DBMS_SQL.NUMBER_TABLE;
@@ -311,13 +311,13 @@ IS
     index_ciclo_reserva_carros_usuarios NUMBER;
     id_oficina_retorno NUMBER;
 BEGIN
-    SELECT OF.clave BULK COLLECT id_oficinas_locales_list
-        FROM OFICINA OF
-        SELECT OF.lugar_fk = id_destino;
+    SELECT OFI.clave BULK COLLECT INTO id_oficinas_locales_list
+        FROM OFICINA OFI
+        WHERE OFI.lugar_fk = id_destino;
     index_oficina_aleatoria := ROUND(DBMS_RANDOM.VALUE(1,id_oficinas_locales_list.COUNT));
-    SELECT MAO.clave BULK COLLECT id_carros_list
-        FROM OFICINA OF, MODELO_AUTO_OFICINA MAO
-        WHERE OF.clave = id_oficinas_locales_list(index_oficina_aleatoria) AND OF.clave = MAO.oficina_fk;
+    SELECT MAO.clave BULK COLLECT INTO id_carros_list
+        FROM OFICINA OFI, MODELO_AUTO_OFICINA MAO
+        WHERE OFI.clave = id_oficinas_locales_list(index_oficina_aleatoria) AND OFI.clave = MAO.oficina_fk;
     index_carro_aleatorio :=  ROUND(DBMS_RANDOM.VALUE(1,id_carros_list.COUNT));
     id_oficina_retorno := OFICINA_RETORNO_AUTOMOVIL(id_oficinas_locales_list(index_oficina_aleatoria));
     SELECT RU.clave BULK COLLECT INTO id_reserva_usuarios_list
@@ -363,7 +363,7 @@ BEGIN
     SELECT RU.clave BULK COLLECT INTO id_reserva_usuarios_list
         FROM FACTURA_RESERVA FR, RESERVA_USUARIO RU
         WHERE FR.clave = id_factura_reserva AND FR.clave = RU.factura_reserva_fk;
-    SELECT HO.clave BULK COLLECT id_hoteles_locales_list
+    SELECT HO.clave BULK COLLECT INTO id_hoteles_locales_list
         FROM HOTEL HO
         WHERE HO.lugar_fk = id_destino;
     index_hotel_aleatorio := ROUND(DBMS_RANDOM.VALUE(1,id_hoteles_locales_list.COUNT));
@@ -374,7 +374,7 @@ BEGIN
     ELSE
         SELECT TH.clave BULK COLLECT INTO id_tipo_habitacion_list
             FROM TIPO_HABITACION TH
-            WHERE TH.hotel_fk = id_hoteles_locales_list(index_hotel_aleatorio) AND TH.capacidad = id_reserva_usuarios_list.COUNT;
+            WHERE TH.hotel_fk = id_hoteles_locales_list(index_hotel_aleatorio) AND TH.capacidad <= 4;
     END IF;
     index_tipo_habitacion_aleatorio := ROUND(DBMS_RANDOM.VALUE(1,id_tipo_habitacion_list.COUNT));
     SELECT HA.clave BULK COLLECT INTO id_habitacion_list
@@ -389,7 +389,7 @@ BEGIN
 END;
 /
 ---------------------------- 12.- GENERAR RESERVA SEGURO ----------------------------
-CREATE OR REPLACE GENERAR_RESERVA_SEGURO (fecha_inicio DATE, fecha_fin DATE, id_factura_reserva NUMBER)
+CREATE OR REPLACE PROCEDURE GENERAR_RESERVA_SEGURO (fecha_inicio DATE, fecha_fin DATE, id_factura_reserva NUMBER)
 IS
     id_reserva_usuarios_list DBMS_SQL.NUMBER_TABLE;
     id_seguros_list DBMS_SQL.NUMBER_TABLE;
@@ -405,7 +405,7 @@ BEGIN
     index_ciclo_reserva_seguro := 1;
     WHILE index_ciclo_reserva_seguro<=id_reserva_usuarios_list.COUNT LOOP
         UPDATE RESERVA_USUARIO RU
-            SET RU.seguro_fk = id_seguros_list(index_seguro_aleatorio);
+            SET RU.seguro_fk = id_seguros_list(index_seguro_aleatorio)
             WHERE RU.clave =  id_reserva_usuarios_list(index_ciclo_reserva_seguro);
         index_ciclo_reserva_seguro := index_ciclo_reserva_seguro + 1;
     END LOOP;
@@ -415,10 +415,11 @@ END;
 CREATE OR REPLACE PROCEDURE PAGAR_RESERVA(id_usuario NUMBER,id_factura_reserva NUMBER)
 IS
     monto_reserva NUMBER;
+    abonado_millas NUMBER;
 BEGIN
     monto_reserva := CALCULAR_PRECIO_TOTAL(id_factura_reserva);
     PAGOS(id_usuario,monto_reserva,id_factura_reserva);
-    abonado_cuenta_millas(id_usuario,id_factura_reserva);
+    abonado_millas  := abonado_cuenta_millas(id_usuario,id_factura_reserva);
 END;
 /
 ---------------------------- 14.- CALCULO PRECIO TOTAL ----------------------------
@@ -436,9 +437,10 @@ BEGIN
     total_seguro := PRECIO_TOTAL_SEGURO(id_factura_reserva);
     total := total_vuelos + total_automovil + total_alojamiento + total_seguro;
     RETURN total;
-ENG;
+END;
+/
 ---------------------------- 15.- PRECIO TOTAL VUELOS ----------------------------
-CREATE OR REPLACE FUNCTION PRECIO_TOTALVUELOS (id_factura_reserva NUMBER) RETURN NUMBER
+CREATE OR REPLACE FUNCTION PRECIO_TOTAL_VUELOS (id_factura_reserva NUMBER) RETURN NUMBER
 IS
     id_reserva_usuarios_list DBMS_SQL.NUMBER_TABLE;
     id_reserva_vuelo_list DBMS_SQL.NUMBER_TABLE;
@@ -462,7 +464,7 @@ BEGIN
         SELECT VU.precio_base_vuelo.precio INTO precio_base_vuelo 
             FROM VUELO VU, RESERVA_USUARIO_VUELO RUV
             WHERE VU.clave = RUV.vuelo_fk AND RUV.clave = id_reserva_vuelo_list(index_ciclo_reserva_vuelos);
-        SELEC CL.ponderacion INTO ponderacion_clase
+        SELECT CL.ponderacion INTO ponderacion_clase
             FROM RESERVA_USUARIO_VUELO RUV, MODELO_AVION_CLASE MAC, CLASE CL
             WHERE RUV.modelo_avion_clase_fk = MAC.clave AND MAC.clase_fk = CL.clave AND RUV.clave = id_reserva_vuelo_list(index_ciclo_reserva_vuelos);
         SELECT MAA.ponderacion INTO ponderacion_modelo_avion
@@ -480,8 +482,8 @@ IS
     id_reserva_usuarios_list DBMS_SQL.NUMBER_TABLE;
     id_reserva_usuario NUMBER;
     id_reserva_automovil NUMBER;
-    fecha_inicio DATE,
-    fecha_fin DATE,
+    fecha_inicio DATE;
+    fecha_fin DATE;
     dias NUMBER;
     precio_diario NUMBER;
     total NUMBER;
@@ -495,7 +497,7 @@ BEGIN
         WHERE RUA.reserva_usuario_fk = id_reserva_usuario;
     SELECT  MAO.precio_dia_auto.precio INTO precio_diario
         FROM RESERVA_USUARIO_AUTOMOVIL RUA, MODELO_AUTO_OFICINA MAO
-        RUA.modelo_auto_oficina_fk = MAO.clave AND RUA.clave = id_reserva_automovil;
+        WHERE RUA.modelo_auto_oficina_fk = MAO.clave AND RUA.clave = id_reserva_automovil;
     SELECT RUA.intinerario_reserva_automovil.fecha_inicio,RUA.intinerario_reserva_automovil.fecha_fin INTO fecha_inicio,fecha_fin
         FROM RESERVA_USUARIO_AUTOMOVIL RUA
         WHERE RUA.clave = id_reserva_automovil;
@@ -534,7 +536,7 @@ BEGIN
         FROM DUAL;
     total := (precio_dia*dias);
     RETURN total;
-END
+END;
 /
 ---------------------------- 18.- PRECIO TOTAL SEGURO ----------------------------
 CREATE OR REPLACE FUNCTION PRECIO_TOTAL_SEGURO(id_factura_reserva NUMBER) RETURN NUMBER
@@ -553,19 +555,21 @@ BEGIN
         WHERE RU.seguro_fk = SE.clave AND SS.seguro_fk = SE.clave AND RU.clave = id_reserva_usuario;
     total := precio_seguro*id_reserva_usuarios_list.COUNT;
     RETURN total;
-END
+END;
 /
 ---------------------------- 19.- PAGOS ----------------------------
 CREATE OR REPLACE PROCEDURE PAGOS(id_persona NUMBER, monto_reserva NUMBER, id_factura_reserva NUMBER)
 IS
     modalidad NUMBER;
+    millas NUMBER;
+    tipo_pago DBMS_SQL.NUMBER_TABLE;
 BEGIN
     modalidad := ROUND(DBMS_RANDOM.VALUE(0,1));
     IF modalidad=0 THEN
-        pago_millas(id_persona,monto_reserva,id_factura_reserva);
+        millas := pago_millas(id_persona,monto_reserva,id_factura_reserva);
     ELSE
-        pago_tipo_pago(id_persona,monto_reserva,id_factura_reserva);
-    END_IF
+        tipo_pago := pago_tipo_pago(id_persona,monto_reserva,id_factura_reserva);
+    END IF;
 END;
 /
 ---------------------------- 20.- PAGO MILLAS ----------------------------
