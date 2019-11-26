@@ -91,6 +91,7 @@ BEGIN
         index_ciclo_reserva_carros_usuarios := index_ciclo_reserva_carros_usuarios + 1;
     END LOOP;
 END;
+/
 ---------------------------- 10.- OFICINA RETORNO AUTOMOVIL ----------------------------
 CREATE OR REPLACE FUNCTION OFICINA_RETORNO_AUTOMOVIL(id_oficina NUMBER) RETURN NUMBER
 IS
@@ -110,6 +111,44 @@ BEGIN
 END;
 /
 ---------------------------- 11.- GENERAR RESERVA ALOJAMIENTO ----------------------------
+CREATE OR REPLACE PROCEDURE GENERAR_RESERVA_ALOJAMIENTO(id_destino NUMBER, fecha_estimada_llegada DATE, fecha_vuelo_regreso DATE, id_factura_reserva NUMBER)
+IS
+    id_reserva_usuarios_list DBMS_SQL.NUMBER_TABLE;
+    id_hoteles_locales_list DBMS_SQL.NUMBER_TABLE;
+    id_tipo_habitacion_list DBMS_SQL.NUMBER_TABLE;
+    id_habitacion_list DBMS_SQL.NUMBER_TABLE;
+    index_hotel_aleatorio NUMBER;
+    index_tipo_habitacion_aleatorio NUMBER;
+    index_habitacion_aleatorio NUMBER;
+    index_ciclo_reserva_habitacion_usuario NUMBER;
+BEGIN
+    SELECT RU.clave BULK COLLECT INTO id_reserva_usuarios_list
+        FROM FACTURA_RESERVA FR, RESERVA_USUARIO RU
+        WHERE FR.clave = id_factura_reserva AND FR.clave = RU.factura_reserva_fk;
+    SELECT HO.clave BULK COLLECT id_hoteles_locales_list
+        FROM HOTEL HO
+        WHERE HO.lugar_fk = id_destino;
+    index_hotel_aleatorio := ROUND(DBMS_RANDOM.VALUE(1,id_hoteles_locales_list.COUNT));
+    IF id_reserva_usuarios_list.COUNT = 3 THEN
+        SELECT TH.clave BULK COLLECT INTO id_tipo_habitacion_list
+            FROM TIPO_HABITACION TH
+            WHERE TH.hotel_fk = id_hoteles_locales_list(index_hotel_aleatorio) AND TH.capacidad = 4;
+    ELSE
+        SELECT TH.clave BULK COLLECT INTO id_tipo_habitacion_list
+            FROM TIPO_HABITACION TH
+            WHERE TH.hotel_fk = id_hoteles_locales_list(index_hotel_aleatorio) AND TH.capacidad = id_reserva_usuarios_list.COUNT;
+    END IF;
+    index_tipo_habitacion_aleatorio := ROUND(DBMS_RANDOM.VALUE(1,id_tipo_habitacion_list.COUNT));
+    SELECT HA.clave BULK COLLECT INTO id_habitacion_list
+        FROM HABITACION HA
+        WHERE HA.tipo_habitacion_fk = id_tipo_habitacion_list(index_tipo_habitacion_aleatorio);
+    index_habitacion_aleatorio := ROUND(DBMS_RANDOM.VALUE(1,id_habitacion_list.COUNT));
+    index_ciclo_reserva_habitacion_usuario := 1;
+    WHILE index_ciclo_reserva_habitacion_usuario<=id_reserva_usuarios_list.COUNT LOOP
+        INSERT INTO RESERVA_USUARIO_HABITACION (Intinerario_reserva_habitacion,Puntuacion,Habitacion_fk,Reserva_usuario_fk) VALUES (intinerario(fecha_estimada_llegada,fecha_vuelo_regreso),ROUND(DBMS_RANDOM.VALUE(0,5)),id_habitacion_list(index_habitacion_aleatorio),id_reserva_usuarios_list(index_ciclo_reserva_habitacion_usuario));
+        index_ciclo_reserva_habitacion_usuario := index_ciclo_reserva_habitacion_usuario + 1;
+    END LOOP;
+END;
 ---------------------------- 12.- GENERAR RESERVA SEGURO ----------------------------
 ---------------------------- 13.- PAGAR RESERVA ----------------------------
 ---------------------------- 14.- CALCULO PRECIO TOTAL ----------------------------
