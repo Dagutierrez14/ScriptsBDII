@@ -149,7 +149,30 @@ BEGIN
         index_ciclo_reserva_habitacion_usuario := index_ciclo_reserva_habitacion_usuario + 1;
     END LOOP;
 END;
+/
 ---------------------------- 12.- GENERAR RESERVA SEGURO ----------------------------
+CREATE OR REPLACE GENERAR_RESERVA_SEGURO (fecha_inicio DATE, fecha_fin DATE, id_factura_reserva NUMBER)
+IS
+    id_reserva_usuarios_list DBMS_SQL.NUMBER_TABLE;
+    id_seguros_list DBMS_SQL.NUMBER_TABLE;
+    index_seguro_aleatorio NUMBER;
+    index_ciclo_reserva_seguro NUMBER;
+BEGIN
+    SELECT RU.clave BULK COLLECT INTO id_reserva_usuarios_list
+        FROM FACTURA_RESERVA FR, RESERVA_USUARIO RU
+        WHERE FR.clave = id_factura_reserva AND FR.clave = RU.factura_reserva_fk;
+    SELECT SE.clave BULK COLLECT INTO id_seguros_list
+        FROM SEGURO SE;
+    index_seguro_aleatorio := ROUND(DBMS_RANDOM.VALUE(1,id_seguros_list.COUNT));
+    index_ciclo_reserva_seguro := 1;
+    WHILE index_ciclo_reserva_seguro<=id_reserva_usuarios_list.COUNT LOOP
+        UPDATE RESERVA_USUARIO RU
+            SET RU.seguro_fk = id_seguros_list(index_seguro_aleatorio);
+            WHERE RU.clave =  id_reserva_usuarios_list(index_ciclo_reserva_seguro);
+        index_ciclo_reserva_seguro := index_ciclo_reserva_seguro + 1;
+    END LOOP;
+END;
+/
 ---------------------------- 13.- PAGAR RESERVA ----------------------------
 ---------------------------- 14.- CALCULO PRECIO TOTAL ----------------------------
 ---------------------------- 15.- PRECIO TOTAL VUELOS ----------------------------
