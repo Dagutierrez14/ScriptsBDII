@@ -580,9 +580,11 @@ AFTER INSERT ON PAGO
 FOR EACH ROW
 DECLARE monto NUMBER;
     BEGIN
-        monto := :new.precio_pago.precio;
-        UPDATE CUENTA_MILLA SET cantidad = cantidad - monto
-        WHERE clave = :new.cuenta_milla_fk;
+        IF :new.cuenta_milla_fk IS NOT NULL THEN
+            monto := :new.precio_pago.precio;
+            UPDATE CUENTA_MILLA SET cantidad = cantidad - monto
+            WHERE clave = :new.cuenta_milla_fk;
+        END IF;
     END;
 /
 -----Cuenta Milla - Usuario - crear cuenta milla-----

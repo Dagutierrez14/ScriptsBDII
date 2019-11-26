@@ -377,7 +377,6 @@ BEGIN
         INSERT INTO PAGO(Precio_pago, Fecha, Cuenta_milla_fk, Tipo_pago_tarjeta_credito_fk, Tipo_pago_tarjeta_debito_fk, Factura_reserva_fk)
             VALUES (DatosPrecio(monto_reserva), fecha_factura_reserva, id_cuenta_milla, null, null, id_factura_reserva)
                 RETURNING (Clave) INTO id_pago;
-        UPDATE CUENTA_MILLA SET cantidad = cantidad - monto_reserva WHERE clave = id_cuenta_milla;
         RETURN id_pago;
     ELSE
         RETURN NULL;
@@ -479,5 +478,25 @@ BEGIN
 END;
 /
 ---------------------------- 22.- ABONANDO CUENTA MILLAS ----------------------------
+CREATE OR REPLACE FUNCTION abonado_cuenta_millas(id_persona NUMBER, id_factura_reserva NUMBER) return number
+IS
+    cantidad_millas NUMBER;
+    fecha_factura_reserva DATE;
+    id_cuenta_milla NUMBER;
+    id_pago NUMBER;
+BEGIN
+    SELECT CM.cantidad, CM.clave INTO cantidad_millas, id_cuenta_milla FROM CUENTA_MILLA CM WHERE CM.usuario_fk = id_persona;
+    IF cantidad_millas >= monto_reserva THEN
+        SELECT FR.fecha INTO fecha_factura_reserva FROM FACTURA_RESERVA FR WHERE FR.clave = id_factura_reserva;
+        INSERT INTO PAGO(Precio_pago, Fecha, Cuenta_milla_fk, Tipo_pago_tarjeta_credito_fk, Tipo_pago_tarjeta_debito_fk, Factura_reserva_fk)
+            VALUES (DatosPrecio(monto_reserva), fecha_factura_reserva, id_cuenta_milla, null, null, id_factura_reserva)
+                RETURNING (Clave) INTO id_pago;
+        UPDATE CUENTA_MILLA SET cantidad = cantidad - monto_reserva WHERE clave = id_cuenta_milla;
+        RETURN id_pago;
+    ELSE
+        RETURN NULL;
+    END IF;
+END;
+/
 ---------------------------- 23.- CANCELAR RESERVAS ----------------------------
 
