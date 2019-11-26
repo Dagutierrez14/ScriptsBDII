@@ -549,19 +549,24 @@ IS
     cantidad_millas NUMBER;
     fecha_factura_reserva DATE;
     id_cuenta_milla NUMBER;
-    id_pago NUMBER;
+    vuelos  DBMS_SQL.NUMBER_TABLE;
+    porcentaje_millas NUMBER;
 BEGIN
-    SELECT CM.cantidad, CM.clave INTO cantidad_millas, id_cuenta_milla FROM CUENTA_MILLA CM WHERE CM.usuario_fk = id_persona;
-    IF cantidad_millas >= monto_reserva THEN
-        SELECT FR.fecha INTO fecha_factura_reserva FROM FACTURA_RESERVA FR WHERE FR.clave = id_factura_reserva;
-        INSERT INTO PAGO(Precio_pago, Fecha, Cuenta_milla_fk, Tipo_pago_tarjeta_credito_fk, Tipo_pago_tarjeta_debito_fk, Factura_reserva_fk)
-            VALUES (DatosPrecio(monto_reserva), fecha_factura_reserva, id_cuenta_milla, null, null, id_factura_reserva)
-                RETURNING (Clave) INTO id_pago;
-        UPDATE CUENTA_MILLA SET cantidad = cantidad - monto_reserva WHERE clave = id_cuenta_milla;
-        RETURN id_pago;
+    SELECT P.cuenta_milla_fk INTO id_cuenta_milla FROM PAGO P WHERE P.factura_reserva_fk = id_factura_reserva AND ROWNUM = 1;
+    IF id_cuenta_milla IS NOT NULL THEN
+        porcentaje_millas := 0.1;
     ELSE
-        RETURN NULL;
+        porcentaje_millas := 0.2;
     END IF;
+    
+    SELECT FR.fecha INTO fecha_factura_reserva FROM FACTURA_RESERVA FR WHERE FR.clave = id_factura_reserva;
+    
+    SELECT DISTINCT V.clave BULK COLLECT INTO vuelos FROM VUELO V, RESERVA_USUARIO_VUELO RUV, RESERVA_USUARIO REU WHERE REU.factura_reserva_fk = id_factura_reserva AND REU.usuario_fk = id_persona AND RUV.reserva_usuario_fk = REU.clave AND RUV.vuelo_fk = V.clave;
+    FOR I IN vuelos.FIRST..vuelos.LAST
+    LOOP
+        SELECT V.distancia_recorrida INTO cantidad_millas FROM VUELO V WHERE V.clave = I;
+        INSERT INTO CUENTA_MILLA_VUELO(Monto, Fecha, vuelo_fk, cuenta_milla_fk) VALUES(round(cantidad_millas * porcentaje_millas), fecha_factura_reserva, I,id_cuenta_milla);
+    END LOOP; 
 END;
 /
 ---------------------------- 23.- CANCELAR RESERVAS ----------------------------
