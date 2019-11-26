@@ -345,7 +345,7 @@ BEGIN
     total := 0;
     index_ciclo_reserva_vuelos := 1;
     WHILE index_ciclo_reserva_vuelos<=id_reserva_usuarios_list.COUNT LOOP
-        SELECT VU.precio_base_vuelo INTO precio_base_vuelo 
+        SELECT VU.precio_base_vuelo.precio INTO precio_base_vuelo 
             FROM VUELO VU, RESERVA_USUARIO_VUELO RUV
             WHERE VU.clave = RUV.vuelo_fk AND RUV.clave = id_reserva_vuelo_list(index_ciclo_reserva_vuelos);
         SELEC CL.ponderacion INTO ponderacion_clase
@@ -359,9 +359,75 @@ BEGIN
     END LOOP;
     RETURN total;
 END;
+/
 ---------------------------- 16.- PRECIO TOTAL AUTOMOVIL ----------------------------
+CREATE OR REPLACE FUNCTION PRECIO_TOTAL_AUTOMOVIL(id_factura_reserva NUMBER) RETURN NUMBER
+IS
+    id_reserva_usuarios_list DBMS_SQL.NUMBER_TABLE;
+    id_reserva_usuario NUMBER;
+    id_reserva_automovil NUMBER;
+    fecha_inicio DATE,
+    fecha_fin DATE,
+    dias NUMBER;
+    precio_diario NUMBER;
+    total NUMBER;
+BEGIN
+    SELECT RU.clave BULK COLLECT INTO id_reserva_usuarios_list
+            FROM FACTURA_RESERVA FR, RESERVA_USUARIO RU
+            WHERE FR.clave = id_factura_reserva AND FR.clave = RU.factura_reserva_fk;
+    id_reserva_usuario := id_reserva_usuarios_list(1);
+    SELECT RUA.clave INTO id_reserva_automovil
+        FROM RESERVA_USUARIO_AUTOMOVIL RUA
+        WHERE RUA.reserva_usuario_fk = id_reserva_usuario;
+    SELECT  MAO.precio_dia_auto.precio INTO precio_diario
+        FROM RESERVA_USUARIO_AUTOMOVIL RUA, MODELO_AUTO_OFICINA MAO
+        RUA.modelo_auto_oficina_fk = MAO.clave AND RUA.clave = id_reserva_automovil;
+    SELECT RUA.intinerario_reserva_automovil.fecha_inicio,RUA.intinerario_reserva_automovil.fecha_fin INTO fecha_inicio,fecha_fin
+        FROM RESERVA_USUARIO_AUTOMOVIL RUA
+        WHERE RUA.clave = id_reserva_automovil;
+    SELECT ROUND(fecha_fin-fecha_inicio) INTO dias 
+        FROM DUAL;
+    total := (precio_diario*dias);
+    RETURN total;
+END;
+/
 ---------------------------- 17.- PRECIO TOTAL ALOJAMIENTO ----------------------------
+CREATE OR REPLACE FUNCTION PRECIO_TOTAL_ALOJAMIENTO(id_factura_reserva NUMBER) RETURN NUMBER
+IS
+    id_reserva_usuarios_list DBMS_SQL.NUMBER_TABLE;
+    id_reserva_usuario NUMBER;
+    id_reserva_hotel NUMBER;
+    fecha_inicio DATE;
+    fecha_fin DATE;
+    dias NUMBER;
+    precio_dia NUMBER;
+    total NUMBER;
+BEGIN
+    SELECT RU.clave BULK COLLECT INTO id_reserva_usuarios_list
+            FROM FACTURA_RESERVA FR, RESERVA_USUARIO RU
+            WHERE FR.clave = id_factura_reserva AND FR.clave = RU.factura_reserva_fk;
+    id_reserva_usuario := id_reserva_usuarios_list(1);
+    SELECT RUH.clave INTO id_reserva_hotel
+        FROM RESERVA_USUARIO_HABITACION RUH
+        WHERE RUH.reserva_usuario_fk = id_reserva_usuario;
+    SELECT TH.precio_dia_habitacion.precio INTO precio_dia
+        FROM RESERVA_USUARIO_HABITACION RUH, HABITACION HA, TIPO_HABITACION TH
+        WHERE RUH.habitacion_fk = HA.clave AND HA.tipo_habitacion_fk = TH.clave AND RUH.clave = id_reserva_hotel;
+    SELECT RUH.intinerario_reserva_habitacion.fecha_inicio,RUH.intinerario_reserva_habitacion.fecha_fin INTO fecha_inicio, fecha_fin
+        FROM RESERVA_USUARIO_HABITACION RUH
+        WHERE RUH.clave = id_reserva_hotel;
+    SELECT ROUND(fecha_fin-fecha_inicio) INTO dias 
+        FROM DUAL;
+    total := (precio_dia*dias);
+    RETURN total;
+END
+/
 ---------------------------- 18.- PRECIO TOTAL SEGURO ----------------------------
+CREATE OR REPLACE FUNCTION PRECIO_TOTAL_SEGURO(id_factura_reserva NUMBER) RETURN NUMBER
+IS
+BEGIN
+END
+/
 ---------------------------- 19.- PAGOS ----------------------------
 ---------------------------- 20.- PAGO MILLAS ----------------------------
 CREATE OR REPLACE FUNCTION pago_millas(id_persona NUMBER, monto_reserva NUMBER, id_factura_reserva NUMBER) return number
