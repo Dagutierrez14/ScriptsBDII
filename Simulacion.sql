@@ -1,16 +1,16 @@
 ---------------------------- 1.- INICIAR SIMULACION ----------------------------
 ---------------------------- 2.- GENERAR RESERVA ----------------------------
 ---------------------------- 3.- GENERAR FECHA ALEATORIA ----------------------------
-CREATE OR REPLACE FUNCTION GENERAR_FECHA_ALEATORIA(fecha_base IN DATE, periodo in NUMBER)
-    RETURN DATE
-    IS
-        fecha_aleatoria DATE;
-    BEGIN
-        select (fecha_base+dbms_random.value(1,periodo)) INTO fecha_aleatoria from dual;
-        RETURN fecha_aleatoria;
-    END;       
+CREATE OR REPLACE FUNCTION GENERAR_FECHA_ALEATORIA(fecha_base IN DATE, periodo in NUMBER) RETURN DATE
+IS
+    fecha_aleatoria DATE;
+BEGIN
+    select (fecha_base+DBMS_RANDOM.VALUE(1,periodo)) INTO fecha_aleatoria from dual;
+    RETURN fecha_aleatoria;
+END;
+/       
 ---------------------------- 4.- GENERAR LUGAR ALEATORIO AEROPUERTO ----------------------------
-CREATE OR REPLACE FUNCTION lugar_aleatorio_aeropuerto return number
+CREATE OR REPLACE FUNCTION lugar_aleatorio_aeropuerto RETURN NUMBER
 IS
     numero_aeropuertos NUMBER;
     id_lugar NUMBER;
@@ -21,6 +21,7 @@ BEGIN
 END;
 /
 ---------------------------- 5.- GENERAR RESERVA VUELO ----------------------------
+
 ---------------------------- 6.- GENERAR VUELOS ----------------------------
 ---------------------------- 7.- FECHA ESTIMADA LLEGADA ----------------------------
 ---------------------------- 8.- FECHA PRIMER VUELO REGRESO ----------------------------
