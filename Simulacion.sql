@@ -308,7 +308,57 @@ END;
 /
 ---------------------------- 13.- PAGAR RESERVA ----------------------------
 ---------------------------- 14.- CALCULO PRECIO TOTAL ----------------------------
+CREATE OR REPLACE FUNCTION CALCULAR_PRECIO_TOTAL(id_factura_reserva NUMBER) RETURN NUMBER
+IS
+    total_vuelos NUMBER;
+    total_automovil NUMBER;
+    total_alojamiento NUMBER;
+    total_seguro NUMBER;
+    total NUMBER;
+BEGIN
+    total_vuelos := PRECIO_TOTAL_VUELOS(id_factura_reserva);
+    total_automovil := PRECIO_TOTAL_AUTOMOVIL(id_factura_reserva);
+    total_alojamiento := PRECIO_TOTAL_ALOJAMIENTO(id_factura_reserva);
+    total_seguro := PRECIO_TOTAL_SEGURO(id_factura_reserva);
+    total := total_vuelos + total_automovil + total_alojamiento + total_seguro;
+    RETURN total;
+ENG;
 ---------------------------- 15.- PRECIO TOTAL VUELOS ----------------------------
+CREATE OR REPLACE FUNCTION PRECIO_TOTALVUELOS (id_factura_reserva NUMBER) RETURN NUMBER
+IS
+    id_reserva_usuarios_list DBMS_SQL.NUMBER_TABLE;
+    id_reserva_vuelo_list DBMS_SQL.NUMBER_TABLE;
+    id_reserva_usuario NUMBER;
+    index_ciclo_reserva_vuelos NUMBER;
+    precio_base_vuelo NUMBER;
+    ponderacion_modelo_avion NUMBER;
+    ponderacion_clase NUMBER;
+    total NUMBER;
+BEGIN
+    SELECT RU.clave BULK COLLECT INTO id_reserva_usuarios_list
+        FROM FACTURA_RESERVA FR, RESERVA_USUARIO RU
+        WHERE FR.clave = id_factura_reserva AND FR.clave = RU.factura_reserva_fk;
+    id_reserva_usuario := id_reserva_usuarios_list(1);
+    SELECT RUV.clave BULK COLLECT INTO id_reserva_vuelo_list
+        FROM RESERVA_USUARIO_VUELO RUV
+        WHERE RUV.reserva_usuario_fk = id_reserva_usuario;
+    total := 0;
+    index_ciclo_reserva_vuelos := 1;
+    WHILE index_ciclo_reserva_vuelos<=id_reserva_usuarios_list.COUNT LOOP
+        SELECT VU.precio_base_vuelo INTO precio_base_vuelo 
+            FROM VUELO VU, RESERVA_USUARIO_VUELO RUV
+            WHERE VU.clave = RUV.vuelo_fk AND RUV.clave = id_reserva_vuelo_list(index_ciclo_reserva_vuelos);
+        SELEC CL.ponderacion INTO ponderacion_clase
+            FROM RESERVA_USUARIO_VUELO RUV, MODELO_AVION_CLASE MAC, CLASE CL
+            WHERE RUV.modelo_avion_clase_fk = MAC.clave AND MAC.clase_fk = CL.clave AND RUV.clave = id_reserva_vuelo_list(index_ciclo_reserva_vuelos);
+        SELECT MAA.ponderacion INTO ponderacion_modelo_avion
+            FROM RESERVA_USUARIO_VUELO RUV, VUELO VU, MODELO_AVION_AEROLINEA MAA
+            WHERE RUV.vuelo_fk = VU.clave AND VU.modelo_avion_aerolinea_fk = MAA.clave AND RUV.clave = id_reserva_vuelo_list(index_ciclo_reserva_vuelos);
+        total := total + (precio_base_vuelo*ponderacion_clase*ponderacion_modelo_avion*id_reserva_usuarios_list.COUNT);
+        index_ciclo_reserva_vuelos := index_ciclo_reserva_vuelos + 1;
+    END LOOP;
+    RETURN total;
+END;
 ---------------------------- 16.- PRECIO TOTAL AUTOMOVIL ----------------------------
 ---------------------------- 17.- PRECIO TOTAL ALOJAMIENTO ----------------------------
 ---------------------------- 18.- PRECIO TOTAL SEGURO ----------------------------

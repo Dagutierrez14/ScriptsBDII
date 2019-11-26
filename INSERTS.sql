@@ -1,6 +1,4 @@
 CREATE OR REPLACE DIRECTORY FOTOS AS 'C:\Imagenes-Inserts';
-
-
 ----------------------------------------Lugar-Paises-------------------------------------------------------------------------------
 /*1*/  INSERT INTO LUGAR (Nombre,Tipo) VALUES ('Venezuela','Pais'); 
 /*2*/  INSERT INTO LUGAR (Nombre,Tipo) VALUES ('USA','Pais');
@@ -1746,10 +1744,6 @@ INSERT INTO HABITACION (Numero,Tipo_habitacion_fk) VALUES ('R-563',50);
 INSERT INTO HABITACION (Numero,Tipo_habitacion_fk) VALUES ('R-665',50);
 INSERT INTO HABITACION (Numero,Tipo_habitacion_fk) VALUES ('R-381',50);
 INSERT INTO HABITACION (Numero,Tipo_habitacion_fk) VALUES ('R-336',50);
---------------------------------------------------------------------------
---------------------------------------------------------------------------
-----------------------------------------------------------------------------
------------------------------------------------------------------------
 INSERT INTO HABITACION (Numero,Tipo_habitacion_fk) VALUES ('R-477',51);
 INSERT INTO HABITACION (Numero,Tipo_habitacion_fk) VALUES ('R-149',51);
 INSERT INTO HABITACION (Numero,Tipo_habitacion_fk) VALUES ('R-717',51);
