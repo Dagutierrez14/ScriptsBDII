@@ -1,5 +1,17 @@
 ---------------------------- 1.- INICIAR SIMULACION ----------------------------
+CREATE OR REPLACE INICIAR_SIMULACION
+IS
+    id_usuarios_list DBMS_SQL.NUMBER_TABLE;
+    index_usuario_aleatorio NUMBER;
+BEGIN
+    SELECT US.clave BULK COLLECT INTO id_usuarios_list
+        FROM USUARIO US;
+    index_usuario_aleatorio := ROUND(DBMS_RANDOM.VALUE(1,id_usuarios_list.COUNT));
+    GENERAR_RESERVA(id_usuarios_list(index_usuario_aleatorio));
+END;
+/
 ---------------------------- 2.- GENERAR RESERVA ----------------------------
+
 ---------------------------- 3.- GENERAR FECHA ALEATORIA ----------------------------
 CREATE OR REPLACE FUNCTION GENERAR_FECHA_ALEATORIA(fecha_base IN DATE, periodo in NUMBER) RETURN DATE
 IS
@@ -307,6 +319,15 @@ BEGIN
 END;
 /
 ---------------------------- 13.- PAGAR RESERVA ----------------------------
+CREATE OR REPLACE PROCEDURE PAGAR_RESERVA(id_usuario NUMBER,id_factura_reserva NUMBER)
+IS
+    monto_reserva NUMBER;
+BEGIN
+    monto_reserva := CALCULAR_PRECIO_TOTAL(id_factura_reserva);
+    PAGOS(id_usuario,monto_reserva,id_factura_reserva);
+    abonado_cuenta_millas(id_usuario,id_factura_reserva);
+END;
+/
 ---------------------------- 14.- CALCULO PRECIO TOTAL ----------------------------
 CREATE OR REPLACE FUNCTION CALCULAR_PRECIO_TOTAL(id_factura_reserva NUMBER) RETURN NUMBER
 IS
@@ -425,10 +446,35 @@ END
 ---------------------------- 18.- PRECIO TOTAL SEGURO ----------------------------
 CREATE OR REPLACE FUNCTION PRECIO_TOTAL_SEGURO(id_factura_reserva NUMBER) RETURN NUMBER
 IS
+    id_reserva_usuarios_list DBMS_SQL.NUMBER_TABLE;
+    id_reserva_usuario NUMBER;
+    precio_seguro NUMBER;
+    total NUMBER;
 BEGIN
+    SELECT RU.clave BULK COLLECT INTO id_reserva_usuarios_list
+            FROM FACTURA_RESERVA FR, RESERVA_USUARIO RU
+            WHERE FR.clave = id_factura_reserva AND FR.clave = RU.factura_reserva_fk;
+    id_reserva_usuario := id_reserva_usuarios_list(1);
+    SELECT SUM(SS.precio_servicio_seguro.precio) INTO precio_seguro
+        FROM RESERVA_USUARIO RU, SEGURO SE, SERVICIO_SEGURO SS
+        WHERE RU.seguro_fk = SE.clave AND SS.seguro_fk = SE.clave AND RU.clave = id_reserva_usuario;
+    total := precio_seguro*id_reserva_usuarios_list.COUNT;
+    RETURN total;
 END
 /
 ---------------------------- 19.- PAGOS ----------------------------
+CREATE OR REPLACE PROCEDURE PAGOS(id_persona NUMBER, monto_reserva NUMBER, id_factura_reserva NUMBER)
+IS
+    modalidad NUMBER;
+BEGIN
+    modalidad := ROUND(DBMS_RANDOM.VALUE(0,1));
+    IF modalidad=0 THEN
+        pago_millas(id_persona,monto_reserva,id_factura_reserva);
+    ELSE
+        pago_tipo_pago(id_persona,monto_reserva,id_factura_reserva);
+    END_IF
+END;
+/
 ---------------------------- 20.- PAGO MILLAS ----------------------------
 CREATE OR REPLACE FUNCTION pago_millas(id_persona NUMBER, monto_reserva NUMBER, id_factura_reserva NUMBER) return number
 IS
