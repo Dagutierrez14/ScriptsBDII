@@ -425,7 +425,20 @@ END
 ---------------------------- 18.- PRECIO TOTAL SEGURO ----------------------------
 CREATE OR REPLACE FUNCTION PRECIO_TOTAL_SEGURO(id_factura_reserva NUMBER) RETURN NUMBER
 IS
+    id_reserva_usuarios_list DBMS_SQL.NUMBER_TABLE;
+    id_reserva_usuario NUMBER;
+    precio_seguro NUMBER;
+    total NUMBER;
 BEGIN
+    SELECT RU.clave BULK COLLECT INTO id_reserva_usuarios_list
+            FROM FACTURA_RESERVA FR, RESERVA_USUARIO RU
+            WHERE FR.clave = id_factura_reserva AND FR.clave = RU.factura_reserva_fk;
+    id_reserva_usuario := id_reserva_usuarios_list(1);
+    SELECT SUM(SS.precio_servicio_seguro.precio) INTO precio_seguro
+        FROM RESERVA_USUARIO RU, SEGURO SE, SERVICIO_SEGURO SS
+        WHERE RU.seguro_fk = SE.clave AND SS.seguro_fk = SE.clave AND RU.clave = id_reserva_usuario;
+    total := precio_seguro*id_reserva_usuarios_list.COUNT;
+    RETURN total;
 END
 /
 ---------------------------- 19.- PAGOS ----------------------------
