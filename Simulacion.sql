@@ -1,5 +1,17 @@
 ---------------------------- 1.- INICIAR SIMULACION ----------------------------
+CREATE OR REPLACE INICIAR_SIMULACION
+IS
+    id_usuarios_list DBMS_SQL.NUMBER_TABLE;
+    index_usuario_aleatorio NUMBER;
+BEGIN
+    SELECT US.clave BULK COLLECT INTO id_usuarios_list
+        FROM USUARIO US;
+    index_usuario_aleatorio := ROUND(DBMS_RANDOM.VALUE(1,id_usuarios_list.COUNT));
+    GENERAR_RESERVA(id_usuarios_list(index_usuario_aleatorio));
+END;
+/
 ---------------------------- 2.- GENERAR RESERVA ----------------------------
+
 ---------------------------- 3.- GENERAR FECHA ALEATORIA ----------------------------
 CREATE OR REPLACE FUNCTION GENERAR_FECHA_ALEATORIA(fecha_base IN DATE, periodo in NUMBER) RETURN DATE
 IS
