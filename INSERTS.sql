@@ -127,7 +127,7 @@ CREATE OR REPLACE DIRECTORY FOTOS AS 'C:\Imagenes-Inserts';
 /*7*/  INSERT INTO AVION (Nombre,Foto) VALUES ('Airbus A320', bfilename('FOTOS','/avion/airbusa320.jpg'));
 /*8*/  INSERT INTO AVION (Nombre,Foto) VALUES ('Boeing 757', bfilename('FOTOS','/avion/boeing757.jpg'));
 /*9*/  INSERT INTO AVION (Nombre,Foto) VALUES ('Boeing 787', bfilename('FOTOS','/avion/boeing787.jpg'));
-/*10*/ INSERT INTO AVION (Nombre,Foto) VALUES ('Bombardier CRJ 1000', bfilename('FOTOS','/avion/bombardiercrj1000.jpg'));
+/*10*/ INSERT INTO AVION (Nombre,Foto) VALUES ('Bombardier CRJ 100', bfilename('FOTOS','/avion/bombardiercrj100.jpg'));
 /*11*/ INSERT INTO AVION (Nombre,Foto) VALUES ('Bombardier CRJ 700', bfilename('FOTOS','/avion/bombardiercrj700.jpg'));
 /*12*/ INSERT INTO AVION (Nombre,Foto) VALUES ('ATR 72', bfilename('FOTOS','/avion/atr72.jpg'));
 /*13*/ INSERT INTO AVION (Nombre,Foto) VALUES ('Airbus A380', bfilename('FOTOS','/avion/airbusa380.jpg'));

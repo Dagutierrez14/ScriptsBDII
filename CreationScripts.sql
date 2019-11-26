@@ -544,7 +544,7 @@ CREATE TABLE RESERVA_USUARIO_AUTOMOVIL
 
 /*---------------------------------------------------Triggers---------------------------------------------------------------------*/
 -----Estatus Vuelo - Primer estatus(disponible)-----
-CREATE OR REPLACE TRIGGER primer_estatus_vuelo
+CREATE OR REPLACE TRIGGER PRIMER_ESTATUS_VUELO
 AFTER INSERT ON VUELO
 FOR EACH ROW
 BEGIN
@@ -552,7 +552,7 @@ BEGIN
 END;
 /
 -----Estatus Vuelo - Estatus(aterrizo, en transito)-----
-CREATE OR REPLACE TRIGGER cambio_estatus_vuelo
+CREATE OR REPLACE TRIGGER CAMBIO_ESTATUS_VUELO
 AFTER UPDATE ON VUELO
 FOR EACH ROW
 BEGIN
@@ -564,6 +564,7 @@ BEGIN
     END IF;
 END;
 /
+---------------------------------------------Triggers de Creacion----------------------------------------------
 ---------Aumentar Cuenta_milla
 CREATE OR REPLACE TRIGGER AUMENTAR_CUENTA_MILLA
 AFTER INSERT ON CUENTA_MILLA_VUELO 
@@ -579,12 +580,14 @@ AFTER INSERT ON PAGO
 FOR EACH ROW
 DECLARE monto NUMBER;
     BEGIN
-        monto := :new.precio_pago.precio;
-        UPDATE CUENTA_MILLA SET cantidad = cantidad - monto
-        WHERE clave = :new.cuenta_milla_fk;
+        IF :new.cuenta_milla_fk IS NOT NULL THEN
+            monto := :new.precio_pago.precio;
+            UPDATE CUENTA_MILLA SET cantidad = cantidad - monto
+            WHERE clave = :new.cuenta_milla_fk;
+        END IF;
     END;
 /
----------------------------------------------Triggers de Creacion----------------------------------------------
+-----Cuenta Milla - Usuario - crear cuenta milla-----
 CREATE OR REPLACE TRIGGER CREAR_CUENTA_MILLA
 AFTER INSERT ON USUARIO
 FOR EACH ROW
@@ -592,7 +595,7 @@ FOR EACH ROW
        INSERT INTO CUENTA_MILLA (cantidad,usuario_fk) VALUES (200,:new.clave); 
     END;
 /
-
+-----Estatus Habitacion - Estatus(disponible)-----
 CREATE OR REPLACE TRIGGER CREAR_ESTATUS_HABITACION
 AFTER INSERT ON HABITACION
 FOR EACH ROW
