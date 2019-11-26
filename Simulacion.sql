@@ -27,6 +27,19 @@ END;
 ---------------------------- 8.- FECHA PRIMER VUELO REGRESO ----------------------------
 ---------------------------- 9.- GENERAR RESERVA AUTOMOVIL ----------------------------
 ---------------------------- 10.- OFICINA RETORNO AUTOMOVIL ----------------------------
+CREATE OR REPLACE FUNCTION oficina_retorno_automovil(id_oficina number) return number
+IS
+    id_rentadora NUMBER;
+    id_lugar_oficina NUMBER;
+    index_oficina_aleatoria NUMBER;
+    id_oficina_list DBMS_SQL.NUMBER_TABLE;
+BEGIN
+    SELECT O.rentadora_fk, O.lugar_fk INTO id_rentadora, id_lugar_oficina FROM OFICINA O WHERE O.clave = id_oficina;
+    SELECT O.clave BULK COLLECT INTO id_oficina_list FROM OFICINA O, RENTADORA R WHERE R.clave = O.rentadora_fk AND O.lugar_fk = id_lugar_oficina AND R.clave = id_rentadora;
+    index_oficina_aleatoria := ROUND(DBMS_RANDOM.VALUE(1,id_oficina_list.COUNT));
+    return id_oficina_list((index_oficina_aleatoria));
+END;
+/
 ---------------------------- 11.- GENERAR RESERVA ALOJAMIENTO ----------------------------
 ---------------------------- 12.- GENERAR RESERVA SEGURO ----------------------------
 ---------------------------- 13.- PAGAR RESERVA ----------------------------
