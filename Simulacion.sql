@@ -7,6 +7,7 @@ BEGIN
     SELECT US.clave BULK COLLECT INTO id_usuarios_list
         FROM USUARIO US;
     index_usuario_aleatorio := ROUND(DBMS_RANDOM.VALUE(1,id_usuarios_list.COUNT));
+    DBMS_OUTPUT.PUT_LINE(index_usuario_aleatorio);
     GENERAR_RESERVA(id_usuarios_list(index_usuario_aleatorio));
 END;
 /
@@ -33,9 +34,11 @@ IS
 BEGIN
     SELECT US.clave BULK COLLECT INTO id_usuarios_list
         FROM USUARIO US;
-    fecha_factura_reserva := GENERAR_FECHA_ALEATORIA(TO_DATE('2010-01-01 00:00:00'),10000);
+    fecha_factura_reserva := GENERAR_FECHA_ALEATORIA(TO_DATE('2010-01-01 00:00:00','YYYY-MM-DD HH24:MI:SS'),10000);
     INSERT INTO FACTURA_RESERVA (Fecha,Usuario_fk) VALUES (fecha_factura_reserva,id_usuario_principal) 
         RETURNING (clave) INTO id_factura_reserva;
+    COMMIT;
+    DBMS_OUTPUT.PUT_LINE(id_factura_reserva);
     fecha_inicio := GENERAR_FECHA_ALEATORIA(fecha_factura_reserva,500);
     fecha_fin := GENERAR_FECHA_ALEATORIA(fecha_inicio,500);
     id_lugar_origen := LUGAR_ALEATORIO_AEROPUERTO;
@@ -47,6 +50,7 @@ BEGIN
         IF id_usuarios_list(index_usuario_asociado_aleatorio)<>id_usuario_principal THEN
             INSERT INTO RESERVA_USUARIO (Seguro_fk,Usuario_fk,Factura_reserva_fk) VALUES (NULL,id_usuarios_list(index_usuario_asociado_aleatorio),id_factura_reserva);
             index_ciclo_asociados := index_ciclo_asociados + 1;
+            COMMIT;
         END IF;
     END LOOP;
     vuelo_modalidad := ROUND(DBMS_RANDOM.VALUE(0,1));
@@ -126,6 +130,7 @@ BEGIN
             INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_usuario_fk,Modelo_avion_clase_fk) VALUES(index_asiento_numero,id_vuelos_list(index_ciclo_vuelos),id_reserva_usuarios_list(index_ciclo_reserva_vuelos_usuarios),id_clases_list(index_clase_aleatoria));
             index_asiento_numero := index_asiento_numero + 1;
             index_ciclo_reserva_vuelos_usuarios := index_ciclo_reserva_vuelos_usuarios +1;
+            COMMIT;
         END LOOP;
         index_ciclo_vuelos := index_ciclo_vuelos + 1;
     END LOOP;
@@ -187,6 +192,7 @@ BEGIN
         INSERT INTO VUELO (Intinerario_estimado, Intinerario_real, Distancia_recorrida, Precio_base_vuelo, Aeropuerto_salida_fk, Aeropuerto_llegada_fk, Modelo_avion_aerolinea_fk) 
             VALUES (intinerario(fecha_inicio,fecha_inicio + (promedio_duracion/24)), intinerario(null, null), round(promedio_distancia), datosprecio(round(promedio_precio)), id_aeropuerto_origen, id_aeropuerto_destino, id_modelo_avion_aerolinea) 
                 RETURNING (Clave) INTO id_vuelo_insertado;
+        COMMIT;
                   
         RETURN id_vuelo_insertado;
       
@@ -274,7 +280,7 @@ IS
 BEGIN
     FOR I IN vuelos.FIRST..vuelos.LAST
     LOOP
-        SELECT V.clave INTO id_vuelo FROM VUELO V, AEROPUERTO A WHERE V.Aeropuerto_salida_fk = A.clave AND A.lugar_fk = lugar_inicio AND V.clave = I;
+        SELECT V.clave INTO id_vuelo FROM VUELO V, AEROPUERTO A WHERE V.Aeropuerto_salida_fk = A.clave AND A.lugar_fk = lugar_inicio AND V.clave = vuelos(i);
         IF id_vuelo IS NOT NULL THEN
             SELECT V.Intinerario_estimado.fecha_fin FECHA INTO fecha_vuelo_llegada FROM VUELO V WHERE V.clave = id_vuelo;
             EXIT;
@@ -291,7 +297,7 @@ IS
 BEGIN
     FOR I IN vuelos.FIRST..vuelos.LAST
     LOOP
-        SELECT V.clave INTO id_vuelo FROM VUELO V, AEROPUERTO A WHERE V.Aeropuerto_salida_fk = A.clave AND A.lugar_fk = lugar_destino AND V.clave = I;
+        SELECT V.clave INTO id_vuelo FROM VUELO V, AEROPUERTO A WHERE V.Aeropuerto_salida_fk = A.clave AND A.lugar_fk = lugar_destino AND V.clave = vuelos(i);
         IF id_vuelo IS NOT NULL THEN
             SELECT V.Intinerario_estimado.fecha_inicio FECHA INTO fecha_vuelo_salida FROM VUELO V WHERE V.clave = id_vuelo;
             EXIT;
@@ -327,6 +333,7 @@ BEGIN
     WHILE index_ciclo_reserva_carros_usuarios<=id_reserva_usuarios_list.COUNT LOOP
         INSERT INTO RESERVA_USUARIO_AUTOMOVIL (Intinerario_reserva_automovil,Modelo_auto_oficina_fk,Oficina_fk,Reserva_usuario_fk) VALUES (intinerario(fecha_llegada,fecha_vuelo_regreso),id_carros_list(index_carro_aleatorio),id_oficina_retorno,id_reserva_usuarios_list(index_ciclo_reserva_carros_usuarios));
         index_ciclo_reserva_carros_usuarios := index_ciclo_reserva_carros_usuarios + 1;
+        COMMIT;
     END LOOP;
 END;
 /
@@ -385,6 +392,7 @@ BEGIN
     WHILE index_ciclo_reserva_habitacion_usuario<=id_reserva_usuarios_list.COUNT LOOP
         INSERT INTO RESERVA_USUARIO_HABITACION (Intinerario_reserva_habitacion,Puntuacion,Habitacion_fk,Reserva_usuario_fk) VALUES (intinerario(fecha_llegada,fecha_vuelo_regreso),ROUND(DBMS_RANDOM.VALUE(0,5)),id_habitacion_list(index_habitacion_aleatorio),id_reserva_usuarios_list(index_ciclo_reserva_habitacion_usuario));
         index_ciclo_reserva_habitacion_usuario := index_ciclo_reserva_habitacion_usuario + 1;
+        COMMIT;
     END LOOP;
 END;
 /
@@ -408,6 +416,7 @@ BEGIN
             SET RU.seguro_fk = id_seguros_list(index_seguro_aleatorio)
             WHERE RU.clave =  id_reserva_usuarios_list(index_ciclo_reserva_seguro);
         index_ciclo_reserva_seguro := index_ciclo_reserva_seguro + 1;
+        COMMIT;
     END LOOP;
 END;
 /
@@ -458,6 +467,7 @@ BEGIN
     SELECT RUV.clave BULK COLLECT INTO id_reserva_vuelo_list
         FROM RESERVA_USUARIO_VUELO RUV
         WHERE RUV.reserva_usuario_fk = id_reserva_usuario;
+    DBMS_OUTPUT.PUT_LINE(id_reserva_vuelo_list.COUNT);
     total := 0;
     index_ciclo_reserva_vuelos := 1;
     WHILE index_ciclo_reserva_vuelos<=id_reserva_usuarios_list.COUNT LOOP
@@ -586,6 +596,7 @@ BEGIN
         INSERT INTO PAGO(Precio_pago, Fecha, Cuenta_milla_fk, Tipo_pago_tarjeta_credito_fk, Tipo_pago_tarjeta_debito_fk, Factura_reserva_fk)
             VALUES (DatosPrecio(monto_reserva), fecha_factura_reserva, id_cuenta_milla, null, null, id_factura_reserva)
                 RETURNING (Clave) INTO id_pago;
+        COMMIT;
         RETURN id_pago;
     ELSE
         RETURN NULL;
@@ -627,7 +638,7 @@ BEGIN
         INSERT INTO PAGO(Precio_pago, Fecha, Cuenta_milla_fk, Tipo_pago_tarjeta_credito_fk, Tipo_pago_tarjeta_debito_fk, Factura_reserva_fk)
             VALUES (DatosPrecio(monto_reserva), fecha_factura_reserva, null, id_tarjeta_credito, null, id_factura_reserva)
                 RETURNING (Clave) INTO id_pago;
-                
+        COMMIT;        
         id_pagos(1) := id_pago;
         RETURN id_pagos;
     ELSIF (tarjetas_credito_usuario.COUNT = 0)  THEN
@@ -637,7 +648,8 @@ BEGIN
         INSERT INTO PAGO(Precio_pago, Fecha, Cuenta_milla_fk, Tipo_pago_tarjeta_credito_fk, Tipo_pago_tarjeta_debito_fk, Factura_reserva_fk)
             VALUES (DatosPrecio(monto_reserva), fecha_factura_reserva, null, null, id_tarjeta_debito, id_factura_reserva)
                 RETURNING (Clave) INTO id_pago;
-         id_pagos(1) := id_pago;
+        COMMIT;
+        id_pagos(1) := id_pago;
         RETURN id_pagos;
     ELSIF (aleatorio_tarjeta_debito = 0 AND aleatorio_tarjeta_credito = 1) THEN
         index_tarjetas_credito := ROUND(DBMS_RANDOM.VALUE(1,tarjetas_credito_usuario.COUNT));
@@ -646,7 +658,8 @@ BEGIN
         INSERT INTO PAGO(Precio_pago, Fecha, Cuenta_milla_fk, Tipo_pago_tarjeta_credito_fk, Tipo_pago_tarjeta_debito_fk, Factura_reserva_fk)
             VALUES (DatosPrecio(monto_reserva), fecha_factura_reserva, null, id_tarjeta_credito, null, id_factura_reserva)
                 RETURNING (Clave) INTO id_pago;
-         id_pagos(1) := id_pago;
+        COMMIT;
+        id_pagos(1) := id_pago;
         RETURN id_pagos;
     ELSIF (aleatorio_tarjeta_debito = 1 AND aleatorio_tarjeta_credito = 0) THEN
         index_tarjetas_debito := ROUND(DBMS_RANDOM.VALUE(1,tarjetas_debito_usuario.COUNT));
@@ -655,7 +668,8 @@ BEGIN
         INSERT INTO PAGO(Precio_pago, Fecha, Cuenta_milla_fk, Tipo_pago_tarjeta_credito_fk, Tipo_pago_tarjeta_debito_fk, Factura_reserva_fk)
             VALUES (DatosPrecio(monto_reserva), fecha_factura_reserva, null, null, id_tarjeta_debito, id_factura_reserva)
                 RETURNING (Clave) INTO id_pago;
-         id_pagos(1) := id_pago;
+        COMMIT;
+        id_pagos(1) := id_pago;
         RETURN id_pagos;
     ELSIF (aleatorio_tarjeta_credito = aleatorio_tarjeta_debito) THEN
         SELECT LEVEL BULK COLLECT INTO id_pagos FROM DUAL CONNECT BY LEVEL <= 2;
@@ -669,7 +683,7 @@ BEGIN
         INSERT INTO PAGO(Precio_pago, Fecha, Cuenta_milla_fk, Tipo_pago_tarjeta_credito_fk, Tipo_pago_tarjeta_debito_fk, Factura_reserva_fk)
             VALUES (DatosPrecio(monto), fecha_factura_reserva, null, id_tarjeta_credito, null, id_factura_reserva)
                 RETURNING (Clave) INTO id_pago;
-                
+        COMMIT;        
         id_pagos(1) := id_pago;
         
         
@@ -679,6 +693,7 @@ BEGIN
         INSERT INTO PAGO(Precio_pago, Fecha, Cuenta_milla_fk, Tipo_pago_tarjeta_credito_fk, Tipo_pago_tarjeta_debito_fk, Factura_reserva_fk)
             VALUES (DatosPrecio(monto_compartido), fecha_factura_reserva, null, null, id_tarjeta_debito, id_factura_reserva)
                 RETURNING (Clave) INTO id_pago;
+        COMMIT;
         id_pagos(2) := id_pago;
         
         
@@ -709,6 +724,7 @@ BEGIN
     LOOP
         SELECT V.distancia_recorrida INTO cantidad_millas FROM VUELO V WHERE V.clave = I;
         INSERT INTO CUENTA_MILLA_VUELO(Monto, Fecha, vuelo_fk, cuenta_milla_fk) VALUES(round(cantidad_millas * porcentaje_millas), fecha_factura_reserva, I,id_cuenta_milla);
+        COMMIT;
     END LOOP; 
 END;
 /
