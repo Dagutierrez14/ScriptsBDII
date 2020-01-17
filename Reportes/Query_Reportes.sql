@@ -43,3 +43,44 @@ AND V.Aeropuerto_salida_fk = AEO.clave AND AEO.lugar_fk = LO.clave AND P.factura
 
 -----------------------------QUERY REPORTE 6---------------------------
 
+
+-----------------------------QUERY REPORTE 7---------------------------
+
+SELECT '02/02/2017' || ' - ' || '08/02/2020' AS "Fecha", LiO.nombre AS "Lugar de origen", LD.nombre AS "Lugar de destino", COUNT(RU.clave) AS "Cantidad de reservaciones"
+    FROM VUELO V, AEROPUERTO AEO, AEROPUERTO AED, LUGAR LiO, LUGAR LD, RESERVA_USUARIO_VUELO RUV, RESERVA_USUARIO RU
+        WHERE AEO.clave = V.Aeropuerto_salida_fk AND AED.clave = V.Aeropuerto_llegada_fk AND AEO.lugar_fk = LiO.clave AND
+            AED.lugar_fk = LD.clave AND V.intinerario_estimado.fecha_inicio >= '02/02/2017' AND V.intinerario_estimado.fecha_fin <= '02/08/2020' AND
+                RUV.vuelo_fk = V.clave AND RUV.reserva_usuario_fk = RU.clave
+                    GROUP BY LD.nombre, LiO.nombre
+                        ORDER BY COUNT(RU.clave) DESC
+                        FETCH NEXT 10 ROWS ONLY;
+
+
+SELECT A.datos_aerolinea.nombre, RU.clave, V.clave, V.intinerario_estimado.fecha_inicio, V.intinerario_estimado.fecha_fin, LO.nombre AS "Lugar de origen", LD.nombre AS "Lugar de destino"
+    FROM VUELO V, AEROPUERTO AEO, AEROLINEA A, MODELO_AVION_AEROLINEA MAA, AEROPUERTO AED, LUGAR LO, LUGAR LD, RESERVA_USUARIO_VUELO RUV, RESERVA_USUARIO RU
+    WHERE MAA.clave = V.modelo_avion_aerolinea_fk AND MAA.aerolinea_fk = A.clave AND AEO.clave = V.Aeropuerto_salida_fk AND AED.clave = V.Aeropuerto_llegada_fk AND AEO.lugar_fk = LO.clave AND
+            AED.lugar_fk = LD.clave AND RUV.vuelo_fk = V.clave AND RUV.reserva_usuario_fk = RU.clave;
+
+-----------------------------QUERY REPORTE 8---------------------------     
+SELECT A.datos_aerolinea.nombre AS "Logo de aerolinea", '02/02/2017' || ' - ' || '08/02/2020' AS "Fecha", LiO.nombre AS "Lugar de origen", LD.nombre AS "Lugar de destino", COUNT(RU.clave) AS "Cantidad de servicios"
+    FROM VUELO V, AEROLINEA A, MODELO_AVION_AEROLINEA MAA, AEROPUERTO AEO, AEROPUERTO AED, LUGAR LiO, LUGAR LD, RESERVA_USUARIO_VUELO RUV, RESERVA_USUARIO RU
+        WHERE MAA.clave = V.modelo_avion_aerolinea_fk AND MAA.aerolinea_fk = A.clave AND AEO.clave = V.Aeropuerto_salida_fk AND AED.clave = V.Aeropuerto_llegada_fk AND AEO.lugar_fk = LiO.clave AND
+            AED.lugar_fk = LD.clave AND V.intinerario_estimado.fecha_inicio >= '02/02/2017' AND V.intinerario_estimado.fecha_fin <= '02/08/2020' AND
+                RUV.vuelo_fk = V.clave AND RUV.reserva_usuario_fk = RU.clave
+                    GROUP BY A.datos_aerolinea.nombre, LD.nombre, LiO.nombre
+                        ORDER BY COUNT(RU.clave) DESC
+                        FETCH NEXT 10 ROWS ONLY;
+
+
+SELECT AERO.logo AS "foto", (SELECT A.datos_aerolinea.nombre AS "Logo de aerolinea", '02/02/2017' || ' - ' || '08/02/2020' AS "Fecha", LiO.nombre AS "Lugar de origen", LD.nombre AS "Lugar de destino", COUNT(RU.clave) AS "Cantidad de servicios"
+    FROM VUELO V, AEROLINEA A, MODELO_AVION_AEROLINEA MAA, AEROPUERTO AEO, AEROPUERTO AED, LUGAR LiO, LUGAR LD, RESERVA_USUARIO_VUELO RUV, RESERVA_USUARIO RU
+        WHERE A.clave=AERO.clave AND MAA.clave = V.modelo_avion_aerolinea_fk AND MAA.aerolinea_fk = A.clave AND AEO.clave = V.Aeropuerto_salida_fk AND AED.clave = V.Aeropuerto_llegada_fk AND AEO.lugar_fk = LiO.clave AND
+            AED.lugar_fk = LD.clave AND V.intinerario_estimado.fecha_inicio >= '02/02/2017' AND V.intinerario_estimado.fecha_fin <= '02/08/2020' AND
+                RUV.vuelo_fk = V.clave AND RUV.reserva_usuario_fk = RU.clave
+                    GROUP BY A.datos_aerolinea.nombre, LD.nombre, LiO.nombre
+                        ORDER BY COUNT(RU.clave) DESC
+                        FETCH NEXT 10 ROWS ONLY)
+                        from AEROLINEA AERO  ;
+
+-----------------------------QUERY REPORTE 9---------------------------            
+SELECT H.foto AS "Foto del lugar", H.datos_hotel AS "Nombre del lugar"  

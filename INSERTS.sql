@@ -51,6 +51,7 @@ CREATE OR REPLACE DIRECTORY FOTOS AS 'C:\Imagenes-Inserts';
 /*7*/INSERT INTO ESTATUS (Nombre) VALUES ('En Transito');
 /*8*/INSERT INTO ESTATUS (Nombre) VALUES ('No Iniciado');
 /*9*/INSERT INTO ESTATUS (Nombre) VALUES ('Aterrizo');
+/*10*/INSERT INTO ESTATUS (Nombre) VALUES ('Realizado');
 ---------------------------------------------------------------USUARIO-----------------------------------------------------------------
 /*1*/  INSERT INTO USUARIO (CI, Primer_Nombre, Segundo_Nombre, Primer_Apellido, Segundo_Apellido, Foto, Genero, Correo, Telefono) VALUES ('11.111.111','Luis','Reynaldo','Fuentes','Salazar',bfilename('FOTOS','/usuario/usuario1.jpg'),'M','luisrf@gmail.com','04245485689');
 /*2*/  INSERT INTO USUARIO (CI, Primer_Nombre, Segundo_Nombre, Primer_Apellido, Segundo_Apellido, Foto, Genero, Correo, Telefono) VALUES ('22.222.222','Diego','Alfonso','Gutierrez','Duarte',bfilename('FOTOS','/usuario/usuario2.jpg'),'M','diegoag@gmail.com','04269785412');
@@ -841,6 +842,36 @@ VALUES (datosbasicos('Viper 2019','Carro promedio de buen rendimiento'),4,bfilen
 /*223*/INSERT INTO MODELO_AUTO_OFICINA (Cantidad,Precio_dia_auto,Oficina_fk,Modelo_auto_fk) VALUES (8,datosprecio(416),15,13);
 /*224*/INSERT INTO MODELO_AUTO_OFICINA (Cantidad,Precio_dia_auto,Oficina_fk,Modelo_auto_fk) VALUES (1,datosprecio(482),15,14);
 /*225*/INSERT INTO MODELO_AUTO_OFICINA (Cantidad,Precio_dia_auto,Oficina_fk,Modelo_auto_fk) VALUES (1,datosprecio(983),15,15);
+/*226*/INSERT INTO MODELO_AUTO_OFICINA (Cantidad,Precio_dia_auto,Oficina_fk,Modelo_auto_fk) VALUES (10,datosprecio(854),28,1);
+/*227*/INSERT INTO MODELO_AUTO_OFICINA (Cantidad,Precio_dia_auto,Oficina_fk,Modelo_auto_fk) VALUES (9,datosprecio(465),28,2);
+/*228*/INSERT INTO MODELO_AUTO_OFICINA (Cantidad,Precio_dia_auto,Oficina_fk,Modelo_auto_fk) VALUES (4,datosprecio(581),28,3);
+/*229*/INSERT INTO MODELO_AUTO_OFICINA (Cantidad,Precio_dia_auto,Oficina_fk,Modelo_auto_fk) VALUES (10,datosprecio(849),28,4);
+/*230*/INSERT INTO MODELO_AUTO_OFICINA (Cantidad,Precio_dia_auto,Oficina_fk,Modelo_auto_fk) VALUES (7,datosprecio(888),28,5);
+/*231*/INSERT INTO MODELO_AUTO_OFICINA (Cantidad,Precio_dia_auto,Oficina_fk,Modelo_auto_fk) VALUES (10,datosprecio(518),28,6);
+/*232*/INSERT INTO MODELO_AUTO_OFICINA (Cantidad,Precio_dia_auto,Oficina_fk,Modelo_auto_fk) VALUES (8,datosprecio(546),28,7);
+/*233*/INSERT INTO MODELO_AUTO_OFICINA (Cantidad,Precio_dia_auto,Oficina_fk,Modelo_auto_fk) VALUES (9,datosprecio(261),28,8);
+/*234*/INSERT INTO MODELO_AUTO_OFICINA (Cantidad,Precio_dia_auto,Oficina_fk,Modelo_auto_fk) VALUES (6,datosprecio(661),28,9);
+/*235*/INSERT INTO MODELO_AUTO_OFICINA (Cantidad,Precio_dia_auto,Oficina_fk,Modelo_auto_fk) VALUES (2,datosprecio(884),28,10);
+/*236*/INSERT INTO MODELO_AUTO_OFICINA (Cantidad,Precio_dia_auto,Oficina_fk,Modelo_auto_fk) VALUES (2,datosprecio(376),28,11);
+/*237*/INSERT INTO MODELO_AUTO_OFICINA (Cantidad,Precio_dia_auto,Oficina_fk,Modelo_auto_fk) VALUES (9,datosprecio(264),28,12);
+/*238*/INSERT INTO MODELO_AUTO_OFICINA (Cantidad,Precio_dia_auto,Oficina_fk,Modelo_auto_fk) VALUES (8,datosprecio(416),28,13);
+/*239*/INSERT INTO MODELO_AUTO_OFICINA (Cantidad,Precio_dia_auto,Oficina_fk,Modelo_auto_fk) VALUES (1,datosprecio(482),28,14);
+/*240*/INSERT INTO MODELO_AUTO_OFICINA (Cantidad,Precio_dia_auto,Oficina_fk,Modelo_auto_fk) VALUES (1,datosprecio(983),28,15);
+/*241*/INSERT INTO MODELO_AUTO_OFICINA (Cantidad,Precio_dia_auto,Oficina_fk,Modelo_auto_fk) VALUES (10,datosprecio(854),23,1);
+/*242*/INSERT INTO MODELO_AUTO_OFICINA (Cantidad,Precio_dia_auto,Oficina_fk,Modelo_auto_fk) VALUES (9,datosprecio(465),23,2);
+/*243*/INSERT INTO MODELO_AUTO_OFICINA (Cantidad,Precio_dia_auto,Oficina_fk,Modelo_auto_fk) VALUES (4,datosprecio(581),23,3);
+/*244*/INSERT INTO MODELO_AUTO_OFICINA (Cantidad,Precio_dia_auto,Oficina_fk,Modelo_auto_fk) VALUES (10,datosprecio(849),23,4);
+/*245*/INSERT INTO MODELO_AUTO_OFICINA (Cantidad,Precio_dia_auto,Oficina_fk,Modelo_auto_fk) VALUES (7,datosprecio(888),23,5);
+/*246*/INSERT INTO MODELO_AUTO_OFICINA (Cantidad,Precio_dia_auto,Oficina_fk,Modelo_auto_fk) VALUES (10,datosprecio(518),23,6);
+/*247*/INSERT INTO MODELO_AUTO_OFICINA (Cantidad,Precio_dia_auto,Oficina_fk,Modelo_auto_fk) VALUES (8,datosprecio(546),23,7);
+/*248*/INSERT INTO MODELO_AUTO_OFICINA (Cantidad,Precio_dia_auto,Oficina_fk,Modelo_auto_fk) VALUES (9,datosprecio(261),23,8);
+/*249*/INSERT INTO MODELO_AUTO_OFICINA (Cantidad,Precio_dia_auto,Oficina_fk,Modelo_auto_fk) VALUES (6,datosprecio(661),23,9);
+/*250*/INSERT INTO MODELO_AUTO_OFICINA (Cantidad,Precio_dia_auto,Oficina_fk,Modelo_auto_fk) VALUES (2,datosprecio(884),23,10);
+/*251*/INSERT INTO MODELO_AUTO_OFICINA (Cantidad,Precio_dia_auto,Oficina_fk,Modelo_auto_fk) VALUES (2,datosprecio(376),23,11);
+/*252*/INSERT INTO MODELO_AUTO_OFICINA (Cantidad,Precio_dia_auto,Oficina_fk,Modelo_auto_fk) VALUES (9,datosprecio(264),23,12);
+/*253*/INSERT INTO MODELO_AUTO_OFICINA (Cantidad,Precio_dia_auto,Oficina_fk,Modelo_auto_fk) VALUES (8,datosprecio(416),23,13);
+/*254*/INSERT INTO MODELO_AUTO_OFICINA (Cantidad,Precio_dia_auto,Oficina_fk,Modelo_auto_fk) VALUES (1,datosprecio(482),23,14);
+/*255*/INSERT INTO MODELO_AUTO_OFICINA (Cantidad,Precio_dia_auto,Oficina_fk,Modelo_auto_fk) VALUES (1,datosprecio(983),23,15);
 --------------------------------------------------Hotel---------------------------------------------------------
 /*1*/INSERT INTO HOTEL (Datos_Hotel,Foto,Telefono,Lugar_fk) VALUES (datosbasicos('Eurobuilding Express','Hotel cercano al aeropuerto de Maiquetia'),bfilename('FOTOS','hotel/eurobuilding.jpg'),'+582127000700',16);
 /*2*/INSERT INTO HOTEL (Datos_Hotel,Foto,Telefono,Lugar_fk) VALUES (datosbasicos('Ole Caribe','Hotel cercano al aeropuerto de Maiquetia'),bfilename('FOTOS','hotel/olecaribe.jpg'),'+582126202000',16);
@@ -4284,6 +4315,72 @@ VALUES (intinerario(to_date('2018-12-10 04:25:00','yyyy-mm-dd HH24:MI:SS'),  to_
 VALUES (intinerario(to_date('2018-07-14 10:25:00','yyyy-mm-dd HH24:MI:SS'), to_date( '2018-07-14 23:10:00','yyyy-mm-dd HH24:MI:SS')), intinerario(to_date('2018-07-14 10:25:00','yyyy-mm-dd HH24:MI:SS'), to_date( '2018-07-14 23:10:00','yyyy-mm-dd HH24:MI:SS')), 8222, datosprecio(195), 16, 25, 40);
 /*20*/ INSERT INTO VUELO (Intinerario_estimado, Intinerario_real, Distancia_recorrida, Precio_base_vuelo, Aeropuerto_salida_fk, Aeropuerto_llegada_fk, Modelo_avion_aerolinea_fk) 
 VALUES (intinerario(to_date('2019-06-24 04:00:00','yyyy-mm-dd HH24:MI:SS'),  to_date('2019-06-24 15:50:00','yyyy-mm-dd HH24:MI:SS')), intinerario(to_date('2019-06-24 04:00:00','yyyy-mm-dd HH24:MI:SS'), to_date( '2019-06-24 15:50:00','yyyy-mm-dd HH24:MI:SS')), 9460, datosprecio(195), 26, 19, 40);
+
+----Mismos destinos que los vuelos 1 y 2-----
+/*21x*/  INSERT INTO VUELO (Intinerario_estimado, Intinerario_real, Distancia_recorrida, Precio_base_vuelo, Aeropuerto_salida_fk, Aeropuerto_llegada_fk, Modelo_avion_aerolinea_fk) 
+VALUES (intinerario(to_date('2018-07-19 00:45:00','yyyy-mm-dd HH24:MI:SS'), to_date('2018-07-19 07:45:00','yyyy-mm-dd HH24:MI:SS')), intinerario(to_date('2018-07-19 00:45:00','yyyy-mm-dd HH24:MI:SS'), to_date('2018-07-19 07:45:00','yyyy-mm-dd HH24:MI:SS')), 5106, datosprecio(320), 11, 16, 15);
+/*22x*/  INSERT INTO VUELO (Intinerario_estimado, Intinerario_real, Distancia_recorrida, Precio_base_vuelo, Aeropuerto_salida_fk, Aeropuerto_llegada_fk, Modelo_avion_aerolinea_fk) 
+VALUES (intinerario(to_date('2018-08-19 04:00:00','yyyy-mm-dd HH24:MI:SS'), to_date( '2018-08-19 11:00:00','yyyy-mm-dd HH24:MI:SS')), intinerario(to_date('2018-08-19 04:00:00','yyyy-mm-dd HH24:MI:SS'), to_date( '2018-08-19 11:00:00','yyyy-mm-dd HH24:MI:SS')), 5106, datosprecio(400), 16, 11, 24 );
+/*23x*/  INSERT INTO VUELO (Intinerario_estimado, Intinerario_real, Distancia_recorrida, Precio_base_vuelo, Aeropuerto_salida_fk, Aeropuerto_llegada_fk, Modelo_avion_aerolinea_fk) 
+VALUES (intinerario(to_date('2019-01-09 00:45:00','yyyy-mm-dd HH24:MI:SS'), to_date('2019-01-09 07:45:00','yyyy-mm-dd HH24:MI:SS')), intinerario(to_date('2019-01-09 00:45:00','yyyy-mm-dd HH24:MI:SS'), to_date('2019-01-09 07:45:00','yyyy-mm-dd HH24:MI:SS')), 5106, datosprecio(320), 11, 16, 47);
+/*24x*/  INSERT INTO VUELO (Intinerario_estimado, Intinerario_real, Distancia_recorrida, Precio_base_vuelo, Aeropuerto_salida_fk, Aeropuerto_llegada_fk, Modelo_avion_aerolinea_fk) 
+VALUES (intinerario(to_date('2019-02-09 04:00:00','yyyy-mm-dd HH24:MI:SS'), to_date( '2019-02-09 11:00:00','yyyy-mm-dd HH24:MI:SS')), intinerario(to_date('2019-02-09 04:00:00','yyyy-mm-dd HH24:MI:SS'), to_date( '2019-02-09 11:00:00','yyyy-mm-dd HH24:MI:SS')), 5106, datosprecio(400), 16, 11, 67 );
+/*25x*/  INSERT INTO VUELO (Intinerario_estimado, Intinerario_real, Distancia_recorrida, Precio_base_vuelo, Aeropuerto_salida_fk, Aeropuerto_llegada_fk, Modelo_avion_aerolinea_fk) 
+VALUES (intinerario(to_date('2019-06-05 00:45:00','yyyy-mm-dd HH24:MI:SS'), to_date('2019-06-05 07:45:00','yyyy-mm-dd HH24:MI:SS')), intinerario(to_date('2019-06-05 00:45:00','yyyy-mm-dd HH24:MI:SS'), to_date('2019-06-05 07:45:00','yyyy-mm-dd HH24:MI:SS')), 5106, datosprecio(320), 11, 16, 70);
+/*26x*/  INSERT INTO VUELO (Intinerario_estimado, Intinerario_real, Distancia_recorrida, Precio_base_vuelo, Aeropuerto_salida_fk, Aeropuerto_llegada_fk, Modelo_avion_aerolinea_fk) 
+VALUES (intinerario(to_date('2019-07-05 04:00:00','yyyy-mm-dd HH24:MI:SS'), to_date( '2019-07-05 11:00:00','yyyy-mm-dd HH24:MI:SS')), intinerario(to_date('2019-07-05 04:00:00','yyyy-mm-dd HH24:MI:SS'), to_date( '2019-07-05 11:00:00','yyyy-mm-dd HH24:MI:SS')), 5106, datosprecio(400), 16, 11, 87);
+/*27x*/  INSERT INTO VUELO (Intinerario_estimado, Intinerario_real, Distancia_recorrida, Precio_base_vuelo, Aeropuerto_salida_fk, Aeropuerto_llegada_fk, Modelo_avion_aerolinea_fk) 
+VALUES (intinerario(to_date('2019-01-09 00:45:00','yyyy-mm-dd HH24:MI:SS'), to_date('2019-01-09 07:45:00','yyyy-mm-dd HH24:MI:SS')), intinerario(to_date('2019-01-09 00:45:00','yyyy-mm-dd HH24:MI:SS'), to_date('2019-01-09 07:45:00','yyyy-mm-dd HH24:MI:SS')), 5106, datosprecio(320), 2, 16, 1);
+/*28x*/  INSERT INTO VUELO (Intinerario_estimado, Intinerario_real, Distancia_recorrida, Precio_base_vuelo, Aeropuerto_salida_fk, Aeropuerto_llegada_fk, Modelo_avion_aerolinea_fk) 
+VALUES (intinerario(to_date('2019-02-09 04:00:00','yyyy-mm-dd HH24:MI:SS'), to_date( '2019-02-09 11:00:00','yyyy-mm-dd HH24:MI:SS')), intinerario(to_date('2019-02-09 04:00:00','yyyy-mm-dd HH24:MI:SS'), to_date( '2019-02-09 11:00:00','yyyy-mm-dd HH24:MI:SS')), 5106, datosprecio(400), 4, 11, 57);
+/*29x*/  INSERT INTO VUELO (Intinerario_estimado, Intinerario_real, Distancia_recorrida, Precio_base_vuelo, Aeropuerto_salida_fk, Aeropuerto_llegada_fk, Modelo_avion_aerolinea_fk) 
+VALUES (intinerario(to_date('2019-06-05 00:45:00','yyyy-mm-dd HH24:MI:SS'), to_date('2019-06-05 07:45:00','yyyy-mm-dd HH24:MI:SS')), intinerario(to_date('2019-06-05 00:45:00','yyyy-mm-dd HH24:MI:SS'), to_date('2019-06-05 07:45:00','yyyy-mm-dd HH24:MI:SS')), 5106, datosprecio(320), 8, 16, 31);
+/*30x*/  INSERT INTO VUELO (Intinerario_estimado, Intinerario_real, Distancia_recorrida, Precio_base_vuelo, Aeropuerto_salida_fk, Aeropuerto_llegada_fk, Modelo_avion_aerolinea_fk) 
+VALUES (intinerario(to_date('2019-07-05 04:00:00','yyyy-mm-dd HH24:MI:SS'), to_date( '2019-07-05 11:00:00','yyyy-mm-dd HH24:MI:SS')), intinerario(to_date('2019-07-05 04:00:00','yyyy-mm-dd HH24:MI:SS'), to_date( '2019-07-05 11:00:00','yyyy-mm-dd HH24:MI:SS')), 5106, datosprecio(400), 9, 11, 5);
+
+----Mismos destinos que los vuelos 11 y 12-----
+/*31x*/ INSERT INTO VUELO (Intinerario_estimado, Intinerario_real, Distancia_recorrida, Precio_base_vuelo, Aeropuerto_salida_fk, Aeropuerto_llegada_fk, Modelo_avion_aerolinea_fk) 
+VALUES (intinerario(to_date('2019-03-03 02:50:00','yyyy-mm-dd HH24:MI:SS'), to_date( '2019-03-03 04:50:00','yyyy-mm-dd HH24:MI:SS')), intinerario(to_date('2019-03-03 02:50:00','yyyy-mm-dd HH24:MI:SS'), to_date( '2019-03-03 04:50:00','yyyy-mm-dd HH24:MI:SS')), 915, datosprecio(260), 2, 10, 78);
+/*32x*/ INSERT INTO VUELO (Intinerario_estimado, Intinerario_real, Distancia_recorrida, Precio_base_vuelo, Aeropuerto_salida_fk, Aeropuerto_llegada_fk, Modelo_avion_aerolinea_fk) 
+VALUES (intinerario(to_date('2019-04-04 12:30:00','yyyy-mm-dd HH24:MI:SS'), to_date( '2019-04-04 14:30:00','yyyy-mm-dd HH24:MI:SS')), intinerario(to_date('2019-04-04 12:30:00','yyyy-mm-dd HH24:MI:SS'), to_date( '2019-04-04 14:30:00','yyyy-mm-dd HH24:MI:SS')), 915, datosprecio(260), 10, 2, 35);
+/*33x*/ INSERT INTO VUELO (Intinerario_estimado, Intinerario_real, Distancia_recorrida, Precio_base_vuelo, Aeropuerto_salida_fk, Aeropuerto_llegada_fk, Modelo_avion_aerolinea_fk) 
+VALUES (intinerario(to_date('2019-05-12 02:50:00','yyyy-mm-dd HH24:MI:SS'), to_date( '2019-05-12 04:50:00','yyyy-mm-dd HH24:MI:SS')), intinerario(to_date('2019-05-12 02:50:00','yyyy-mm-dd HH24:MI:SS'), to_date( '2019-05-12 04:50:00','yyyy-mm-dd HH24:MI:SS')), 915, datosprecio(260), 2, 10, 54);
+/*34x*/ INSERT INTO VUELO (Intinerario_estimado, Intinerario_real, Distancia_recorrida, Precio_base_vuelo, Aeropuerto_salida_fk, Aeropuerto_llegada_fk, Modelo_avion_aerolinea_fk) 
+VALUES (intinerario(to_date('2019-06-13 12:30:00','yyyy-mm-dd HH24:MI:SS'), to_date( '2019-06-13 14:30:00','yyyy-mm-dd HH24:MI:SS')), intinerario(to_date('2019-06-13 12:30:00','yyyy-mm-dd HH24:MI:SS'), to_date( '2019-06-13 14:30:00','yyyy-mm-dd HH24:MI:SS')), 915, datosprecio(260), 10, 2, 80);
+/*35x*/ INSERT INTO VUELO (Intinerario_estimado, Intinerario_real, Distancia_recorrida, Precio_base_vuelo, Aeropuerto_salida_fk, Aeropuerto_llegada_fk, Modelo_avion_aerolinea_fk) 
+VALUES (intinerario(to_date('2018-12-12 02:50:00','yyyy-mm-dd HH24:MI:SS'), to_date( '2018-12-12 04:50:00','yyyy-mm-dd HH24:MI:SS')), intinerario(to_date('2018-12-12 02:50:00','yyyy-mm-dd HH24:MI:SS'), to_date( '2018-12-12 04:50:00','yyyy-mm-dd HH24:MI:SS')), 915, datosprecio(260), 2, 10, 24);
+/*36x*/ INSERT INTO VUELO (Intinerario_estimado, Intinerario_real, Distancia_recorrida, Precio_base_vuelo, Aeropuerto_salida_fk, Aeropuerto_llegada_fk, Modelo_avion_aerolinea_fk) 
+VALUES (intinerario(to_date('2019-01-13 12:30:00','yyyy-mm-dd HH24:MI:SS'), to_date( '2019-01-13 14:30:00','yyyy-mm-dd HH24:MI:SS')), intinerario(to_date('2019-01-13 12:30:00','yyyy-mm-dd HH24:MI:SS'), to_date( '2019-01-13 14:30:00','yyyy-mm-dd HH24:MI:SS')), 915, datosprecio(260), 10, 2, 20);
+/*37x*/ INSERT INTO VUELO (Intinerario_estimado, Intinerario_real, Distancia_recorrida, Precio_base_vuelo, Aeropuerto_salida_fk, Aeropuerto_llegada_fk, Modelo_avion_aerolinea_fk) 
+VALUES (intinerario(to_date('2019-07-17 02:50:00','yyyy-mm-dd HH24:MI:SS'), to_date( '2019-07-17 04:50:00','yyyy-mm-dd HH24:MI:SS')), intinerario(to_date('2019-07-17 02:50:00','yyyy-mm-dd HH24:MI:SS'), to_date( '2019-07-17 04:50:00','yyyy-mm-dd HH24:MI:SS')), 915, datosprecio(260), 2, 10, 7);
+/*38x*/ INSERT INTO VUELO (Intinerario_estimado, Intinerario_real, Distancia_recorrida, Precio_base_vuelo, Aeropuerto_salida_fk, Aeropuerto_llegada_fk, Modelo_avion_aerolinea_fk) 
+VALUES (intinerario(to_date('2019-08-18 12:30:00','yyyy-mm-dd HH24:MI:SS'), to_date( '2019-08-18 14:30:00','yyyy-mm-dd HH24:MI:SS')), intinerario(to_date('2019-08-18 12:30:00','yyyy-mm-dd HH24:MI:SS'), to_date( '2019-08-18 14:30:00','yyyy-mm-dd HH24:MI:SS')), 915, datosprecio(260), 10, 2, 12);
+/*39x*/ INSERT INTO VUELO (Intinerario_estimado, Intinerario_real, Distancia_recorrida, Precio_base_vuelo, Aeropuerto_salida_fk, Aeropuerto_llegada_fk, Modelo_avion_aerolinea_fk) 
+VALUES (intinerario(to_date('2019-01-13 12:30:00','yyyy-mm-dd HH24:MI:SS'), to_date( '2019-01-13 14:30:00','yyyy-mm-dd HH24:MI:SS')), intinerario(to_date('2019-01-13 12:30:00','yyyy-mm-dd HH24:MI:SS'), to_date( '2019-01-13 14:30:00','yyyy-mm-dd HH24:MI:SS')), 915, datosprecio(260), 9, 2, 87);
+/*40x*/ INSERT INTO VUELO (Intinerario_estimado, Intinerario_real, Distancia_recorrida, Precio_base_vuelo, Aeropuerto_salida_fk, Aeropuerto_llegada_fk, Modelo_avion_aerolinea_fk) 
+VALUES (intinerario(to_date('2019-07-17 02:50:00','yyyy-mm-dd HH24:MI:SS'), to_date( '2019-07-17 04:50:00','yyyy-mm-dd HH24:MI:SS')), intinerario(to_date('2019-07-17 02:50:00','yyyy-mm-dd HH24:MI:SS'), to_date( '2019-07-17 04:50:00','yyyy-mm-dd HH24:MI:SS')), 915, datosprecio(260), 5, 10, 1);
+/*41x*/ INSERT INTO VUELO (Intinerario_estimado, Intinerario_real, Distancia_recorrida, Precio_base_vuelo, Aeropuerto_salida_fk, Aeropuerto_llegada_fk, Modelo_avion_aerolinea_fk) 
+VALUES (intinerario(to_date('2019-08-18 12:30:00','yyyy-mm-dd HH24:MI:SS'), to_date( '2019-08-18 14:30:00','yyyy-mm-dd HH24:MI:SS')), intinerario(to_date('2019-08-18 12:30:00','yyyy-mm-dd HH24:MI:SS'), to_date( '2019-08-18 14:30:00','yyyy-mm-dd HH24:MI:SS')), 915, datosprecio(260), 4, 2, 62);
+
+
+----Mismos destinos que los vuelos 17 y 18-----
+/*42x*/ INSERT INTO VUELO (Intinerario_estimado, Intinerario_real, Distancia_recorrida, Precio_base_vuelo, Aeropuerto_salida_fk, Aeropuerto_llegada_fk, Modelo_avion_aerolinea_fk) 
+VALUES (intinerario(to_date('2018-06-07 10:25:00','yyyy-mm-dd HH24:MI:SS'), to_date( '2018-06-07 11:50:00','yyyy-mm-dd HH24:MI:SS')), intinerario(to_date('2018-06-07 10:25:00','yyyy-mm-dd HH24:MI:SS'), to_date( '2018-06-07 11:50:00','yyyy-mm-dd HH24:MI:SS')), 572, datosprecio(195), 9, 4, 11);
+/*43x*/ INSERT INTO VUELO (Intinerario_estimado, Intinerario_real, Distancia_recorrida, Precio_base_vuelo, Aeropuerto_salida_fk, Aeropuerto_llegada_fk, Modelo_avion_aerolinea_fk) 
+VALUES (intinerario(to_date('2018-07-10 04:25:00','yyyy-mm-dd HH24:MI:SS'),  to_date('2018-07-10 05:50:00','yyyy-mm-dd HH24:MI:SS')), intinerario(to_date('2018-07-10 04:25:00','yyyy-mm-dd HH24:MI:SS'), to_date( '2018-07-10 05:50:00','yyyy-mm-dd HH24:MI:SS')), 572, datosprecio(195), 4, 9, 21);
+/*44x*/ INSERT INTO VUELO (Intinerario_estimado, Intinerario_real, Distancia_recorrida, Precio_base_vuelo, Aeropuerto_salida_fk, Aeropuerto_llegada_fk, Modelo_avion_aerolinea_fk) 
+VALUES (intinerario(to_date('2019-04-13 10:25:00','yyyy-mm-dd HH24:MI:SS'), to_date( '2019-04-13 11:50:00','yyyy-mm-dd HH24:MI:SS')), intinerario(to_date('2019-04-13 10:25:00','yyyy-mm-dd HH24:MI:SS'), to_date( '2019-04-13 11:50:00','yyyy-mm-dd HH24:MI:SS')), 572, datosprecio(195), 9, 4, 31);
+/*45x*/ INSERT INTO VUELO (Intinerario_estimado, Intinerario_real, Distancia_recorrida, Precio_base_vuelo, Aeropuerto_salida_fk, Aeropuerto_llegada_fk, Modelo_avion_aerolinea_fk) 
+VALUES (intinerario(to_date('2019-05-23 04:25:00','yyyy-mm-dd HH24:MI:SS'),  to_date('2019-05-23 05:50:00','yyyy-mm-dd HH24:MI:SS')), intinerario(to_date('2019-05-23 04:25:00','yyyy-mm-dd HH24:MI:SS'), to_date( '2019-05-23 05:50:00','yyyy-mm-dd HH24:MI:SS')), 572, datosprecio(195), 4, 9, 51);
+/*46x*/ INSERT INTO VUELO (Intinerario_estimado, Intinerario_real, Distancia_recorrida, Precio_base_vuelo, Aeropuerto_salida_fk, Aeropuerto_llegada_fk, Modelo_avion_aerolinea_fk) 
+VALUES (intinerario(to_date('2018-06-07 10:25:00','yyyy-mm-dd HH24:MI:SS'), to_date( '2018-06-07 11:50:00','yyyy-mm-dd HH24:MI:SS')), intinerario(to_date('2018-06-07 10:25:00','yyyy-mm-dd HH24:MI:SS'), to_date( '2018-06-07 11:50:00','yyyy-mm-dd HH24:MI:SS')), 572, datosprecio(195), 5, 4, 67);
+/*47x*/ INSERT INTO VUELO (Intinerario_estimado, Intinerario_real, Distancia_recorrida, Precio_base_vuelo, Aeropuerto_salida_fk, Aeropuerto_llegada_fk, Modelo_avion_aerolinea_fk) 
+VALUES (intinerario(to_date('2018-07-10 04:25:00','yyyy-mm-dd HH24:MI:SS'),  to_date('2018-07-10 05:50:00','yyyy-mm-dd HH24:MI:SS')), intinerario(to_date('2018-07-10 04:25:00','yyyy-mm-dd HH24:MI:SS'), to_date( '2018-07-10 05:50:00','yyyy-mm-dd HH24:MI:SS')), 572, datosprecio(195), 7, 9, 70);
+/*48x*/ INSERT INTO VUELO (Intinerario_estimado, Intinerario_real, Distancia_recorrida, Precio_base_vuelo, Aeropuerto_salida_fk, Aeropuerto_llegada_fk, Modelo_avion_aerolinea_fk) 
+VALUES (intinerario(to_date('2019-04-13 10:25:00','yyyy-mm-dd HH24:MI:SS'), to_date( '2019-04-13 11:50:00','yyyy-mm-dd HH24:MI:SS')), intinerario(to_date('2019-04-13 10:25:00','yyyy-mm-dd HH24:MI:SS'), to_date( '2019-04-13 11:50:00','yyyy-mm-dd HH24:MI:SS')), 572, datosprecio(195), 10, 4, 3);
+/*49x*/ INSERT INTO VUELO (Intinerario_estimado, Intinerario_real, Distancia_recorrida, Precio_base_vuelo, Aeropuerto_salida_fk, Aeropuerto_llegada_fk, Modelo_avion_aerolinea_fk) 
+VALUES (intinerario(to_date('2019-05-23 04:25:00','yyyy-mm-dd HH24:MI:SS'),  to_date('2019-05-23 05:50:00','yyyy-mm-dd HH24:MI:SS')), intinerario(to_date('2019-05-23 04:25:00','yyyy-mm-dd HH24:MI:SS'), to_date( '2019-05-23 05:50:00','yyyy-mm-dd HH24:MI:SS')), 572, datosprecio(195), 2, 9, 87);
+
 ---------------------------------------------------------Estatus Vuelo----------------------------------------------------------------------
 ----No iniciado - (1 dia antes)----
 /*1*/  INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-02-08 00:45:00','yyyy-mm-dd HH24:MI:SS'), 8, 1);
@@ -4307,195 +4404,588 @@ VALUES (intinerario(to_date('2019-06-24 04:00:00','yyyy-mm-dd HH24:MI:SS'),  to_
 /*19*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2018-07-13 10:25:00','yyyy-mm-dd HH24:MI:SS'), 8, 19);
 /*20*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-06-23 04:00:00','yyyy-mm-dd HH24:MI:SS'), 8, 20);
 
+/*21*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2018-07-18 00:45:00','yyyy-mm-dd HH24:MI:SS'), 8, 21);
+/*22*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2018-08-18 04:00:00','yyyy-mm-dd HH24:MI:SS'), 8, 22);
+/*23*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-01-08 00:45:00','yyyy-mm-dd HH24:MI:SS'), 8, 23);
+/*24*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-02-08 04:00:00','yyyy-mm-dd HH24:MI:SS'), 8, 24);
+/*25*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-06-06 00:45:00','yyyy-mm-dd HH24:MI:SS'), 8, 25);
+/*26*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-07-06 04:00:00','yyyy-mm-dd HH24:MI:SS'), 8, 26);
+/*27*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-01-07 00:45:00','yyyy-mm-dd HH24:MI:SS'), 8, 27);
+/*28*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-02-08 04:00:00','yyyy-mm-dd HH24:MI:SS'), 8, 28);
+/*29*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-06-04 00:45:00','yyyy-mm-dd HH24:MI:SS'), 8, 29);
+/*30*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-07-04 04:00:00','yyyy-mm-dd HH24:MI:SS'), 8, 30);
+/*31*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-03-02 02:50:00','yyyy-mm-dd HH24:MI:SS'), 8, 31);
+/*32*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-04-03 12:30:00','yyyy-mm-dd HH24:MI:SS'), 8, 32);
+/*33*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-05-11 02:50:00','yyyy-mm-dd HH24:MI:SS'), 8, 33);
+/*34*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-06-12 12:30:00','yyyy-mm-dd HH24:MI:SS'), 8, 34);
+/*35*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2018-12-11 02:50:00','yyyy-mm-dd HH24:MI:SS'), 8, 35);
+/*36*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-01-12 12:30:00','yyyy-mm-dd HH24:MI:SS'), 8, 36);
+/*37*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-07-16 02:50:00','yyyy-mm-dd HH24:MI:SS'), 8, 37);
+/*38*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-08-17 12:30:00','yyyy-mm-dd HH24:MI:SS'), 8, 38);
+/*39*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-01-12 12:30:00','yyyy-mm-dd HH24:MI:SS'), 8, 39);
+/*40*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-07-16 02:50:00','yyyy-mm-dd HH24:MI:SS'), 8, 40);
+/*41*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-08-17 12:30:00','yyyy-mm-dd HH24:MI:SS'), 8, 41);
+/*42*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2018-06-06 10:25:00','yyyy-mm-dd HH24:MI:SS'), 8, 42);
+/*43*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2018-07-09 04:25:00','yyyy-mm-dd HH24:MI:SS'), 8, 43);
+/*44*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-04-12 10:25:00','yyyy-mm-dd HH24:MI:SS'), 8, 44);
+/*45*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-05-22 04:25:00','yyyy-mm-dd HH24:MI:SS'), 8, 45);
+/*46*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2018-06-06 10:25:00','yyyy-mm-dd HH24:MI:SS'), 8, 46);
+/*47*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2018-07-09 04:25:00','yyyy-mm-dd HH24:MI:SS'), 8, 47);
+/*48*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-04-12 10:25:00','yyyy-mm-dd HH24:MI:SS'), 8, 48);
+/*49*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-05-22 04:25:00','yyyy-mm-dd HH24:MI:SS'), 8, 49);
+
 ----Retrasado- (2 horas antes)----
-/*21*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-07-10 02:00:00','yyyy-mm-dd HH24:MI:SS'), 3, 4);
-/*22*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2018-10-12 17:30:00','yyyy-mm-dd HH24:MI:SS'), 3, 7);
-/*23*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-04-16 11:00:00','yyyy-mm-dd HH24:MI:SS'), 3, 10);
+/*50*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-07-10 02:00:00','yyyy-mm-dd HH24:MI:SS'), 3, 4);
+/*51*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2018-10-12 17:30:00','yyyy-mm-dd HH24:MI:SS'), 3, 7);
+/*52*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-04-16 11:00:00','yyyy-mm-dd HH24:MI:SS'), 3, 10);
 
 ----Abordando - (1 hora antes)----
-/*24*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-02-09 00:00:00','yyyy-mm-dd HH24:MI:SS'), 2, 1);
-/*25*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-03-09 03:00:00','yyyy-mm-dd HH24:MI:SS'), 2, 2);
-/*26*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-02-22 05:15:00','yyyy-mm-dd HH24:MI:SS'), 2, 3);
-/*27*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-07-10 03:00:00','yyyy-mm-dd HH24:MI:SS'), 2, 4);
-/*28*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-07-28 05:00:00','yyyy-mm-dd HH24:MI:SS'), 2, 5);
-/*29*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-05-24 00:30:00','yyyy-mm-dd HH24:MI:SS'), 2, 6);
-/*30*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2018-10-12 18:30:00','yyyy-mm-dd HH24:MI:SS'), 2, 7);
-/*31*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2018-01-29 05:00:00','yyyy-mm-dd HH24:MI:SS'), 2, 8);
-/*32*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-06-11 02:20:00','yyyy-mm-dd HH24:MI:SS'), 2, 9);
-/*33*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-04-16 12:00:00','yyyy-mm-dd HH24:MI:SS'), 2, 10);
-/*34*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-05-12 01:50:00','yyyy-mm-dd HH24:MI:SS'), 2, 11);
-/*35*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-06-13 11:30:00','yyyy-mm-dd HH24:MI:SS'), 2, 12);
-/*36*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2018-06-28 08:00:00','yyyy-mm-dd HH24:MI:SS'), 2, 13);
-/*37*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2018-07-04 09:30:00','yyyy-mm-dd HH24:MI:SS'), 2, 14);
-/*38*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2018-08-18 11:15:00','yyyy-mm-dd HH24:MI:SS'), 2, 15);
-/*39*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2018-10-31 03:00:00','yyyy-mm-dd HH24:MI:SS'), 2, 16);
-/*40*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2018-11-20 09:25:00','yyyy-mm-dd HH24:MI:SS'), 2, 17);
-/*41*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2018-12-10 03:25:00','yyyy-mm-dd HH24:MI:SS'), 2, 18);
-/*42*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2018-07-14 09:25:00','yyyy-mm-dd HH24:MI:SS'), 2, 19);
-/*43*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-06-24 03:00:00','yyyy-mm-dd HH24:MI:SS'), 2, 20);
+/*53*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-02-09 00:00:00','yyyy-mm-dd HH24:MI:SS'), 2, 1);
+/*54*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-03-09 03:00:00','yyyy-mm-dd HH24:MI:SS'), 2, 2);
+/*55*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-02-22 05:15:00','yyyy-mm-dd HH24:MI:SS'), 2, 3);
+/*56*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-07-10 03:00:00','yyyy-mm-dd HH24:MI:SS'), 2, 4);
+/*57*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-07-28 05:00:00','yyyy-mm-dd HH24:MI:SS'), 2, 5);
+/*58*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-05-24 00:30:00','yyyy-mm-dd HH24:MI:SS'), 2, 6);
+/*59*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2018-10-12 18:30:00','yyyy-mm-dd HH24:MI:SS'), 2, 7);
+/*60*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2018-01-29 05:00:00','yyyy-mm-dd HH24:MI:SS'), 2, 8);
+/*61*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-06-11 02:20:00','yyyy-mm-dd HH24:MI:SS'), 2, 9);
+/*62*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-04-16 12:00:00','yyyy-mm-dd HH24:MI:SS'), 2, 10);
+/*63*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-05-12 01:50:00','yyyy-mm-dd HH24:MI:SS'), 2, 11);
+/*64*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-06-13 11:30:00','yyyy-mm-dd HH24:MI:SS'), 2, 12);
+/*65*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2018-06-28 08:00:00','yyyy-mm-dd HH24:MI:SS'), 2, 13);
+/*66*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2018-07-04 09:30:00','yyyy-mm-dd HH24:MI:SS'), 2, 14);
+/*67*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2018-08-18 11:15:00','yyyy-mm-dd HH24:MI:SS'), 2, 15);
+/*68*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2018-10-31 03:00:00','yyyy-mm-dd HH24:MI:SS'), 2, 16);
+/*69*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2018-11-20 09:25:00','yyyy-mm-dd HH24:MI:SS'), 2, 17);
+/*70*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2018-12-10 03:25:00','yyyy-mm-dd HH24:MI:SS'), 2, 18);
+/*71*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2018-07-14 09:25:00','yyyy-mm-dd HH24:MI:SS'), 2, 19);
+/*72*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-06-24 03:00:00','yyyy-mm-dd HH24:MI:SS'), 2, 20);
+
+/*73*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2018-07-18 11:45:00','yyyy-mm-dd HH24:MI:SS'), 2, 21);
+/*74*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2018-08-19 03:00:00','yyyy-mm-dd HH24:MI:SS'), 2, 22);
+/*75*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-01-08 11:45:00','yyyy-mm-dd HH24:MI:SS'), 2, 23);
+/*76*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-02-09 03:00:00','yyyy-mm-dd HH24:MI:SS'), 2, 24);
+/*77*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-06-04 11:45:00','yyyy-mm-dd HH24:MI:SS'), 2, 25);
+/*78*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-07-05 03:00:00','yyyy-mm-dd HH24:MI:SS'), 2, 26);
+/*79*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-01-08 11:45:00','yyyy-mm-dd HH24:MI:SS'), 2, 27);
+/*80*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-02-09 03:00:00','yyyy-mm-dd HH24:MI:SS'), 2, 28);
+/*81*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-06-04 11:45:00','yyyy-mm-dd HH24:MI:SS'), 2, 29);
+/*82*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-07-05 03:00:00','yyyy-mm-dd HH24:MI:SS'), 2, 30);
+/*83*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-03-03 01:50:00','yyyy-mm-dd HH24:MI:SS'), 2, 31);
+/*84*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-04-04 11:30:00','yyyy-mm-dd HH24:MI:SS'), 2, 32);
+/*85*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-05-12 01:50:00','yyyy-mm-dd HH24:MI:SS'), 2, 33);
+/*86*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-06-13 11:30:00','yyyy-mm-dd HH24:MI:SS'), 2, 34);
+/*87*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2018-12-12 01:50:00','yyyy-mm-dd HH24:MI:SS'), 2, 35);
+/*88*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-01-13 11:30:00','yyyy-mm-dd HH24:MI:SS'), 2, 36);
+/*89*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-07-17 01:50:00','yyyy-mm-dd HH24:MI:SS'), 2, 37);
+/*90*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-08-18 11:30:00','yyyy-mm-dd HH24:MI:SS'), 2, 38);
+/*91*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-01-13 11:30:00','yyyy-mm-dd HH24:MI:SS'), 2, 39);
+/*92*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-07-17 01:50:00','yyyy-mm-dd HH24:MI:SS'), 2, 40);
+/*93*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-08-18 11:30:00','yyyy-mm-dd HH24:MI:SS'), 2, 41);
+/*94*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2018-06-07 09:25:00','yyyy-mm-dd HH24:MI:SS'), 2, 42);
+/*95*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2018-07-10 03:25:00','yyyy-mm-dd HH24:MI:SS'), 2, 43);
+/*96*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-04-13 09:25:00','yyyy-mm-dd HH24:MI:SS'), 2, 44);
+/*97*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-05-23 03:25:00','yyyy-mm-dd HH24:MI:SS'), 2, 45);
+/*98*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2018-06-07 09:25:00','yyyy-mm-dd HH24:MI:SS'), 2, 46);
+/*99*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2018-07-10 03:25:00','yyyy-mm-dd HH24:MI:SS'), 2, 47);
+/*100*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-04-13 09:25:00','yyyy-mm-dd HH24:MI:SS'), 2, 48);
+/*101*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-05-23 03:25:00','yyyy-mm-dd HH24:MI:SS'), 2, 49);
 
 ----En tránsito (fecha inicio real deja de ser null)----
-/*44*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-02-09 00:45:00','yyyy-mm-dd HH24:MI:SS'), 7, 1);
-/*45*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-03-09 04:00:00','yyyy-mm-dd HH24:MI:SS'), 7, 2);
-/*46*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-02-22 06:15:00','yyyy-mm-dd HH24:MI:SS'), 7, 3);
-/*47*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-07-10 04:00:00','yyyy-mm-dd HH24:MI:SS'), 7, 4);
-/*48*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-07-28 06:00:00','yyyy-mm-dd HH24:MI:SS'), 7, 5);
-/*49*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-05-24 01:30:00','yyyy-mm-dd HH24:MI:SS'), 7, 6);
-/*50*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2018-10-12 19:30:00','yyyy-mm-dd HH24:MI:SS'), 7, 7);
-/*51*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2018-01-29 06:00:00','yyyy-mm-dd HH24:MI:SS'), 7, 8);
-/*52*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-06-11 03:20:00','yyyy-mm-dd HH24:MI:SS'), 7, 9);
-/*53*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-04-16 12:30:00','yyyy-mm-dd HH24:MI:SS'), 7, 10);
-/*54*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-05-12 02:50:00','yyyy-mm-dd HH24:MI:SS'), 7, 11);
-/*55*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-06-13 12:30:00','yyyy-mm-dd HH24:MI:SS'), 7, 12);
-/*56*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2018-06-28 09:00:00','yyyy-mm-dd HH24:MI:SS'), 7, 13);
-/*57*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2018-07-04 10:30:00','yyyy-mm-dd HH24:MI:SS'), 7, 14);
-/*58*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2018-08-18 12:15:00','yyyy-mm-dd HH24:MI:SS'), 7, 15);
-/*59*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2018-10-31 04:00:00','yyyy-mm-dd HH24:MI:SS'), 7, 16);
-/*60*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2018-11-20 10:25:00','yyyy-mm-dd HH24:MI:SS'), 7, 17);
-/*61*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2018-12-10 04:25:00','yyyy-mm-dd HH24:MI:SS'), 7, 18);
-/*62*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2018-07-14 10:25:00','yyyy-mm-dd HH24:MI:SS'), 7, 19);
-/*63*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-06-24 04:00:00','yyyy-mm-dd HH24:MI:SS'), 7, 20);
+/*102*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-02-09 00:45:00','yyyy-mm-dd HH24:MI:SS'), 7, 1);
+/*103*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-03-09 04:00:00','yyyy-mm-dd HH24:MI:SS'), 7, 2);
+/*104*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-02-22 06:15:00','yyyy-mm-dd HH24:MI:SS'), 7, 3);
+/*105*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-07-10 04:00:00','yyyy-mm-dd HH24:MI:SS'), 7, 4);
+/*106*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-07-28 06:00:00','yyyy-mm-dd HH24:MI:SS'), 7, 5);
+/*107*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-05-24 01:30:00','yyyy-mm-dd HH24:MI:SS'), 7, 6);
+/*108*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2018-10-12 19:30:00','yyyy-mm-dd HH24:MI:SS'), 7, 7);
+/*109*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2018-01-29 06:00:00','yyyy-mm-dd HH24:MI:SS'), 7, 8);
+/*110*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-06-11 03:20:00','yyyy-mm-dd HH24:MI:SS'), 7, 9);
+/*111*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-04-16 12:30:00','yyyy-mm-dd HH24:MI:SS'), 7, 10);
+/*112*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-05-12 02:50:00','yyyy-mm-dd HH24:MI:SS'), 7, 11);
+/*113*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-06-13 12:30:00','yyyy-mm-dd HH24:MI:SS'), 7, 12);
+/*114*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2018-06-28 09:00:00','yyyy-mm-dd HH24:MI:SS'), 7, 13);
+/*115*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2018-07-04 10:30:00','yyyy-mm-dd HH24:MI:SS'), 7, 14);
+/*116*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2018-08-18 12:15:00','yyyy-mm-dd HH24:MI:SS'), 7, 15);
+/*117*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2018-10-31 04:00:00','yyyy-mm-dd HH24:MI:SS'), 7, 16);
+/*118*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2018-11-20 10:25:00','yyyy-mm-dd HH24:MI:SS'), 7, 17);
+/*119*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2018-12-10 04:25:00','yyyy-mm-dd HH24:MI:SS'), 7, 18);
+/*120*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2018-07-14 10:25:00','yyyy-mm-dd HH24:MI:SS'), 7, 19);
+/*121*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-06-24 04:00:00','yyyy-mm-dd HH24:MI:SS'), 7, 20);
+
+/*122*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2018-07-19 00:45:00','yyyy-mm-dd HH24:MI:SS'), 7, 21);
+/*123*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2018-08-19 04:00:00','yyyy-mm-dd HH24:MI:SS'), 7, 22);
+/*124*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-01-09 00:45:00','yyyy-mm-dd HH24:MI:SS'), 7, 23);
+/*125*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-02-09 04:00:00','yyyy-mm-dd HH24:MI:SS'), 7, 24);
+/*126*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-06-05 00:45:00','yyyy-mm-dd HH24:MI:SS'), 7, 25);
+/*127*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-07-05 04:00:00','yyyy-mm-dd HH24:MI:SS'), 7, 26);
+/*128*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-01-09 00:45:00','yyyy-mm-dd HH24:MI:SS'), 7, 27);
+/*129*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-02-09 04:00:00','yyyy-mm-dd HH24:MI:SS'), 7, 28);
+/*130*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-06-05 00:45:00','yyyy-mm-dd HH24:MI:SS'), 7, 29);
+/*131*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-07-05 04:00:00','yyyy-mm-dd HH24:MI:SS'), 7, 30);
+/*132*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-03-03 02:50:00','yyyy-mm-dd HH24:MI:SS'), 7, 31);
+/*133*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-04-04 12:30:00','yyyy-mm-dd HH24:MI:SS'), 7, 32);
+/*134*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-05-12 02:50:00','yyyy-mm-dd HH24:MI:SS'), 7, 33);
+/*135*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-06-13 12:30:00','yyyy-mm-dd HH24:MI:SS'), 7, 34);
+/*136*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2018-12-12 02:50:00','yyyy-mm-dd HH24:MI:SS'), 7, 35);
+/*137*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-01-13 12:30:00','yyyy-mm-dd HH24:MI:SS'), 7, 36);
+/*138*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-07-17 02:50:00','yyyy-mm-dd HH24:MI:SS'), 7, 37);
+/*139*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-08-18 12:30:00','yyyy-mm-dd HH24:MI:SS'), 7, 38);
+/*140*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-01-13 12:30:00','yyyy-mm-dd HH24:MI:SS'), 7, 39);
+/*141*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-07-17 02:50:00','yyyy-mm-dd HH24:MI:SS'), 7, 40);
+/*142*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-08-18 12:30:00','yyyy-mm-dd HH24:MI:SS'), 7, 41);
+/*143*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2018-06-07 10:25:00','yyyy-mm-dd HH24:MI:SS'), 7, 42);
+/*144*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2018-07-10 04:25:00','yyyy-mm-dd HH24:MI:SS'), 7, 43);
+/*145*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-04-13 10:25:00','yyyy-mm-dd HH24:MI:SS'), 7, 44);
+/*146*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-05-23 04:25:00','yyyy-mm-dd HH24:MI:SS'), 7, 45);
+/*147*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2018-06-07 10:25:00','yyyy-mm-dd HH24:MI:SS'), 7, 46);
+/*148*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2018-07-10 04:25:00','yyyy-mm-dd HH24:MI:SS'), 7, 47);
+/*149*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-04-13 10:25:00','yyyy-mm-dd HH24:MI:SS'), 7, 48);
+/*150*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-05-23 04:25:00','yyyy-mm-dd HH24:MI:SS'), 7, 49);
 
 ----Aterrizo (fecha fin real deja de ser null)----
-/*64*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date( '2019-02-09 07:45:00','yyyy-mm-dd HH24:MI:SS'), 9, 1);
-/*65*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date( '2019-03-09 11:00:00','yyyy-mm-dd HH24:MI:SS'), 9, 2);
-/*66*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date( '2019-02-22 23:50:00','yyyy-mm-dd HH24:MI:SS'), 9, 3);
-/*67*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date( '2019-07-10 18:20:00','yyyy-mm-dd HH24:MI:SS'), 9, 4);
-/*68*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date( '2019-07-28 20:20:00','yyyy-mm-dd HH24:MI:SS'), 9, 5);
-/*69*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date( '2019-05-24 14:00:00','yyyy-mm-dd HH24:MI:SS'), 9, 6);
-/*70*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date( '2018-10-12 22:00:00','yyyy-mm-dd HH24:MI:SS'), 9, 7);
-/*71*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date( '2018-01-29 09:40:00','yyyy-mm-dd HH24:MI:SS'), 9, 8);
-/*72*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date( '2019-06-11 06:20:00','yyyy-mm-dd HH24:MI:SS'), 9, 9);
-/*73*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date( '2019-04-16 22:00:00','yyyy-mm-dd HH24:MI:SS'), 9, 10);
-/*74*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date( '2019-05-12 04:50:00','yyyy-mm-dd HH24:MI:SS'), 9, 11);
-/*75*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date( '2019-06-13 14:30:00','yyyy-mm-dd HH24:MI:SS'), 9, 12);
-/*76*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date( '2018-06-28 23:50:00','yyyy-mm-dd HH24:MI:SS'), 9, 13);
-/*77*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date( '2018-07-04 21:50:00','yyyy-mm-dd HH24:MI:SS'), 9, 14);
-/*78*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date( '2018-08-19 00:35:00','yyyy-mm-dd HH24:MI:SS'), 9, 15);
-/*79*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date( '2018-10-31 23:00:00','yyyy-mm-dd HH24:MI:SS'), 9, 16);
-/*80*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date( '2018-11-20 11:50:00','yyyy-mm-dd HH24:MI:SS'), 9, 17);
-/*81*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date( '2018-12-10 05:50:00','yyyy-mm-dd HH24:MI:SS'), 9, 18);
-/*82*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date( '2018-07-14 23:10:00','yyyy-mm-dd HH24:MI:SS'), 9, 19);
-/*83*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date( '2019-06-24 15:50:00','yyyy-mm-dd HH24:MI:SS'), 9, 20);
+/*151*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date( '2019-02-09 07:45:00','yyyy-mm-dd HH24:MI:SS'), 9, 1);
+/*152*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date( '2019-03-09 11:00:00','yyyy-mm-dd HH24:MI:SS'), 9, 2);
+/*153*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date( '2019-02-22 23:50:00','yyyy-mm-dd HH24:MI:SS'), 9, 3);
+/*154*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date( '2019-07-10 18:20:00','yyyy-mm-dd HH24:MI:SS'), 9, 4);
+/*155*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date( '2019-07-28 20:20:00','yyyy-mm-dd HH24:MI:SS'), 9, 5);
+/*156*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date( '2019-05-24 14:00:00','yyyy-mm-dd HH24:MI:SS'), 9, 6);
+/*157*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date( '2018-10-12 22:00:00','yyyy-mm-dd HH24:MI:SS'), 9, 7);
+/*158*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date( '2018-01-29 09:40:00','yyyy-mm-dd HH24:MI:SS'), 9, 8);
+/*159*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date( '2019-06-11 06:20:00','yyyy-mm-dd HH24:MI:SS'), 9, 9);
+/*160*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date( '2019-04-16 22:00:00','yyyy-mm-dd HH24:MI:SS'), 9, 10);
+/*161*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date( '2019-05-12 04:50:00','yyyy-mm-dd HH24:MI:SS'), 9, 11);
+/*162*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date( '2019-06-13 14:30:00','yyyy-mm-dd HH24:MI:SS'), 9, 12);
+/*163*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date( '2018-06-28 23:50:00','yyyy-mm-dd HH24:MI:SS'), 9, 13);
+/*164*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date( '2018-07-04 21:50:00','yyyy-mm-dd HH24:MI:SS'), 9, 14);
+/*165*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date( '2018-08-19 00:35:00','yyyy-mm-dd HH24:MI:SS'), 9, 15);
+/*166*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date( '2018-10-31 23:00:00','yyyy-mm-dd HH24:MI:SS'), 9, 16);
+/*167*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date( '2018-11-20 11:50:00','yyyy-mm-dd HH24:MI:SS'), 9, 17);
+/*168*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date( '2018-12-10 05:50:00','yyyy-mm-dd HH24:MI:SS'), 9, 18);
+/*169*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date( '2018-07-14 23:10:00','yyyy-mm-dd HH24:MI:SS'), 9, 19);
+/*170*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date( '2019-06-24 15:50:00','yyyy-mm-dd HH24:MI:SS'), 9, 20);
+
+/*171*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2018-07-19 00:45:00','yyyy-mm-dd HH24:MI:SS'), 9, 21);
+/*172*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2018-08-19 04:00:00','yyyy-mm-dd HH24:MI:SS'), 9, 22);
+/*173*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-01-09 00:45:00','yyyy-mm-dd HH24:MI:SS'), 9, 23);
+/*174*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-02-09 04:00:00','yyyy-mm-dd HH24:MI:SS'), 9, 24);
+/*175*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-06-05 00:45:00','yyyy-mm-dd HH24:MI:SS'), 9, 25);
+/*176*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-07-05 04:00:00','yyyy-mm-dd HH24:MI:SS'), 9, 26);
+/*177*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-01-09 00:45:00','yyyy-mm-dd HH24:MI:SS'), 9, 27);
+/*178*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-02-09 04:00:00','yyyy-mm-dd HH24:MI:SS'), 9, 28);
+/*179*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-06-05 00:45:00','yyyy-mm-dd HH24:MI:SS'), 9, 29);
+/*180*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-07-05 04:00:00','yyyy-mm-dd HH24:MI:SS'), 9, 30);
+/*181*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-03-03 02:50:00','yyyy-mm-dd HH24:MI:SS'), 9, 31);
+/*182*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-04-04 12:30:00','yyyy-mm-dd HH24:MI:SS'), 9, 32);
+/*183*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-05-12 02:50:00','yyyy-mm-dd HH24:MI:SS'), 9, 33);
+/*184*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-06-13 12:30:00','yyyy-mm-dd HH24:MI:SS'), 9, 34);
+/*185*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2018-12-12 02:50:00','yyyy-mm-dd HH24:MI:SS'), 9, 35);
+/*186*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-01-13 12:30:00','yyyy-mm-dd HH24:MI:SS'), 9, 36);
+/*187*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-07-17 02:50:00','yyyy-mm-dd HH24:MI:SS'), 9, 37);
+/*188*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-08-18 12:30:00','yyyy-mm-dd HH24:MI:SS'), 9, 38);
+/*189*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-01-13 12:30:00','yyyy-mm-dd HH24:MI:SS'), 9, 39);
+/*190*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-07-17 02:50:00','yyyy-mm-dd HH24:MI:SS'), 9, 40);
+/*191*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-08-18 12:30:00','yyyy-mm-dd HH24:MI:SS'), 9, 41);
+/*192*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2018-06-07 10:25:00','yyyy-mm-dd HH24:MI:SS'), 9, 42);
+/*193*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2018-07-10 04:25:00','yyyy-mm-dd HH24:MI:SS'), 9, 43);
+/*194*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-04-13 10:25:00','yyyy-mm-dd HH24:MI:SS'), 9, 44);
+/*195*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-05-23 04:25:00','yyyy-mm-dd HH24:MI:SS'), 9, 45);
+/*196*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2018-06-07 10:25:00','yyyy-mm-dd HH24:MI:SS'), 9, 46);
+/*197*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2018-07-10 04:25:00','yyyy-mm-dd HH24:MI:SS'), 9, 47);
+/*198*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-04-13 10:25:00','yyyy-mm-dd HH24:MI:SS'), 9, 48);
+/*199*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-05-23 04:25:00','yyyy-mm-dd HH24:MI:SS'), 9, 49);
+
+
 ---------------------------------------------Tipo_Pago_Tarjeta_Credito------------------------------------------
 INSERT INTO TIPO_PAGO_TARJETA_CREDITO (Divisa,Tipo,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','Master Card','54667962197788962115',1);
-INSERT INTO TIPO_PAGO_TARJETA_CREDITO (Divisa,Tipo,Numero_tarjeta,Usuario_fk) VALUES ('Euro','Master Card','15457687658555197381',2);
-INSERT INTO TIPO_PAGO_TARJETA_CREDITO (Divisa,Tipo,Numero_tarjeta,Usuario_fk) VALUES ('Bolivar','Visa','85688183289173558945',3);
+INSERT INTO TIPO_PAGO_TARJETA_CREDITO (Divisa,Tipo,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','Master Card','15457687658555197381',2);
+INSERT INTO TIPO_PAGO_TARJETA_CREDITO (Divisa,Tipo,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','Visa','85688183289173558945',3);
 INSERT INTO TIPO_PAGO_TARJETA_CREDITO (Divisa,Tipo,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','Visa','67263718931954649891',4);
-INSERT INTO TIPO_PAGO_TARJETA_CREDITO (Divisa,Tipo,Numero_tarjeta,Usuario_fk) VALUES ('Euro','American Express','14181688476728735376',5);
-INSERT INTO TIPO_PAGO_TARJETA_CREDITO (Divisa,Tipo,Numero_tarjeta,Usuario_fk) VALUES ('Bolivar','American Express','12518784344995438162',6);
+INSERT INTO TIPO_PAGO_TARJETA_CREDITO (Divisa,Tipo,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','American Express','14181688476728735376',5);
+INSERT INTO TIPO_PAGO_TARJETA_CREDITO (Divisa,Tipo,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','American Express','12518784344995438162',6);
 INSERT INTO TIPO_PAGO_TARJETA_CREDITO (Divisa,Tipo,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','Master Card','52714256776418919776',7);
-INSERT INTO TIPO_PAGO_TARJETA_CREDITO (Divisa,Tipo,Numero_tarjeta,Usuario_fk) VALUES ('Euro','Master Card','76662734465431273753',8);
-INSERT INTO TIPO_PAGO_TARJETA_CREDITO (Divisa,Tipo,Numero_tarjeta,Usuario_fk) VALUES ('Bolivar','Visa','44452292721576636282',9);
+INSERT INTO TIPO_PAGO_TARJETA_CREDITO (Divisa,Tipo,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','Master Card','76662734465431273753',8);
+INSERT INTO TIPO_PAGO_TARJETA_CREDITO (Divisa,Tipo,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','Visa','44452292721576636282',9);
 INSERT INTO TIPO_PAGO_TARJETA_CREDITO (Divisa,Tipo,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','Visa','38519316935472699752',10);
-INSERT INTO TIPO_PAGO_TARJETA_CREDITO (Divisa,Tipo,Numero_tarjeta,Usuario_fk) VALUES ('Euro','American Express','25183916317686519946',11);
-INSERT INTO TIPO_PAGO_TARJETA_CREDITO (Divisa,Tipo,Numero_tarjeta,Usuario_fk) VALUES ('Bolivar','American Express','66579249723911225787',12);
+INSERT INTO TIPO_PAGO_TARJETA_CREDITO (Divisa,Tipo,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','American Express','25183916317686519946',11);
+INSERT INTO TIPO_PAGO_TARJETA_CREDITO (Divisa,Tipo,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','American Express','66579249723911225787',12);
 INSERT INTO TIPO_PAGO_TARJETA_CREDITO (Divisa,Tipo,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','Master Card','28857167642245298663',13);
-INSERT INTO TIPO_PAGO_TARJETA_CREDITO (Divisa,Tipo,Numero_tarjeta,Usuario_fk) VALUES ('Euro','Master Card','48398389766432597427',14);
-INSERT INTO TIPO_PAGO_TARJETA_CREDITO (Divisa,Tipo,Numero_tarjeta,Usuario_fk) VALUES ('Bolivar','Visa','37975337169498962411',15);
+INSERT INTO TIPO_PAGO_TARJETA_CREDITO (Divisa,Tipo,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','Master Card','48398389766432597427',14);
+INSERT INTO TIPO_PAGO_TARJETA_CREDITO (Divisa,Tipo,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','Visa','37975337169498962411',15);
 INSERT INTO TIPO_PAGO_TARJETA_CREDITO (Divisa,Tipo,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','Visa','15362837853734956644',16);
-INSERT INTO TIPO_PAGO_TARJETA_CREDITO (Divisa,Tipo,Numero_tarjeta,Usuario_fk) VALUES ('Euro','American Express','28651566748765318658',17);
-INSERT INTO TIPO_PAGO_TARJETA_CREDITO (Divisa,Tipo,Numero_tarjeta,Usuario_fk) VALUES ('Bolivar','American Express','28122498621324443818',18);
+INSERT INTO TIPO_PAGO_TARJETA_CREDITO (Divisa,Tipo,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','American Express','28651566748765318658',17);
+INSERT INTO TIPO_PAGO_TARJETA_CREDITO (Divisa,Tipo,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','American Express','28122498621324443818',18);
 INSERT INTO TIPO_PAGO_TARJETA_CREDITO (Divisa,Tipo,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','Master Card','81924233291217345977',19);
-INSERT INTO TIPO_PAGO_TARJETA_CREDITO (Divisa,Tipo,Numero_tarjeta,Usuario_fk) VALUES ('Euro','Master Card','28356871469899644699',20);
-INSERT INTO TIPO_PAGO_TARJETA_CREDITO (Divisa,Tipo,Numero_tarjeta,Usuario_fk) VALUES ('Bolivar','Visa','28231139499358684494',21);
+INSERT INTO TIPO_PAGO_TARJETA_CREDITO (Divisa,Tipo,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','Master Card','28356871469899644699',20);
+INSERT INTO TIPO_PAGO_TARJETA_CREDITO (Divisa,Tipo,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','Visa','28231139499358684494',21);
 INSERT INTO TIPO_PAGO_TARJETA_CREDITO (Divisa,Tipo,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','Visa','57418856625528543347',22);
-INSERT INTO TIPO_PAGO_TARJETA_CREDITO (Divisa,Tipo,Numero_tarjeta,Usuario_fk) VALUES ('Euro','American Express','71325249471638584338',23);
-INSERT INTO TIPO_PAGO_TARJETA_CREDITO (Divisa,Tipo,Numero_tarjeta,Usuario_fk) VALUES ('Bolivar','American Express','77923162638338843395',24);
+INSERT INTO TIPO_PAGO_TARJETA_CREDITO (Divisa,Tipo,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','American Express','71325249471638584338',23);
+INSERT INTO TIPO_PAGO_TARJETA_CREDITO (Divisa,Tipo,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','American Express','77923162638338843395',24);
 INSERT INTO TIPO_PAGO_TARJETA_CREDITO (Divisa,Tipo,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','Master Card','38165718854539778989',25);
-INSERT INTO TIPO_PAGO_TARJETA_CREDITO (Divisa,Tipo,Numero_tarjeta,Usuario_fk) VALUES ('Euro','Master Card','55922135976158518862',26);
-INSERT INTO TIPO_PAGO_TARJETA_CREDITO (Divisa,Tipo,Numero_tarjeta,Usuario_fk) VALUES ('Bolivar','Visa','31312718366679327423',27);
+INSERT INTO TIPO_PAGO_TARJETA_CREDITO (Divisa,Tipo,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','Master Card','55922135976158518862',26);
+INSERT INTO TIPO_PAGO_TARJETA_CREDITO (Divisa,Tipo,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','Visa','31312718366679327423',27);
 INSERT INTO TIPO_PAGO_TARJETA_CREDITO (Divisa,Tipo,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','Visa','12633841272366533236',28);
-INSERT INTO TIPO_PAGO_TARJETA_CREDITO (Divisa,Tipo,Numero_tarjeta,Usuario_fk) VALUES ('Euro','American Express','31684571642758231947',29);
-INSERT INTO TIPO_PAGO_TARJETA_CREDITO (Divisa,Tipo,Numero_tarjeta,Usuario_fk) VALUES ('Bolivar','American Express','72438481651756717572',30);
+INSERT INTO TIPO_PAGO_TARJETA_CREDITO (Divisa,Tipo,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','American Express','31684571642758231947',29);
+INSERT INTO TIPO_PAGO_TARJETA_CREDITO (Divisa,Tipo,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','American Express','72438481651756717572',30);
 INSERT INTO TIPO_PAGO_TARJETA_CREDITO (Divisa,Tipo,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','Master Card','57276675151861241614',1);
-INSERT INTO TIPO_PAGO_TARJETA_CREDITO (Divisa,Tipo,Numero_tarjeta,Usuario_fk) VALUES ('Euro','Master Card','96699214438514229662',2);
-INSERT INTO TIPO_PAGO_TARJETA_CREDITO (Divisa,Tipo,Numero_tarjeta,Usuario_fk) VALUES ('Bolivar','Visa','79495561412898158966',3);
+INSERT INTO TIPO_PAGO_TARJETA_CREDITO (Divisa,Tipo,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','Master Card','96699214438514229662',2);
+INSERT INTO TIPO_PAGO_TARJETA_CREDITO (Divisa,Tipo,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','Visa','79495561412898158966',3);
 INSERT INTO TIPO_PAGO_TARJETA_CREDITO (Divisa,Tipo,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','Visa','99912619478868224511',4);
-INSERT INTO TIPO_PAGO_TARJETA_CREDITO (Divisa,Tipo,Numero_tarjeta,Usuario_fk) VALUES ('Euro','American Express','32917213283917681753',5);
-INSERT INTO TIPO_PAGO_TARJETA_CREDITO (Divisa,Tipo,Numero_tarjeta,Usuario_fk) VALUES ('Bolivar','American Express','55379687625558382576',6);
+INSERT INTO TIPO_PAGO_TARJETA_CREDITO (Divisa,Tipo,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','American Express','32917213283917681753',5);
+INSERT INTO TIPO_PAGO_TARJETA_CREDITO (Divisa,Tipo,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','American Express','55379687625558382576',6);
 INSERT INTO TIPO_PAGO_TARJETA_CREDITO (Divisa,Tipo,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','Master Card','61859451811349684472',7);
-INSERT INTO TIPO_PAGO_TARJETA_CREDITO (Divisa,Tipo,Numero_tarjeta,Usuario_fk) VALUES ('Euro','Master Card','69239855928839531552',8);
-INSERT INTO TIPO_PAGO_TARJETA_CREDITO (Divisa,Tipo,Numero_tarjeta,Usuario_fk) VALUES ('Bolivar','Visa','15371788762979612846',9);
+INSERT INTO TIPO_PAGO_TARJETA_CREDITO (Divisa,Tipo,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','Master Card','69239855928839531552',8);
+INSERT INTO TIPO_PAGO_TARJETA_CREDITO (Divisa,Tipo,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','Visa','15371788762979612846',9);
 INSERT INTO TIPO_PAGO_TARJETA_CREDITO (Divisa,Tipo,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','Visa','85459156413524746651',10);
-INSERT INTO TIPO_PAGO_TARJETA_CREDITO (Divisa,Tipo,Numero_tarjeta,Usuario_fk) VALUES ('Euro','American Express','47767878282193192568',11);
-INSERT INTO TIPO_PAGO_TARJETA_CREDITO (Divisa,Tipo,Numero_tarjeta,Usuario_fk) VALUES ('Bolivar','American Express','56274386738746877523',12);
+INSERT INTO TIPO_PAGO_TARJETA_CREDITO (Divisa,Tipo,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','American Express','47767878282193192568',11);
+INSERT INTO TIPO_PAGO_TARJETA_CREDITO (Divisa,Tipo,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','American Express','56274386738746877523',12);
 INSERT INTO TIPO_PAGO_TARJETA_CREDITO (Divisa,Tipo,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','Master Card','65417615428352343456',13);
-INSERT INTO TIPO_PAGO_TARJETA_CREDITO (Divisa,Tipo,Numero_tarjeta,Usuario_fk) VALUES ('Euro','Master Card','41239189224747576267',14);
-INSERT INTO TIPO_PAGO_TARJETA_CREDITO (Divisa,Tipo,Numero_tarjeta,Usuario_fk) VALUES ('Bolivar','Visa','36317619395911771948',15);
+INSERT INTO TIPO_PAGO_TARJETA_CREDITO (Divisa,Tipo,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','Master Card','41239189224747576267',14);
+INSERT INTO TIPO_PAGO_TARJETA_CREDITO (Divisa,Tipo,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','Visa','36317619395911771948',15);
 INSERT INTO TIPO_PAGO_TARJETA_CREDITO (Divisa,Tipo,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','Visa','83775314266137322546',16);
-INSERT INTO TIPO_PAGO_TARJETA_CREDITO (Divisa,Tipo,Numero_tarjeta,Usuario_fk) VALUES ('Euro','American Express','67623939875387849529',17);
-INSERT INTO TIPO_PAGO_TARJETA_CREDITO (Divisa,Tipo,Numero_tarjeta,Usuario_fk) VALUES ('Bolivar','American Express','94495988858332332788',18);
+INSERT INTO TIPO_PAGO_TARJETA_CREDITO (Divisa,Tipo,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','American Express','67623939875387849529',17);
+INSERT INTO TIPO_PAGO_TARJETA_CREDITO (Divisa,Tipo,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','American Express','94495988858332332788',18);
 INSERT INTO TIPO_PAGO_TARJETA_CREDITO (Divisa,Tipo,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','Master Card','49167936327989892663',19);
-INSERT INTO TIPO_PAGO_TARJETA_CREDITO (Divisa,Tipo,Numero_tarjeta,Usuario_fk) VALUES ('Euro','Master Card','21685673629722153534',20);
-INSERT INTO TIPO_PAGO_TARJETA_CREDITO (Divisa,Tipo,Numero_tarjeta,Usuario_fk) VALUES ('Bolivar','Visa','56971156944113347394',21);
+INSERT INTO TIPO_PAGO_TARJETA_CREDITO (Divisa,Tipo,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','Master Card','21685673629722153534',20);
+INSERT INTO TIPO_PAGO_TARJETA_CREDITO (Divisa,Tipo,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','Visa','56971156944113347394',21);
 INSERT INTO TIPO_PAGO_TARJETA_CREDITO (Divisa,Tipo,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','Visa','37215226261314281679',22);
-INSERT INTO TIPO_PAGO_TARJETA_CREDITO (Divisa,Tipo,Numero_tarjeta,Usuario_fk) VALUES ('Euro','American Express','97292322293425942553',23);
-INSERT INTO TIPO_PAGO_TARJETA_CREDITO (Divisa,Tipo,Numero_tarjeta,Usuario_fk) VALUES ('Bolivar','American Express','23824683679479587937',24);
+INSERT INTO TIPO_PAGO_TARJETA_CREDITO (Divisa,Tipo,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','American Express','97292322293425942553',23);
+INSERT INTO TIPO_PAGO_TARJETA_CREDITO (Divisa,Tipo,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','American Express','23824683679479587937',24);
 INSERT INTO TIPO_PAGO_TARJETA_CREDITO (Divisa,Tipo,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','Master Card','38234363893259774448',25);
-INSERT INTO TIPO_PAGO_TARJETA_CREDITO (Divisa,Tipo,Numero_tarjeta,Usuario_fk) VALUES ('Euro','Master Card','66282962174211246325',26);
-INSERT INTO TIPO_PAGO_TARJETA_CREDITO (Divisa,Tipo,Numero_tarjeta,Usuario_fk) VALUES ('Bolivar','Visa','31662678158887465277',27);
+INSERT INTO TIPO_PAGO_TARJETA_CREDITO (Divisa,Tipo,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','Master Card','66282962174211246325',26);
+INSERT INTO TIPO_PAGO_TARJETA_CREDITO (Divisa,Tipo,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','Visa','31662678158887465277',27);
 INSERT INTO TIPO_PAGO_TARJETA_CREDITO (Divisa,Tipo,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','Visa','87775352452921835186',28);
-INSERT INTO TIPO_PAGO_TARJETA_CREDITO (Divisa,Tipo,Numero_tarjeta,Usuario_fk) VALUES ('Euro','American Express','82677659547358424833',29);
-INSERT INTO TIPO_PAGO_TARJETA_CREDITO (Divisa,Tipo,Numero_tarjeta,Usuario_fk) VALUES ('Bolivar','American Express','86193894864311236312',30);
+INSERT INTO TIPO_PAGO_TARJETA_CREDITO (Divisa,Tipo,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','American Express','82677659547358424833',29);
+INSERT INTO TIPO_PAGO_TARJETA_CREDITO (Divisa,Tipo,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','American Express','86193894864311236312',30);
 -------------------------------------------------Tipo_Pago_Tarjeta_Debito---------------------------------------
 INSERT INTO TIPO_PAGO_TARJETA_DEBITO (Divisa,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','96211718891981846661','1');
-INSERT INTO TIPO_PAGO_TARJETA_DEBITO (Divisa,Numero_tarjeta,Usuario_fk) VALUES ('Euro','82162165366924821879','2');
-INSERT INTO TIPO_PAGO_TARJETA_DEBITO (Divisa,Numero_tarjeta,Usuario_fk) VALUES ('Bolivar','64177574635949797339','3');
+INSERT INTO TIPO_PAGO_TARJETA_DEBITO (Divisa,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','82162165366924821879','2');
+INSERT INTO TIPO_PAGO_TARJETA_DEBITO (Divisa,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','64177574635949797339','3');
 INSERT INTO TIPO_PAGO_TARJETA_DEBITO (Divisa,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','11842468584966614322','4');
-INSERT INTO TIPO_PAGO_TARJETA_DEBITO (Divisa,Numero_tarjeta,Usuario_fk) VALUES ('Euro','69139887211674898191','5');
-INSERT INTO TIPO_PAGO_TARJETA_DEBITO (Divisa,Numero_tarjeta,Usuario_fk) VALUES ('Bolivar','35528641443793128164','6');
+INSERT INTO TIPO_PAGO_TARJETA_DEBITO (Divisa,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','69139887211674898191','5');
+INSERT INTO TIPO_PAGO_TARJETA_DEBITO (Divisa,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','35528641443793128164','6');
 INSERT INTO TIPO_PAGO_TARJETA_DEBITO (Divisa,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','91339147529338418427','7');
-INSERT INTO TIPO_PAGO_TARJETA_DEBITO (Divisa,Numero_tarjeta,Usuario_fk) VALUES ('Euro','81226238882123973424','8');
-INSERT INTO TIPO_PAGO_TARJETA_DEBITO (Divisa,Numero_tarjeta,Usuario_fk) VALUES ('Bolivar','45344529416773883977','9');
+INSERT INTO TIPO_PAGO_TARJETA_DEBITO (Divisa,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','81226238882123973424','8');
+INSERT INTO TIPO_PAGO_TARJETA_DEBITO (Divisa,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','45344529416773883977','9');
 INSERT INTO TIPO_PAGO_TARJETA_DEBITO (Divisa,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','88466669148678764128','10');
-INSERT INTO TIPO_PAGO_TARJETA_DEBITO (Divisa,Numero_tarjeta,Usuario_fk) VALUES ('Euro','96893265812864946522','11');
-INSERT INTO TIPO_PAGO_TARJETA_DEBITO (Divisa,Numero_tarjeta,Usuario_fk) VALUES ('Bolivar','43333664638384347928','12');
+INSERT INTO TIPO_PAGO_TARJETA_DEBITO (Divisa,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','96893265812864946522','11');
+INSERT INTO TIPO_PAGO_TARJETA_DEBITO (Divisa,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','43333664638384347928','12');
 INSERT INTO TIPO_PAGO_TARJETA_DEBITO (Divisa,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','14876145938911566115','13');
-INSERT INTO TIPO_PAGO_TARJETA_DEBITO (Divisa,Numero_tarjeta,Usuario_fk) VALUES ('Euro','54912644872429322735','14');
-INSERT INTO TIPO_PAGO_TARJETA_DEBITO (Divisa,Numero_tarjeta,Usuario_fk) VALUES ('Bolivar','52726769881275172298','15');
+INSERT INTO TIPO_PAGO_TARJETA_DEBITO (Divisa,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','54912644872429322735','14');
+INSERT INTO TIPO_PAGO_TARJETA_DEBITO (Divisa,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','52726769881275172298','15');
 INSERT INTO TIPO_PAGO_TARJETA_DEBITO (Divisa,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','94958458594699261124','16');
-INSERT INTO TIPO_PAGO_TARJETA_DEBITO (Divisa,Numero_tarjeta,Usuario_fk) VALUES ('Euro','49364265784538279959','17');
-INSERT INTO TIPO_PAGO_TARJETA_DEBITO (Divisa,Numero_tarjeta,Usuario_fk) VALUES ('Bolivar','15831382164388388279','18');
+INSERT INTO TIPO_PAGO_TARJETA_DEBITO (Divisa,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','49364265784538279959','17');
+INSERT INTO TIPO_PAGO_TARJETA_DEBITO (Divisa,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','15831382164388388279','18');
 INSERT INTO TIPO_PAGO_TARJETA_DEBITO (Divisa,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','45168969515967291976','19');
-INSERT INTO TIPO_PAGO_TARJETA_DEBITO (Divisa,Numero_tarjeta,Usuario_fk) VALUES ('Euro','28145658185318522429','20');
-INSERT INTO TIPO_PAGO_TARJETA_DEBITO (Divisa,Numero_tarjeta,Usuario_fk) VALUES ('Bolivar','59656126482446117879','21');
+INSERT INTO TIPO_PAGO_TARJETA_DEBITO (Divisa,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','28145658185318522429','20');
+INSERT INTO TIPO_PAGO_TARJETA_DEBITO (Divisa,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','59656126482446117879','21');
 INSERT INTO TIPO_PAGO_TARJETA_DEBITO (Divisa,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','48155663139439144847','22');
-INSERT INTO TIPO_PAGO_TARJETA_DEBITO (Divisa,Numero_tarjeta,Usuario_fk) VALUES ('Euro','71282619783362265949','23');
-INSERT INTO TIPO_PAGO_TARJETA_DEBITO (Divisa,Numero_tarjeta,Usuario_fk) VALUES ('Bolivar','57236917427555415832','24');
+INSERT INTO TIPO_PAGO_TARJETA_DEBITO (Divisa,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','71282619783362265949','23');
+INSERT INTO TIPO_PAGO_TARJETA_DEBITO (Divisa,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','57236917427555415832','24');
 INSERT INTO TIPO_PAGO_TARJETA_DEBITO (Divisa,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','63118127269187231295','25');
-INSERT INTO TIPO_PAGO_TARJETA_DEBITO (Divisa,Numero_tarjeta,Usuario_fk) VALUES ('Euro','81711313251573442839','26');
-INSERT INTO TIPO_PAGO_TARJETA_DEBITO (Divisa,Numero_tarjeta,Usuario_fk) VALUES ('Bolivar','36655145718283653412','27');
+INSERT INTO TIPO_PAGO_TARJETA_DEBITO (Divisa,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','81711313251573442839','26');
+INSERT INTO TIPO_PAGO_TARJETA_DEBITO (Divisa,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','36655145718283653412','27');
 INSERT INTO TIPO_PAGO_TARJETA_DEBITO (Divisa,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','73687393928878896524','28');
-INSERT INTO TIPO_PAGO_TARJETA_DEBITO (Divisa,Numero_tarjeta,Usuario_fk) VALUES ('Euro','79145284735474568934','29');
-INSERT INTO TIPO_PAGO_TARJETA_DEBITO (Divisa,Numero_tarjeta,Usuario_fk) VALUES ('Bolivar','59953617483127659671','30');
+INSERT INTO TIPO_PAGO_TARJETA_DEBITO (Divisa,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','79145284735474568934','29');
+INSERT INTO TIPO_PAGO_TARJETA_DEBITO (Divisa,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','59953617483127659671','30');
 INSERT INTO TIPO_PAGO_TARJETA_DEBITO (Divisa,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','25857397724282772631','1');
-INSERT INTO TIPO_PAGO_TARJETA_DEBITO (Divisa,Numero_tarjeta,Usuario_fk) VALUES ('Euro','12542364256119315165','2');
-INSERT INTO TIPO_PAGO_TARJETA_DEBITO (Divisa,Numero_tarjeta,Usuario_fk) VALUES ('Bolivar','15211167143489231139','3');
+INSERT INTO TIPO_PAGO_TARJETA_DEBITO (Divisa,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','12542364256119315165','2');
+INSERT INTO TIPO_PAGO_TARJETA_DEBITO (Divisa,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','15211167143489231139','3');
 INSERT INTO TIPO_PAGO_TARJETA_DEBITO (Divisa,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','63134339157381557128','4');
-INSERT INTO TIPO_PAGO_TARJETA_DEBITO (Divisa,Numero_tarjeta,Usuario_fk) VALUES ('Euro','98749731148662686129','5');
-INSERT INTO TIPO_PAGO_TARJETA_DEBITO (Divisa,Numero_tarjeta,Usuario_fk) VALUES ('Bolivar','25427378285753358254','6');
+INSERT INTO TIPO_PAGO_TARJETA_DEBITO (Divisa,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','98749731148662686129','5');
+INSERT INTO TIPO_PAGO_TARJETA_DEBITO (Divisa,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','25427378285753358254','6');
 INSERT INTO TIPO_PAGO_TARJETA_DEBITO (Divisa,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','97838693343899863344','7');
-INSERT INTO TIPO_PAGO_TARJETA_DEBITO (Divisa,Numero_tarjeta,Usuario_fk) VALUES ('Euro','85344868779963387864','8');
-INSERT INTO TIPO_PAGO_TARJETA_DEBITO (Divisa,Numero_tarjeta,Usuario_fk) VALUES ('Bolivar','27499791167819826199','9');
+INSERT INTO TIPO_PAGO_TARJETA_DEBITO (Divisa,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','85344868779963387864','8');
+INSERT INTO TIPO_PAGO_TARJETA_DEBITO (Divisa,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','27499791167819826199','9');
 INSERT INTO TIPO_PAGO_TARJETA_DEBITO (Divisa,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','42451991969445836841','10');
-INSERT INTO TIPO_PAGO_TARJETA_DEBITO (Divisa,Numero_tarjeta,Usuario_fk) VALUES ('Euro','69451559298227959122','11');
-INSERT INTO TIPO_PAGO_TARJETA_DEBITO (Divisa,Numero_tarjeta,Usuario_fk) VALUES ('Bolivar','56659116924695937286','12');
+INSERT INTO TIPO_PAGO_TARJETA_DEBITO (Divisa,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','69451559298227959122','11');
+INSERT INTO TIPO_PAGO_TARJETA_DEBITO (Divisa,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','56659116924695937286','12');
 INSERT INTO TIPO_PAGO_TARJETA_DEBITO (Divisa,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','82191755252247452811','13');
-INSERT INTO TIPO_PAGO_TARJETA_DEBITO (Divisa,Numero_tarjeta,Usuario_fk) VALUES ('Euro','51887687765693818851','14');
-INSERT INTO TIPO_PAGO_TARJETA_DEBITO (Divisa,Numero_tarjeta,Usuario_fk) VALUES ('Bolivar','12718282235717592945','15');
+INSERT INTO TIPO_PAGO_TARJETA_DEBITO (Divisa,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','51887687765693818851','14');
+INSERT INTO TIPO_PAGO_TARJETA_DEBITO (Divisa,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','12718282235717592945','15');
 INSERT INTO TIPO_PAGO_TARJETA_DEBITO (Divisa,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','94469279111541721175','16');
-INSERT INTO TIPO_PAGO_TARJETA_DEBITO (Divisa,Numero_tarjeta,Usuario_fk) VALUES ('Euro','29471846466133439434','17');
-INSERT INTO TIPO_PAGO_TARJETA_DEBITO (Divisa,Numero_tarjeta,Usuario_fk) VALUES ('Bolivar','74341531784224123258','18');
+INSERT INTO TIPO_PAGO_TARJETA_DEBITO (Divisa,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','29471846466133439434','17');
+INSERT INTO TIPO_PAGO_TARJETA_DEBITO (Divisa,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','74341531784224123258','18');
 INSERT INTO TIPO_PAGO_TARJETA_DEBITO (Divisa,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','23779357949499687399','19');
-INSERT INTO TIPO_PAGO_TARJETA_DEBITO (Divisa,Numero_tarjeta,Usuario_fk) VALUES ('Euro','54793984695718788885','20');
-INSERT INTO TIPO_PAGO_TARJETA_DEBITO (Divisa,Numero_tarjeta,Usuario_fk) VALUES ('Bolivar','34813556827157655558','21');
+INSERT INTO TIPO_PAGO_TARJETA_DEBITO (Divisa,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','54793984695718788885','20');
+INSERT INTO TIPO_PAGO_TARJETA_DEBITO (Divisa,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','34813556827157655558','21');
 INSERT INTO TIPO_PAGO_TARJETA_DEBITO (Divisa,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','74925953719923559484','22');
-INSERT INTO TIPO_PAGO_TARJETA_DEBITO (Divisa,Numero_tarjeta,Usuario_fk) VALUES ('Euro','86699896323589548115','23');
-INSERT INTO TIPO_PAGO_TARJETA_DEBITO (Divisa,Numero_tarjeta,Usuario_fk) VALUES ('Bolivar','53387537551729121622','24');
+INSERT INTO TIPO_PAGO_TARJETA_DEBITO (Divisa,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','86699896323589548115','23');
+INSERT INTO TIPO_PAGO_TARJETA_DEBITO (Divisa,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','53387537551729121622','24');
 INSERT INTO TIPO_PAGO_TARJETA_DEBITO (Divisa,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','48559461443931895557','25');
-INSERT INTO TIPO_PAGO_TARJETA_DEBITO (Divisa,Numero_tarjeta,Usuario_fk) VALUES ('Euro','63642736453187955195','26');
-INSERT INTO TIPO_PAGO_TARJETA_DEBITO (Divisa,Numero_tarjeta,Usuario_fk) VALUES ('Bolivar','13825985451441415913','27');
+INSERT INTO TIPO_PAGO_TARJETA_DEBITO (Divisa,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','63642736453187955195','26');
+INSERT INTO TIPO_PAGO_TARJETA_DEBITO (Divisa,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','13825985451441415913','27');
 INSERT INTO TIPO_PAGO_TARJETA_DEBITO (Divisa,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','54814551347861835912','28');
-INSERT INTO TIPO_PAGO_TARJETA_DEBITO (Divisa,Numero_tarjeta,Usuario_fk) VALUES ('Euro','16865854927519556534','29');
-INSERT INTO TIPO_PAGO_TARJETA_DEBITO (Divisa,Numero_tarjeta,Usuario_fk) VALUES ('Bolivar','44964255983611172556','30');
+INSERT INTO TIPO_PAGO_TARJETA_DEBITO (Divisa,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','16865854927519556534','29');
+INSERT INTO TIPO_PAGO_TARJETA_DEBITO (Divisa,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','44964255983611172556','30');
+--------------------------------------------FACTURA RESERVA------------------------------------------------
+------Viaje 1
+/*1*/ INSERT INTO FACTURA_RESERVA (Fecha,Usuario_fk) VALUES (to_date('2019-01-09','yyyy-mm-dd'),1);
+/*2*/ INSERT INTO FACTURA_RESERVA (Fecha,Usuario_fk) VALUES (to_date('2019-01-09','yyyy-mm-dd'),4);
+------Viaje 2
+/*3*/ INSERT INTO FACTURA_RESERVA (Fecha,Usuario_fk) VALUES (to_date('2019-04-12','yyyy-mm-dd'),7);
+/*4*/ INSERT INTO FACTURA_RESERVA (Fecha,Usuario_fk) VALUES (to_date('2019-04-12','yyyy-mm-dd'),12);
+------Viaje 3
+/*5*/ INSERT INTO FACTURA_RESERVA (Fecha,Usuario_fk) VALUES (to_date('2018-10-20','yyyy-mm-dd'),10);
+/*6*/ INSERT INTO FACTURA_RESERVA (Fecha,Usuario_fk) VALUES (to_date('2018-10-20','yyyy-mm-dd'),17);
+/*7*/ INSERT INTO FACTURA_RESERVA (Fecha,Usuario_fk) VALUES (to_date('2018-10-20','yyyy-mm-dd'),1);
+------Viaje 1
+/*8*/ INSERT INTO FACTURA_RESERVA (Fecha,Usuario_fk) VALUES (to_date('2019-01-09','yyyy-mm-dd'),19);
+/*9*/ INSERT INTO FACTURA_RESERVA (Fecha,Usuario_fk) VALUES (to_date('2019-01-09','yyyy-mm-dd'),22);
+------Viaje 2
+/*10*/ INSERT INTO FACTURA_RESERVA (Fecha,Usuario_fk) VALUES (to_date('2019-04-12','yyyy-mm-dd'),23);
+/*11*/ INSERT INTO FACTURA_RESERVA (Fecha,Usuario_fk) VALUES (to_date('2019-04-12','yyyy-mm-dd'),24);
+/*12*/ INSERT INTO FACTURA_RESERVA (Fecha,Usuario_fk) VALUES (to_date('2019-04-12','yyyy-mm-dd'),25);
+------Viaje 3
+/*13*/ INSERT INTO FACTURA_RESERVA (Fecha,Usuario_fk) VALUES (to_date('2018-10-20','yyyy-mm-dd'),26);
+/*14*/ INSERT INTO FACTURA_RESERVA (Fecha,Usuario_fk) VALUES (to_date('2018-10-20','yyyy-mm-dd'),27);
+/*15*/ INSERT INTO FACTURA_RESERVA (Fecha,Usuario_fk) VALUES (to_date('2018-10-20','yyyy-mm-dd'),28);
+--------------------------------------------RESERVA USUARIO------------------------------------------------
+/*Reserva 1*/
+/*1*/ INSERT INTO RESERVA_USUARIO (Seguro_fk,Usuario_fk,Factura_Reserva_fk) VALUES (1,1,1);
+/*2*/ INSERT INTO RESERVA_USUARIO (Seguro_fk,Usuario_fk,Factura_Reserva_fk) VALUES (2,2,1);
+/*3*/ INSERT INTO RESERVA_USUARIO (Seguro_fk,Usuario_fk,Factura_Reserva_fk) VALUES (3,3,1);
+/*4*/ INSERT INTO RESERVA_USUARIO (Seguro_fk,Usuario_fk,Factura_Reserva_fk) VALUES (1,6,1);
+/*Reserva 2*/
+/*5*/ INSERT INTO RESERVA_USUARIO (Seguro_fk,Usuario_fk,Factura_Reserva_fk) VALUES (4,4,2);
+/*6*/ INSERT INTO RESERVA_USUARIO (Seguro_fk,Usuario_fk,Factura_Reserva_fk) VALUES (5,5,2);
+/*7*/ INSERT INTO RESERVA_USUARIO (Seguro_fk,Usuario_fk,Factura_Reserva_fk) VALUES (6,9,2);
+/*Reserva 3*/
+/*8*/ INSERT INTO RESERVA_USUARIO (Seguro_fk,Usuario_fk,Factura_Reserva_fk) VALUES (7,7,3);
+/*9*/ INSERT INTO RESERVA_USUARIO (Seguro_fk,Usuario_fk,Factura_Reserva_fk) VALUES (8,8,3);
+/*10*/ INSERT INTO RESERVA_USUARIO (Seguro_fk,Usuario_fk,Factura_Reserva_fk) VALUES (9,11,3);
+/*Reserva 4*/
+/*11*/ INSERT INTO RESERVA_USUARIO (Seguro_fk,Usuario_fk,Factura_Reserva_fk) VALUES (10,12,4);
+/*12*/ INSERT INTO RESERVA_USUARIO (Seguro_fk,Usuario_fk,Factura_Reserva_fk) VALUES (11,13,4);
+/*13*/ INSERT INTO RESERVA_USUARIO (Seguro_fk,Usuario_fk,Factura_Reserva_fk) VALUES (12,14,4);
+/*Reserva 5*/
+/*14*/ INSERT INTO RESERVA_USUARIO (Seguro_fk,Usuario_fk,Factura_Reserva_fk) VALUES (13,10,5);
+/*15*/ INSERT INTO RESERVA_USUARIO (Seguro_fk,Usuario_fk,Factura_Reserva_fk) VALUES (14,15,5);
+/*16*/ INSERT INTO RESERVA_USUARIO (Seguro_fk,Usuario_fk,Factura_Reserva_fk) VALUES (15,16,5);
+/*Reserva 6*/
+/*17*/ INSERT INTO RESERVA_USUARIO (Seguro_fk,Usuario_fk,Factura_Reserva_fk) VALUES (16,17,6);
+/*18*/ INSERT INTO RESERVA_USUARIO (Seguro_fk,Usuario_fk,Factura_Reserva_fk) VALUES (17,18,6);
+/*Reserva 7*/
+/*19*/ INSERT INTO RESERVA_USUARIO (Seguro_fk,Usuario_fk,Factura_Reserva_fk) VALUES (18,1,7);
+/*20*/ INSERT INTO RESERVA_USUARIO (Seguro_fk,Usuario_fk,Factura_Reserva_fk) VALUES (19,6,7);
+/*Reserva 8*/
+/*21*/ INSERT INTO RESERVA_USUARIO (Seguro_fk,Usuario_fk,Factura_Reserva_fk) VALUES (1,19,8);
+/*22*/ INSERT INTO RESERVA_USUARIO (Seguro_fk,Usuario_fk,Factura_Reserva_fk) VALUES (2,20,8);
+/*23*/ INSERT INTO RESERVA_USUARIO (Seguro_fk,Usuario_fk,Factura_Reserva_fk) VALUES (3,21,8);
+/*Reserva 9*/
+/*24*/ INSERT INTO RESERVA_USUARIO (Seguro_fk,Usuario_fk,Factura_Reserva_fk) VALUES (4,22,9);
+/*Reserva 10*/
+/*25*/ INSERT INTO RESERVA_USUARIO (Seguro_fk,Usuario_fk,Factura_Reserva_fk) VALUES (13,23,10);
+/*Reserva 11*/
+/*26*/ INSERT INTO RESERVA_USUARIO (Seguro_fk,Usuario_fk,Factura_Reserva_fk) VALUES (20,24,11);
+/*Reserva 12*/
+/*27*/ INSERT INTO RESERVA_USUARIO (Seguro_fk,Usuario_fk,Factura_Reserva_fk) VALUES (27,25,12);
+/*Reserva 13*/
+/*28*/ INSERT INTO RESERVA_USUARIO (Seguro_fk,Usuario_fk,Factura_Reserva_fk) VALUES (30,26,13);
+/*Reserva 14*/
+/*29*/ INSERT INTO RESERVA_USUARIO (Seguro_fk,Usuario_fk,Factura_Reserva_fk) VALUES (24,27,14);
+/*Reserva 15*/
+/*30*/ INSERT INTO RESERVA_USUARIO (Seguro_fk,Usuario_fk,Factura_Reserva_fk) VALUES (3,28,15);
+---------------------------------------RESERVA USUARIO VUELO--------------------------------------------------
+/*Reserva 1*/
+/*1*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (5,1,1,18);
+/*2*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (23,1,2,19);
+/*3*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (84,1,3,20);
+/*4*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (6,1,4,18);
+/*5*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (5,2,1,7);
+/*6*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (23,2,2,8);
+/*7*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (84,2,3,8);
+/*8*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (6,2,4,7);
+/*Reserva 2*/
+/*9*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (2,1,5,18);
+/*10*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (24,1,6,19);
+/*11*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (85,1,7,20);
+/*12*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (3,2,5,7);
+/*13*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (30,2,6,8);
+/*14*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (97,2,7,8);
+/*Reserva 3*/
+/*15*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (2,11,8,2);
+/*16*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (8,11,9,2);
+/*17*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (6,11,10,2);
+/*18*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (2,12,8,2);
+/*19*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (8,12,9,2);
+/*20*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (6,12,10,2);
+/*Reserva 4*/
+/*21*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (20,11,11,2);
+/*22*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (21,11,12,2);
+/*23*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (22,11,13,2);
+/*24*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (20,12,11,2);
+/*25*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (21,12,12,2);
+/*26*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (22,12,13,2);
+/*Reserva 5*/
+/*27*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (10,17,14,34);
+/*28*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (40,17,15,35);
+/*29*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (60,17,16,35);
+/*30*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (10,18,14,34);
+/*31*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (40,18,15,35);
+/*32*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (60,18,16,35);
+/*Reserva 6*/
+/*33*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (6,17,17,34);
+/*34*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (43,17,18,35);
+/*35*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (6,18,17,34);
+/*36*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (43,18,18,35);
+/*Reserva 7*/
+/*37*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (12,17,19,34);
+/*38*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (13,17,20,34);
+/*39*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (12,18,19,34);
+/*40*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (13,18,20,34);
+/*Reserva 8*/
+/*41*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (17,1,21,18);
+/*42*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (46,1,22,19);
+/*43*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (91,1,23,20);
+/*44*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (17,2,21,7);
+/*45*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (46,2,22,8);
+/*46*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (91,2,23,8);
+/*Reserva 9*/
+/*47*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (14,1,24,18);
+/*48*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (100,2,24,8);
+/*Reserva 10*/
+/*49*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (9,11,25,2);
+/*50*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (9,12,25,2);
+/*Reserva 11*/
+/*51*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (2,11,26,2);
+/*52*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (2,12,26,2);
+/*Reserva 12*/
+/*53*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (7,11,27,2);
+/*54*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (7,12,27,2);
+/*Reserva 13*/
+/*55*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (1,17,28,34);
+/*56*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (1,18,28,34);
+/*Reserva 14*/
+/*57*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (2,17,29,34);
+/*58*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (2,18,29,34);
+/*Reserva 15*/
+/*59*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (3,17,30,34);
+/*60*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (3,18,30,34);
+-------------------------------------RESERVA USUARIO HABITACION-----------------------------------------------
+/*Reserva 1*/
+/*1*/ INSERT INTO RESERVA_USUARIO_HABITACION (Intinerario_reserva_habitacion,Puntuacion,Habitacion_fk,Reserva_Usuario_fk) VALUES (intinerario(to_date('2019-02-09','yyyy-mm-dd'), to_date('2019-03-09','yyyy-mm-dd')),9,1414,1);
+/*2*/ INSERT INTO RESERVA_USUARIO_HABITACION (Intinerario_reserva_habitacion,Puntuacion,Habitacion_fk,Reserva_Usuario_fk) VALUES (intinerario(to_date('2019-02-09','yyyy-mm-dd'), to_date('2019-03-09','yyyy-mm-dd')),5,1405,2);
+/*3*/ INSERT INTO RESERVA_USUARIO_HABITACION (Intinerario_reserva_habitacion,Puntuacion,Habitacion_fk,Reserva_Usuario_fk) VALUES (intinerario(to_date('2019-02-09','yyyy-mm-dd'), to_date('2019-03-09','yyyy-mm-dd')),8,1405,3);
+/*4*/ INSERT INTO RESERVA_USUARIO_HABITACION (Intinerario_reserva_habitacion,Puntuacion,Habitacion_fk,Reserva_Usuario_fk) VALUES (intinerario(to_date('2019-02-09','yyyy-mm-dd'), to_date('2019-03-09','yyyy-mm-dd')),8,1414,4);
+/*Reserva 2*/
+/*5*/ INSERT INTO RESERVA_USUARIO_HABITACION (Intinerario_reserva_habitacion,Puntuacion,Habitacion_fk,Reserva_Usuario_fk) VALUES (intinerario(to_date('2019-02-09','yyyy-mm-dd'), to_date('2019-03-09','yyyy-mm-dd')),9,1380,5);
+/*6*/ INSERT INTO RESERVA_USUARIO_HABITACION (Intinerario_reserva_habitacion,Puntuacion,Habitacion_fk,Reserva_Usuario_fk) VALUES (intinerario(to_date('2019-02-09','yyyy-mm-dd'), to_date('2019-03-09','yyyy-mm-dd')),9,1380,6);
+/*7*/ INSERT INTO RESERVA_USUARIO_HABITACION (Intinerario_reserva_habitacion,Puntuacion,Habitacion_fk,Reserva_Usuario_fk) VALUES (intinerario(to_date('2019-02-09','yyyy-mm-dd'), to_date('2019-03-09','yyyy-mm-dd')),9,1380,7);
+/*Reserva 3*/
+/*8*/ INSERT INTO RESERVA_USUARIO_HABITACION (Intinerario_reserva_habitacion,Puntuacion,Habitacion_fk,Reserva_Usuario_fk) VALUES (intinerario(to_date('2019-05-12','yyyy-mm-dd'), to_date('2019-06-13','yyyy-mm-dd')),8,840,8);
+/*9*/ INSERT INTO RESERVA_USUARIO_HABITACION (Intinerario_reserva_habitacion,Puntuacion,Habitacion_fk,Reserva_Usuario_fk) VALUES (intinerario(to_date('2019-05-12','yyyy-mm-dd'), to_date('2019-06-13','yyyy-mm-dd')),7,840,9);
+/*10*/ INSERT INTO RESERVA_USUARIO_HABITACION (Intinerario_reserva_habitacion,Puntuacion,Habitacion_fk,Reserva_Usuario_fk) VALUES (intinerario(to_date('2019-05-12','yyyy-mm-dd'), to_date('2019-06-13','yyyy-mm-dd')),9,828,10);
+/*Reserva 4*/
+/*11*/ INSERT INTO RESERVA_USUARIO_HABITACION (Intinerario_reserva_habitacion,Puntuacion,Habitacion_fk,Reserva_Usuario_fk) VALUES (intinerario(to_date('2019-05-12','yyyy-mm-dd'), to_date('2019-06-13','yyyy-mm-dd')),8,804,11);
+/*12*/ INSERT INTO RESERVA_USUARIO_HABITACION (Intinerario_reserva_habitacion,Puntuacion,Habitacion_fk,Reserva_Usuario_fk) VALUES (intinerario(to_date('2019-05-12','yyyy-mm-dd'), to_date('2019-06-13','yyyy-mm-dd')),7,804,12);
+/*13*/ INSERT INTO RESERVA_USUARIO_HABITACION (Intinerario_reserva_habitacion,Puntuacion,Habitacion_fk,Reserva_Usuario_fk) VALUES (intinerario(to_date('2019-05-12','yyyy-mm-dd'), to_date('2019-06-13','yyyy-mm-dd')),9,804,13);
+/*Reserva 5*/
+/*14*/ INSERT INTO RESERVA_USUARIO_HABITACION (Intinerario_reserva_habitacion,Puntuacion,Habitacion_fk,Reserva_Usuario_fk) VALUES (intinerario(to_date('2018-11-20','yyyy-mm-dd'), to_date('2018-12-10','yyyy-mm-dd')),8,204,14);
+/*15*/ INSERT INTO RESERVA_USUARIO_HABITACION (Intinerario_reserva_habitacion,Puntuacion,Habitacion_fk,Reserva_Usuario_fk) VALUES (intinerario(to_date('2018-11-20','yyyy-mm-dd'), to_date('2018-12-10','yyyy-mm-dd')),7,200,15);
+/*16*/ INSERT INTO RESERVA_USUARIO_HABITACION (Intinerario_reserva_habitacion,Puntuacion,Habitacion_fk,Reserva_Usuario_fk) VALUES (intinerario(to_date('2018-11-20','yyyy-mm-dd'), to_date('2018-12-10','yyyy-mm-dd')),5,196,16);
+/*Reserva 6*/
+/*17*/ INSERT INTO RESERVA_USUARIO_HABITACION (Intinerario_reserva_habitacion,Puntuacion,Habitacion_fk,Reserva_Usuario_fk) VALUES (intinerario(to_date('2018-11-20','yyyy-mm-dd'), to_date('2018-12-10','yyyy-mm-dd')),8,260,17);
+/*18*/ INSERT INTO RESERVA_USUARIO_HABITACION (Intinerario_reserva_habitacion,Puntuacion,Habitacion_fk,Reserva_Usuario_fk) VALUES (intinerario(to_date('2018-11-20','yyyy-mm-dd'), to_date('2018-12-10','yyyy-mm-dd')),7,260,18);
+/*Reserva 7*/
+/*19*/ INSERT INTO RESERVA_USUARIO_HABITACION (Intinerario_reserva_habitacion,Puntuacion,Habitacion_fk,Reserva_Usuario_fk) VALUES (intinerario(to_date('2018-11-20','yyyy-mm-dd'), to_date('2018-12-10','yyyy-mm-dd')),9,216,19);
+/*20*/ INSERT INTO RESERVA_USUARIO_HABITACION (Intinerario_reserva_habitacion,Puntuacion,Habitacion_fk,Reserva_Usuario_fk) VALUES (intinerario(to_date('2018-11-20','yyyy-mm-dd'), to_date('2018-12-10','yyyy-mm-dd')),8,216,20);
+/*Reserva 8*/
+/*21*/ INSERT INTO RESERVA_USUARIO_HABITACION (Intinerario_reserva_habitacion,Puntuacion,Habitacion_fk,Reserva_Usuario_fk) VALUES (intinerario(to_date('2019-02-09','yyyy-mm-dd'), to_date('2019-03-09','yyyy-mm-dd')),8,1373,21);
+/*22*/ INSERT INTO RESERVA_USUARIO_HABITACION (Intinerario_reserva_habitacion,Puntuacion,Habitacion_fk,Reserva_Usuario_fk) VALUES (intinerario(to_date('2019-02-09','yyyy-mm-dd'), to_date('2019-03-09','yyyy-mm-dd')),9,1373,22);
+/*23*/ INSERT INTO RESERVA_USUARIO_HABITACION (Intinerario_reserva_habitacion,Puntuacion,Habitacion_fk,Reserva_Usuario_fk) VALUES (intinerario(to_date('2019-02-09','yyyy-mm-dd'), to_date('2019-03-09','yyyy-mm-dd')),8,1373,23);
+/*Reserva 9*/
+/*24*/ INSERT INTO RESERVA_USUARIO_HABITACION (Intinerario_reserva_habitacion,Puntuacion,Habitacion_fk,Reserva_Usuario_fk) VALUES (intinerario(to_date('2019-02-09','yyyy-mm-dd'), to_date('2019-03-09','yyyy-mm-dd')),7,1349,24);
+/*Reserva 10*/
+/*25*/ INSERT INTO RESERVA_USUARIO_HABITACION (Intinerario_reserva_habitacion,Puntuacion,Habitacion_fk,Reserva_Usuario_fk) VALUES (intinerario(to_date('2019-05-12','yyyy-mm-dd'), to_date('2019-06-13','yyyy-mm-dd')),8,777,25);
+/*Reserva 11*/
+/*26*/ INSERT INTO RESERVA_USUARIO_HABITACION (Intinerario_reserva_habitacion,Puntuacion,Habitacion_fk,Reserva_Usuario_fk) VALUES (intinerario(to_date('2019-05-12','yyyy-mm-dd'), to_date('2019-06-13','yyyy-mm-dd')),6,778,26);
+/*Reserva 12*/
+/*27*/ INSERT INTO RESERVA_USUARIO_HABITACION (Intinerario_reserva_habitacion,Puntuacion,Habitacion_fk,Reserva_Usuario_fk) VALUES (intinerario(to_date('2019-05-12','yyyy-mm-dd'), to_date('2019-06-13','yyyy-mm-dd')),7,779,27);
+/*Reserva 13*/
+/*28*/ INSERT INTO RESERVA_USUARIO_HABITACION (Intinerario_reserva_habitacion,Puntuacion,Habitacion_fk,Reserva_Usuario_fk) VALUES (intinerario(to_date('2018-11-20','yyyy-mm-dd'), to_date('2018-12-10','yyyy-mm-dd')),8,200,28);
+/*Reserva 14*/
+/*29*/ INSERT INTO RESERVA_USUARIO_HABITACION (Intinerario_reserva_habitacion,Puntuacion,Habitacion_fk,Reserva_Usuario_fk) VALUES (intinerario(to_date('2018-11-20','yyyy-mm-dd'), to_date('2018-12-10','yyyy-mm-dd')),8,199,29);
+/*Reserva 15*/
+/*30*/ INSERT INTO RESERVA_USUARIO_HABITACION (Intinerario_reserva_habitacion,Puntuacion,Habitacion_fk,Reserva_Usuario_fk) VALUES (intinerario(to_date('2018-11-20','yyyy-mm-dd'), to_date('2018-12-10','yyyy-mm-dd')),8,198,30);
+----------------------------------------ESTATUS HABITACION----------------------------------------------------
+/*Reserva 1*/
+/*1*/ INSERT INTO ESTATUS_HABITACION (Fecha,Habitacion_fk,Estatus_fk) VALUES (to_date('2019-02-09','yyyy-mm-dd'),1414,5);
+/*2*/ INSERT INTO ESTATUS_HABITACION (Fecha,Habitacion_fk,Estatus_fk) VALUES (to_date('2019-03-09','yyyy-mm-dd'),1414,6);
+/*3*/ INSERT INTO ESTATUS_HABITACION (Fecha,Habitacion_fk,Estatus_fk) VALUES (to_date('2019-02-09','yyyy-mm-dd'),1405,5);
+/*4*/ INSERT INTO ESTATUS_HABITACION (Fecha,Habitacion_fk,Estatus_fk) VALUES (to_date('2019-03-09','yyyy-mm-dd'),1405,6);
+/*Reserva 2*/
+/*5*/ INSERT INTO ESTATUS_HABITACION (Fecha,Habitacion_fk,Estatus_fk) VALUES (to_date('2019-02-09','yyyy-mm-dd'),1380,5);
+/*6*/ INSERT INTO ESTATUS_HABITACION (Fecha,Habitacion_fk,Estatus_fk) VALUES (to_date('2019-03-09','yyyy-mm-dd'),1380,6);
+/*Reserva 3*/
+/*7*/ INSERT INTO ESTATUS_HABITACION (Fecha,Habitacion_fk,Estatus_fk) VALUES (to_date('2019-05-12','yyyy-mm-dd'),840,5);
+/*8*/ INSERT INTO ESTATUS_HABITACION (Fecha,Habitacion_fk,Estatus_fk) VALUES (to_date('2019-06-13','yyyy-mm-dd'),840,6);
+/*9*/ INSERT INTO ESTATUS_HABITACION (Fecha,Habitacion_fk,Estatus_fk) VALUES (to_date('2019-05-12','yyyy-mm-dd'),828,5);
+/*10*/ INSERT INTO ESTATUS_HABITACION (Fecha,Habitacion_fk,Estatus_fk) VALUES (to_date('2019-06-13','yyyy-mm-dd'),828,6);
+/*Reserva 4*/
+/*11*/ INSERT INTO ESTATUS_HABITACION (Fecha,Habitacion_fk,Estatus_fk) VALUES (to_date('2019-05-12','yyyy-mm-dd'),804,5);
+/*12*/ INSERT INTO ESTATUS_HABITACION (Fecha,Habitacion_fk,Estatus_fk) VALUES (to_date('2019-06-13','yyyy-mm-dd'),804,6);
+/*Reserva 5*/
+/*13*/ INSERT INTO ESTATUS_HABITACION (Fecha,Habitacion_fk,Estatus_fk) VALUES (to_date('2018-11-20','yyyy-mm-dd'),204,5);
+/*14*/ INSERT INTO ESTATUS_HABITACION (Fecha,Habitacion_fk,Estatus_fk) VALUES (to_date('2018-12-10','yyyy-mm-dd'),204,6);
+/*15*/ INSERT INTO ESTATUS_HABITACION (Fecha,Habitacion_fk,Estatus_fk) VALUES (to_date('2018-11-20','yyyy-mm-dd'),200,5);
+/*16*/ INSERT INTO ESTATUS_HABITACION (Fecha,Habitacion_fk,Estatus_fk) VALUES (to_date('2018-12-10','yyyy-mm-dd'),200,6);
+/*17*/ INSERT INTO ESTATUS_HABITACION (Fecha,Habitacion_fk,Estatus_fk) VALUES (to_date('2018-11-20','yyyy-mm-dd'),196,5);
+/*18*/ INSERT INTO ESTATUS_HABITACION (Fecha,Habitacion_fk,Estatus_fk) VALUES (to_date('2018-12-10','yyyy-mm-dd'),196,6);
+/*Reserva 6*/
+/*19*/ INSERT INTO ESTATUS_HABITACION (Fecha,Habitacion_fk,Estatus_fk) VALUES (to_date('2018-11-20','yyyy-mm-dd'),260,5);
+/*20*/ INSERT INTO ESTATUS_HABITACION (Fecha,Habitacion_fk,Estatus_fk) VALUES (to_date('2018-12-10','yyyy-mm-dd'),260,6);
+/*Reserva 7*/
+/*21*/ INSERT INTO ESTATUS_HABITACION (Fecha,Habitacion_fk,Estatus_fk) VALUES (to_date('2018-11-20','yyyy-mm-dd'),216,5);
+/*22*/ INSERT INTO ESTATUS_HABITACION (Fecha,Habitacion_fk,Estatus_fk) VALUES (to_date('2018-12-10','yyyy-mm-dd'),216,6);
+/*Reserva 8*/
+/*23*/ INSERT INTO ESTATUS_HABITACION (Fecha,Habitacion_fk,Estatus_fk) VALUES (to_date('2019-02-09','yyyy-mm-dd'),1373,5);
+/*24*/ INSERT INTO ESTATUS_HABITACION (Fecha,Habitacion_fk,Estatus_fk) VALUES (to_date('2019-03-09','yyyy-mm-dd'),1373,6);
+/*Reserva 9*/
+/*25*/ INSERT INTO ESTATUS_HABITACION (Fecha,Habitacion_fk,Estatus_fk) VALUES (to_date('2019-02-09','yyyy-mm-dd'),1349,5);
+/*26*/ INSERT INTO ESTATUS_HABITACION (Fecha,Habitacion_fk,Estatus_fk) VALUES (to_date('2019-03-09','yyyy-mm-dd'),1349,6);
+/*Reserva 10*/
+/*25*/ INSERT INTO ESTATUS_HABITACION (Fecha,Habitacion_fk,Estatus_fk) VALUES (to_date('2019-05-12','yyyy-mm-dd'),777,5);
+/*26*/ INSERT INTO ESTATUS_HABITACION (Fecha,Habitacion_fk,Estatus_fk) VALUES (to_date('2019-06-12','yyyy-mm-dd'),777,6);
+/*Reserva 11*/
+/*27*/ INSERT INTO ESTATUS_HABITACION (Fecha,Habitacion_fk,Estatus_fk) VALUES (to_date('2019-05-12','yyyy-mm-dd'),778,5);
+/*28*/ INSERT INTO ESTATUS_HABITACION (Fecha,Habitacion_fk,Estatus_fk) VALUES (to_date('2019-06-12','yyyy-mm-dd'),778,6);
+/*Reserva 12*/
+/*29*/ INSERT INTO ESTATUS_HABITACION (Fecha,Habitacion_fk,Estatus_fk) VALUES (to_date('2019-05-12','yyyy-mm-dd'),779,5);
+/*30*/ INSERT INTO ESTATUS_HABITACION (Fecha,Habitacion_fk,Estatus_fk) VALUES (to_date('2019-06-12','yyyy-mm-dd'),779,6);
+/*Reserva 13*/
+/*31*/ INSERT INTO ESTATUS_HABITACION (Fecha,Habitacion_fk,Estatus_fk) VALUES (to_date('2018-11-20','yyyy-mm-dd'),200,5);
+/*32*/ INSERT INTO ESTATUS_HABITACION (Fecha,Habitacion_fk,Estatus_fk) VALUES (to_date('2018-12-10','yyyy-mm-dd'),200,6);
+/*Reserva 14*/
+/*31*/ INSERT INTO ESTATUS_HABITACION (Fecha,Habitacion_fk,Estatus_fk) VALUES (to_date('2018-11-20','yyyy-mm-dd'),199,5);
+/*32*/ INSERT INTO ESTATUS_HABITACION (Fecha,Habitacion_fk,Estatus_fk) VALUES (to_date('2018-12-10','yyyy-mm-dd'),199,6);
+/*Reserva 15*/
+/*31*/ INSERT INTO ESTATUS_HABITACION (Fecha,Habitacion_fk,Estatus_fk) VALUES (to_date('2018-11-20','yyyy-mm-dd'),198,5);
+/*32*/ INSERT INTO ESTATUS_HABITACION (Fecha,Habitacion_fk,Estatus_fk) VALUES (to_date('2018-12-10','yyyy-mm-dd'),198,6);
+----------------------------------------RESERVA USUARIO AUTOMOVIL-----------------------------------------
+/*Reserva 1*/
+/*1*/ INSERT INTO RESERVA_USUARIO_AUTOMOVIL (Intinerario_reserva_automovil,Modelo_Auto_Oficina_fk,Oficina_fk,Reserva_Usuario_fk) VALUES (intinerario(to_date('2019-02-09','yyyy-mm-dd'), to_date('2019-03-09','yyyy-mm-dd')),227,28,1);
+/*Reserva 2*/
+/*2*/ INSERT INTO RESERVA_USUARIO_AUTOMOVIL (Intinerario_reserva_automovil,Modelo_Auto_Oficina_fk,Oficina_fk,Reserva_Usuario_fk) VALUES (intinerario(to_date('2019-02-09','yyyy-mm-dd'), to_date('2019-03-09','yyyy-mm-dd')),228,28,5);
+/*Reserva 3*/
+/*3*/ INSERT INTO RESERVA_USUARIO_AUTOMOVIL (Intinerario_reserva_automovil,Modelo_Auto_Oficina_fk,Oficina_fk,Reserva_Usuario_fk) VALUES (intinerario(to_date('2019-05-12','yyyy-mm-dd'), to_date('2019-06-13','yyyy-mm-dd')),5,1,8);
+/*Reserva 4*/
+/*4*/ INSERT INTO RESERVA_USUARIO_AUTOMOVIL (Intinerario_reserva_automovil,Modelo_Auto_Oficina_fk,Oficina_fk,Reserva_Usuario_fk) VALUES (intinerario(to_date('2019-05-12','yyyy-mm-dd'), to_date('2019-06-13','yyyy-mm-dd')),85,6,11);
+/*Reserva 5*/
+/*5*/ INSERT INTO RESERVA_USUARIO_AUTOMOVIL (Intinerario_reserva_automovil,Modelo_Auto_Oficina_fk,Oficina_fk,Reserva_Usuario_fk) VALUES (intinerario(to_date('2018-11-20','yyyy-mm-dd'), to_date('2019-12-10','yyyy-mm-dd')),252,23,14);
+/*Reserva 6*/
+/*6*/ INSERT INTO RESERVA_USUARIO_AUTOMOVIL (Intinerario_reserva_automovil,Modelo_Auto_Oficina_fk,Oficina_fk,Reserva_Usuario_fk) VALUES (intinerario(to_date('2018-11-20','yyyy-mm-dd'), to_date('2019-12-10','yyyy-mm-dd')),248,23,17);
+/*Reserva 7*/
+/*7*/ INSERT INTO RESERVA_USUARIO_AUTOMOVIL (Intinerario_reserva_automovil,Modelo_Auto_Oficina_fk,Oficina_fk,Reserva_Usuario_fk) VALUES (intinerario(to_date('2018-11-20','yyyy-mm-dd'), to_date('2019-12-10','yyyy-mm-dd')),241,23,19);
+/*Reserva 8*/
+/*8*/ INSERT INTO RESERVA_USUARIO_AUTOMOVIL (Intinerario_reserva_automovil,Modelo_Auto_Oficina_fk,Oficina_fk,Reserva_Usuario_fk) VALUES (intinerario(to_date('2019-02-09','yyyy-mm-dd'), to_date('2019-03-09','yyyy-mm-dd')),237,28,21);
+/*Reserva 9*/
+/*9*/ INSERT INTO RESERVA_USUARIO_AUTOMOVIL (Intinerario_reserva_automovil,Modelo_Auto_Oficina_fk,Oficina_fk,Reserva_Usuario_fk) VALUES (intinerario(to_date('2019-02-09','yyyy-mm-dd'), to_date('2019-03-09','yyyy-mm-dd')),237,28,24);
+/*Reserva 10*/
+/*10*/ INSERT INTO RESERVA_USUARIO_AUTOMOVIL (Intinerario_reserva_automovil,Modelo_Auto_Oficina_fk,Oficina_fk,Reserva_Usuario_fk) VALUES (intinerario(to_date('2019-05-12','yyyy-mm-dd'), to_date('2019-06-13','yyyy-mm-dd')),88,6,25);
+/*Reserva 11*/
+/*11*/ INSERT INTO RESERVA_USUARIO_AUTOMOVIL (Intinerario_reserva_automovil,Modelo_Auto_Oficina_fk,Oficina_fk,Reserva_Usuario_fk) VALUES (intinerario(to_date('2019-05-12','yyyy-mm-dd'), to_date('2019-06-13','yyyy-mm-dd')),86,6,26);
+/*Reserva 12*/
+/*12*/ INSERT INTO RESERVA_USUARIO_AUTOMOVIL (Intinerario_reserva_automovil,Modelo_Auto_Oficina_fk,Oficina_fk,Reserva_Usuario_fk) VALUES (intinerario(to_date('2019-05-12','yyyy-mm-dd'), to_date('2019-06-13','yyyy-mm-dd')),87,6,27);
+/*Reserva 13*/
+/*13*/ INSERT INTO RESERVA_USUARIO_AUTOMOVIL (Intinerario_reserva_automovil,Modelo_Auto_Oficina_fk,Oficina_fk,Reserva_Usuario_fk) VALUES (intinerario(to_date('2018-11-20','yyyy-mm-dd'), to_date('2019-12-10','yyyy-mm-dd')),240,23,28);
