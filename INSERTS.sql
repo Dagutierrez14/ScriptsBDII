@@ -1,4 +1,4 @@
-CREATE OR REPLACE DIRECTORY FOTOS AS 'C:\Imagenes-Inserts';
+CREATE OR REPLACE DIRECTORY FOTOS AS 'D:\Users\Luis\Documents\Base de Datos II\Proyecto\Entrega 3\imagenes';
 ----------------------------------------Lugar-Paises-------------------------------------------------------------------------------
 /*1*/  INSERT INTO LUGAR (Nombre,Tipo) VALUES ('Venezuela','Pais'); 
 /*2*/  INSERT INTO LUGAR (Nombre,Tipo) VALUES ('USA','Pais');
@@ -4675,6 +4675,7 @@ VALUES (intinerario(to_date('2020-01-18 04:00:00','yyyy-mm-dd HH24:MI:SS'),  to_
 /*17*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2020-01-18 11:50:00','yyyy-mm-dd HH24:MI:SS'), 9, 57);
 /*18*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2020-01-18 05:50:00','yyyy-mm-dd HH24:MI:SS'), 9, 58);
 
+
 ---------------------------------------------Tipo_Pago_Tarjeta_Credito------------------------------------------
 INSERT INTO TIPO_PAGO_TARJETA_CREDITO (Divisa,Tipo,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','Master Card','54667962197788962115',1);
 INSERT INTO TIPO_PAGO_TARJETA_CREDITO (Divisa,Tipo,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','Master Card','15457687658555197381',2);
@@ -4819,6 +4820,25 @@ INSERT INTO TIPO_PAGO_TARJETA_DEBITO (Divisa,Numero_tarjeta,Usuario_fk) VALUES (
 /*13*/ INSERT INTO FACTURA_RESERVA (Fecha,Usuario_fk) VALUES (to_date('2018-10-20','yyyy-mm-dd'),26);
 /*14*/ INSERT INTO FACTURA_RESERVA (Fecha,Usuario_fk) VALUES (to_date('2018-10-20','yyyy-mm-dd'),27);
 /*15*/ INSERT INTO FACTURA_RESERVA (Fecha,Usuario_fk) VALUES (to_date('2018-10-20','yyyy-mm-dd'),28);
+------Viaje 4
+/*16*/ INSERT INTO FACTURA_RESERVA (Fecha,Usuario_fk) VALUES (to_date('2018-06-19','yyyy-mm-dd'),29);
+/*17*/ INSERT INTO FACTURA_RESERVA (Fecha,Usuario_fk) VALUES (to_date('2018-06-19','yyyy-mm-dd'),10);
+------Viaje 5
+/*18*/ INSERT INTO FACTURA_RESERVA (Fecha,Usuario_fk) VALUES (to_date('2019-02-03','yyyy-mm-dd'),4);
+------Viaje 6
+/*19*/ INSERT INTO FACTURA_RESERVA (Fecha,Usuario_fk) VALUES (to_date('2018-05-07','yyyy-mm-dd'),20);
+------Viaje 7
+/*20*/ INSERT INTO FACTURA_RESERVA (Fecha,Usuario_fk) VALUES (to_date('2019-12-09','yyyy-mm-dd'),7);
+------Viaje 8
+/*21*/ INSERT INTO FACTURA_RESERVA (Fecha,Usuario_fk) VALUES (to_date('2019-04-12','yyyy-mm-dd'),1);
+------Viaje 9
+/*22*/ INSERT INTO FACTURA_RESERVA (Fecha,Usuario_fk) VALUES (to_date('2019-03-13','yyyy-mm-dd'),27);
+------Viaje 10
+/*23*/ INSERT INTO FACTURA_RESERVA (Fecha,Usuario_fk) VALUES (to_date('2018-05-07','yyyy-mm-dd'),10);
+------Viaje 11
+/*24*/ INSERT INTO FACTURA_RESERVA (Fecha,Usuario_fk) VALUES (to_date('2019-03-13','yyyy-mm-dd'),15);
+------Viaje 12
+/*25*/ INSERT INTO FACTURA_RESERVA (Fecha,Usuario_fk) VALUES (to_date('2019-05-05','yyyy-mm-dd'),19);
 --------------------------------------------RESERVA USUARIO------------------------------------------------
 /*Reserva 1*/
 /*1*/ INSERT INTO RESERVA_USUARIO (Seguro_fk,Usuario_fk,Factura_Reserva_fk) VALUES (1,1,1);
@@ -4865,6 +4885,49 @@ INSERT INTO TIPO_PAGO_TARJETA_DEBITO (Divisa,Numero_tarjeta,Usuario_fk) VALUES (
 /*29*/ INSERT INTO RESERVA_USUARIO (Seguro_fk,Usuario_fk,Factura_Reserva_fk) VALUES (24,27,14);
 /*Reserva 15*/
 /*30*/ INSERT INTO RESERVA_USUARIO (Seguro_fk,Usuario_fk,Factura_Reserva_fk) VALUES (3,28,15);
+/*Reserva 16*/
+/*31*/ INSERT INTO RESERVA_USUARIO (Seguro_fk,Usuario_fk,Factura_Reserva_fk) VALUES (16,29,16);
+/*32*/ INSERT INTO RESERVA_USUARIO (Seguro_fk,Usuario_fk,Factura_Reserva_fk) VALUES (24,30,16);
+/*Reserva 17*/
+/*33*/ INSERT INTO RESERVA_USUARIO (Seguro_fk,Usuario_fk,Factura_Reserva_fk) VALUES (5,10,17);
+/*34*/ INSERT INTO RESERVA_USUARIO (Seguro_fk,Usuario_fk,Factura_Reserva_fk) VALUES (10,11,17);
+/*35*/ INSERT INTO RESERVA_USUARIO (Seguro_fk,Usuario_fk,Factura_Reserva_fk) VALUES (15,12,17);
+/*36*/ INSERT INTO RESERVA_USUARIO (Seguro_fk,Usuario_fk,Factura_Reserva_fk) VALUES (20,13,17);
+/*Reserva 18*/
+/*37*/ INSERT INTO RESERVA_USUARIO (Seguro_fk,Usuario_fk,Factura_Reserva_fk) VALUES (4,4,18);
+/*38*/ INSERT INTO RESERVA_USUARIO (Seguro_fk,Usuario_fk,Factura_Reserva_fk) VALUES (8,5,18);
+/*39*/ INSERT INTO RESERVA_USUARIO (Seguro_fk,Usuario_fk,Factura_Reserva_fk) VALUES (12,6,18);
+/*Reserva 19*/
+/*40*/ INSERT INTO RESERVA_USUARIO (Seguro_fk,Usuario_fk,Factura_Reserva_fk) VALUES (2,21,19);
+/*41*/ INSERT INTO RESERVA_USUARIO (Seguro_fk,Usuario_fk,Factura_Reserva_fk) VALUES (17,22,19);
+/*Reserva 20*/
+/*42*/ INSERT INTO RESERVA_USUARIO (Seguro_fk,Usuario_fk,Factura_Reserva_fk) VALUES (9,7,20);
+/*43*/ INSERT INTO RESERVA_USUARIO (Seguro_fk,Usuario_fk,Factura_Reserva_fk) VALUES (4,8,20);
+/*44*/ INSERT INTO RESERVA_USUARIO (Seguro_fk,Usuario_fk,Factura_Reserva_fk) VALUES (13,9,20);
+/*Reserva 21*/
+/*45*/ INSERT INTO RESERVA_USUARIO (Seguro_fk,Usuario_fk,Factura_Reserva_fk) VALUES (22,1,21);
+/*46*/ INSERT INTO RESERVA_USUARIO (Seguro_fk,Usuario_fk,Factura_Reserva_fk) VALUES (19,2,21);
+/*47*/ INSERT INTO RESERVA_USUARIO (Seguro_fk,Usuario_fk,Factura_Reserva_fk) VALUES (13,3,21);
+/*Reserva 22*/
+/*48*/ INSERT INTO RESERVA_USUARIO (Seguro_fk,Usuario_fk,Factura_Reserva_fk) VALUES (1,27,22);
+/*49*/ INSERT INTO RESERVA_USUARIO (Seguro_fk,Usuario_fk,Factura_Reserva_fk) VALUES (7,28,22);
+/*50*/ INSERT INTO RESERVA_USUARIO (Seguro_fk,Usuario_fk,Factura_Reserva_fk) VALUES (18,29,22);
+/*51*/ INSERT INTO RESERVA_USUARIO (Seguro_fk,Usuario_fk,Factura_Reserva_fk) VALUES (23,30,22);
+/*Reserva 23*/
+/*52*/ INSERT INTO RESERVA_USUARIO (Seguro_fk,Usuario_fk,Factura_Reserva_fk) VALUES (5,10,23);
+/*53*/ INSERT INTO RESERVA_USUARIO (Seguro_fk,Usuario_fk,Factura_Reserva_fk) VALUES (9,11,23);
+/*54*/ INSERT INTO RESERVA_USUARIO (Seguro_fk,Usuario_fk,Factura_Reserva_fk) VALUES (13,12,23);
+/*55*/ INSERT INTO RESERVA_USUARIO (Seguro_fk,Usuario_fk,Factura_Reserva_fk) VALUES (27,13,23);
+/*Reserva 24*/
+/*56*/ INSERT INTO RESERVA_USUARIO (Seguro_fk,Usuario_fk,Factura_Reserva_fk) VALUES (2,15,24);
+/*57*/ INSERT INTO RESERVA_USUARIO (Seguro_fk,Usuario_fk,Factura_Reserva_fk) VALUES (11,16,24);
+/*58*/ INSERT INTO RESERVA_USUARIO (Seguro_fk,Usuario_fk,Factura_Reserva_fk) VALUES (16,17,24);
+/*59*/ INSERT INTO RESERVA_USUARIO (Seguro_fk,Usuario_fk,Factura_Reserva_fk) VALUES (25,18,24);
+/*Reserva 25*/
+/*60*/ INSERT INTO RESERVA_USUARIO (Seguro_fk,Usuario_fk,Factura_Reserva_fk) VALUES (30,19,25);
+/*61*/ INSERT INTO RESERVA_USUARIO (Seguro_fk,Usuario_fk,Factura_Reserva_fk) VALUES (14,20,25);
+/*62*/ INSERT INTO RESERVA_USUARIO (Seguro_fk,Usuario_fk,Factura_Reserva_fk) VALUES (19,21,25);
+/*63*/ INSERT INTO RESERVA_USUARIO (Seguro_fk,Usuario_fk,Factura_Reserva_fk) VALUES (33,22,25);
 ---------------------------------------RESERVA USUARIO VUELO--------------------------------------------------
 /*Reserva 1*/
 /*1*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (5,1,1,18);
@@ -4941,6 +5004,82 @@ INSERT INTO TIPO_PAGO_TARJETA_DEBITO (Divisa,Numero_tarjeta,Usuario_fk) VALUES (
 /*Reserva 15*/
 /*59*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (3,17,30,34);
 /*60*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (3,18,30,34);
+/*Reserva 16*/
+/*61*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (1,21,31,15);
+/*62*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (1,22,31,15);
+/*63*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (2,21,32,15);
+/*64*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (2,22,32,15);
+/*Reserva 17*/
+/*65*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (3,21,33,15);
+/*66*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (3,22,33,15);
+/*67*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (4,21,34,15);
+/*68*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (4,22,34,15);
+/*69*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (5,21,35,15);
+/*70*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (5,22,35,15);
+/*71*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (6,21,36,15);
+/*72*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (6,22,36,15);
+/*Reserva 18*/
+/*73*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (1,31,37,39);
+/*74*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (1,32,37,44);
+/*75*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (2,31,38,39);
+/*76*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (2,32,38,44);
+/*77*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (3,31,39,39);
+/*78*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (3,32,39,44);
+/*Reserva 19*/
+/*79*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (1,42,40,18);
+/*80*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (1,43,40,12);
+/*81*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (2,42,41,18);
+/*82*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (2,43,41,12);
+/*Reserva 20*/
+/*83*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (1,23,42,34);
+/*84*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (1,24,42,4);
+/*85*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (2,23,43,34);
+/*86*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (2,24,43,4);
+/*87*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (3,23,44,34);
+/*88*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (3,24,44,4);
+/*Reserva 21*/
+/*89*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (1,33,45,34);
+/*90*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (1,34,45,59);
+/*91*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (2,33,46,34);
+/*92*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (2,34,46,59);
+/*93*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (3,33,47,34);
+/*94*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (3,34,47,59);
+/*Reserva 22*/
+/*95*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (1,44,48,34);
+/*96*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (1,45,48,15);
+/*97*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (2,44,49,34);
+/*98*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (2,45,49,15);
+/*99*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (3,44,50,34);
+/*100*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (3,45,50,15);
+/*101*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (4,44,51,34);
+/*102*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (4,45,51,15);
+/*Reserva 23*/
+/*103*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (1,46,52,4);
+/*104*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (1,47,52,12);
+/*105*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (2,46,53,4);
+/*106*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (2,47,53,12);
+/*107*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (3,46,54,4);
+/*108*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (3,47,54,12);
+/*109*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (4,46,55,4);
+/*110*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (4,47,55,12);
+/*Reserva 24*/
+/*111*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (1,48,56,2);
+/*112*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (1,49,56,12);
+/*113*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (2,48,57,2);
+/*114*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (2,49,57,12);
+/*115*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (3,48,58,2);
+/*116*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (3,49,58,12);
+/*117*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (3,48,59,2);
+/*118*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (3,49,59,12);
+/*Reserva 25*/
+/*119*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (1,25,60,12);
+/*120*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (1,26,60,12);
+/*121*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (2,25,61,12);
+/*122*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (2,26,61,12);
+/*123*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (3,25,62,12);
+/*124*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (3,26,62,12);
+/*125*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (4,25,63,12);
+/*126*/ INSERT INTO RESERVA_USUARIO_VUELO (Asiento,Vuelo_fk,Reserva_Usuario_fk,Modelo_Avion_clase_fk) VALUES (4,26,63,12);
 -------------------------------------RESERVA USUARIO HABITACION-----------------------------------------------
 /*Reserva 1*/
 /*1*/ INSERT INTO RESERVA_USUARIO_HABITACION (Intinerario_reserva_habitacion,Puntuacion,Habitacion_fk,Reserva_Usuario_fk) VALUES (intinerario(to_date('2019-02-09','yyyy-mm-dd'), to_date('2019-03-09','yyyy-mm-dd')),9,1414,1);
@@ -4987,6 +5126,49 @@ INSERT INTO TIPO_PAGO_TARJETA_DEBITO (Divisa,Numero_tarjeta,Usuario_fk) VALUES (
 /*29*/ INSERT INTO RESERVA_USUARIO_HABITACION (Intinerario_reserva_habitacion,Puntuacion,Habitacion_fk,Reserva_Usuario_fk) VALUES (intinerario(to_date('2018-11-20','yyyy-mm-dd'), to_date('2018-12-10','yyyy-mm-dd')),8,199,29);
 /*Reserva 15*/
 /*30*/ INSERT INTO RESERVA_USUARIO_HABITACION (Intinerario_reserva_habitacion,Puntuacion,Habitacion_fk,Reserva_Usuario_fk) VALUES (intinerario(to_date('2018-11-20','yyyy-mm-dd'), to_date('2018-12-10','yyyy-mm-dd')),8,198,30);
+/*Reserva 16*/
+/*31*/ INSERT INTO RESERVA_USUARIO_HABITACION (Intinerario_reserva_habitacion,Puntuacion,Habitacion_fk,Reserva_Usuario_fk) VALUES (intinerario(to_date('2018-07-19','yyyy-mm-dd'), to_date('2018-07-19','yyyy-mm-dd')),7,1357,31);
+/*32*/ INSERT INTO RESERVA_USUARIO_HABITACION (Intinerario_reserva_habitacion,Puntuacion,Habitacion_fk,Reserva_Usuario_fk) VALUES (intinerario(to_date('2018-07-19','yyyy-mm-dd'), to_date('2018-07-19','yyyy-mm-dd')),8,1357,32);
+/*Reserva 17*/
+/*33*/ INSERT INTO RESERVA_USUARIO_HABITACION (Intinerario_reserva_habitacion,Puntuacion,Habitacion_fk,Reserva_Usuario_fk) VALUES (intinerario(to_date('2018-07-19','yyyy-mm-dd'), to_date('2018-07-19','yyyy-mm-dd')),7,1373,33);
+/*34*/ INSERT INTO RESERVA_USUARIO_HABITACION (Intinerario_reserva_habitacion,Puntuacion,Habitacion_fk,Reserva_Usuario_fk) VALUES (intinerario(to_date('2018-07-19','yyyy-mm-dd'), to_date('2018-07-19','yyyy-mm-dd')),8,1373,34);
+/*35*/ INSERT INTO RESERVA_USUARIO_HABITACION (Intinerario_reserva_habitacion,Puntuacion,Habitacion_fk,Reserva_Usuario_fk) VALUES (intinerario(to_date('2018-07-19','yyyy-mm-dd'), to_date('2018-07-19','yyyy-mm-dd')),7,1373,35);
+/*36*/ INSERT INTO RESERVA_USUARIO_HABITACION (Intinerario_reserva_habitacion,Puntuacion,Habitacion_fk,Reserva_Usuario_fk) VALUES (intinerario(to_date('2018-07-19','yyyy-mm-dd'), to_date('2018-07-19','yyyy-mm-dd')),8,1373,36);
+/*Reserva 18*/
+/*37*/ INSERT INTO RESERVA_USUARIO_HABITACION (Intinerario_reserva_habitacion,Puntuacion,Habitacion_fk,Reserva_Usuario_fk) VALUES (intinerario(to_date('2019-03-03','yyyy-mm-dd'), to_date('2019-04-03','yyyy-mm-dd')),8,801,37);
+/*38*/ INSERT INTO RESERVA_USUARIO_HABITACION (Intinerario_reserva_habitacion,Puntuacion,Habitacion_fk,Reserva_Usuario_fk) VALUES (intinerario(to_date('2019-03-03','yyyy-mm-dd'), to_date('2019-04-03','yyyy-mm-dd')),8,801,38);
+/*39*/ INSERT INTO RESERVA_USUARIO_HABITACION (Intinerario_reserva_habitacion,Puntuacion,Habitacion_fk,Reserva_Usuario_fk) VALUES (intinerario(to_date('2019-03-03','yyyy-mm-dd'), to_date('2019-04-03','yyyy-mm-dd')),9,801,39);
+/*Reserva 19*/
+/*40*/ INSERT INTO RESERVA_USUARIO_HABITACION (Intinerario_reserva_habitacion,Puntuacion,Habitacion_fk,Reserva_Usuario_fk) VALUES (intinerario(to_date('2018-06-07','yyyy-mm-dd'), to_date('2018-07-10','yyyy-mm-dd')),8,213,40);
+/*41*/ INSERT INTO RESERVA_USUARIO_HABITACION (Intinerario_reserva_habitacion,Puntuacion,Habitacion_fk,Reserva_Usuario_fk) VALUES (intinerario(to_date('2018-06-07','yyyy-mm-dd'), to_date('2018-07-10','yyyy-mm-dd')),8,213,41);
+/*Reserva 20*/
+/*42*/ INSERT INTO RESERVA_USUARIO_HABITACION (Intinerario_reserva_habitacion,Puntuacion,Habitacion_fk,Reserva_Usuario_fk) VALUES (intinerario(to_date('2019-01-09','yyyy-mm-dd'), to_date('2019-01-09','yyyy-mm-dd')),9,1378,42);
+/*43*/ INSERT INTO RESERVA_USUARIO_HABITACION (Intinerario_reserva_habitacion,Puntuacion,Habitacion_fk,Reserva_Usuario_fk) VALUES (intinerario(to_date('2019-01-09','yyyy-mm-dd'), to_date('2019-01-09','yyyy-mm-dd')),9,1378,43);
+/*44*/ INSERT INTO RESERVA_USUARIO_HABITACION (Intinerario_reserva_habitacion,Puntuacion,Habitacion_fk,Reserva_Usuario_fk) VALUES (intinerario(to_date('2019-01-09','yyyy-mm-dd'), to_date('2019-01-09','yyyy-mm-dd')),9,1378,44);
+/*Reserva 21*/
+/*45*/ INSERT INTO RESERVA_USUARIO_HABITACION (Intinerario_reserva_habitacion,Puntuacion,Habitacion_fk,Reserva_Usuario_fk) VALUES (intinerario(to_date('2019-05-12','yyyy-mm-dd'), to_date('2019-06-13','yyyy-mm-dd')),9,845,45);
+/*46*/ INSERT INTO RESERVA_USUARIO_HABITACION (Intinerario_reserva_habitacion,Puntuacion,Habitacion_fk,Reserva_Usuario_fk) VALUES (intinerario(to_date('2019-05-12','yyyy-mm-dd'), to_date('2019-06-13','yyyy-mm-dd')),8,845,46);
+/*47*/ INSERT INTO RESERVA_USUARIO_HABITACION (Intinerario_reserva_habitacion,Puntuacion,Habitacion_fk,Reserva_Usuario_fk) VALUES (intinerario(to_date('2019-05-12','yyyy-mm-dd'), to_date('2019-06-13','yyyy-mm-dd')),9,845,47);
+/*Reserva 22*/
+/*48*/ INSERT INTO RESERVA_USUARIO_HABITACION (Intinerario_reserva_habitacion,Puntuacion,Habitacion_fk,Reserva_Usuario_fk) VALUES (intinerario(to_date('2019-04-13','yyyy-mm-dd'), to_date('2019-05-23','yyyy-mm-dd')),8,265,48);
+/*49*/ INSERT INTO RESERVA_USUARIO_HABITACION (Intinerario_reserva_habitacion,Puntuacion,Habitacion_fk,Reserva_Usuario_fk) VALUES (intinerario(to_date('2019-04-13','yyyy-mm-dd'), to_date('2019-05-23','yyyy-mm-dd')),9,265,49);
+/*50*/ INSERT INTO RESERVA_USUARIO_HABITACION (Intinerario_reserva_habitacion,Puntuacion,Habitacion_fk,Reserva_Usuario_fk) VALUES (intinerario(to_date('2019-04-13','yyyy-mm-dd'), to_date('2019-05-23','yyyy-mm-dd')),8,265,50);
+/*51*/ INSERT INTO RESERVA_USUARIO_HABITACION (Intinerario_reserva_habitacion,Puntuacion,Habitacion_fk,Reserva_Usuario_fk) VALUES (intinerario(to_date('2019-04-13','yyyy-mm-dd'), to_date('2019-05-23','yyyy-mm-dd')),8,265,51);
+/*Reserva 23*/
+/*52*/ INSERT INTO RESERVA_USUARIO_HABITACION (Intinerario_reserva_habitacion,Puntuacion,Habitacion_fk,Reserva_Usuario_fk) VALUES (intinerario(to_date('2019-06-07','yyyy-mm-dd'), to_date('2019-07-10','yyyy-mm-dd')),7,221,52);
+/*53*/ INSERT INTO RESERVA_USUARIO_HABITACION (Intinerario_reserva_habitacion,Puntuacion,Habitacion_fk,Reserva_Usuario_fk) VALUES (intinerario(to_date('2019-06-07','yyyy-mm-dd'), to_date('2019-07-10','yyyy-mm-dd')),7,221,53);
+/*54*/ INSERT INTO RESERVA_USUARIO_HABITACION (Intinerario_reserva_habitacion,Puntuacion,Habitacion_fk,Reserva_Usuario_fk) VALUES (intinerario(to_date('2019-06-07','yyyy-mm-dd'), to_date('2019-07-10','yyyy-mm-dd')),7,221,54);
+/*55*/ INSERT INTO RESERVA_USUARIO_HABITACION (Intinerario_reserva_habitacion,Puntuacion,Habitacion_fk,Reserva_Usuario_fk) VALUES (intinerario(to_date('2019-06-07','yyyy-mm-dd'), to_date('2019-07-10','yyyy-mm-dd')),7,221,55);
+/*Reserva 24*/
+/*56*/ INSERT INTO RESERVA_USUARIO_HABITACION (Intinerario_reserva_habitacion,Puntuacion,Habitacion_fk,Reserva_Usuario_fk) VALUES (intinerario(to_date('2019-04-13','yyyy-mm-dd'), to_date('2019-05-23','yyyy-mm-dd')),7,222,56);
+/*57*/ INSERT INTO RESERVA_USUARIO_HABITACION (Intinerario_reserva_habitacion,Puntuacion,Habitacion_fk,Reserva_Usuario_fk) VALUES (intinerario(to_date('2019-04-13','yyyy-mm-dd'), to_date('2019-05-23','yyyy-mm-dd')),7,222,57);
+/*58*/ INSERT INTO RESERVA_USUARIO_HABITACION (Intinerario_reserva_habitacion,Puntuacion,Habitacion_fk,Reserva_Usuario_fk) VALUES (intinerario(to_date('2019-04-13','yyyy-mm-dd'), to_date('2019-05-23','yyyy-mm-dd')),7,222,58);
+/*59*/ INSERT INTO RESERVA_USUARIO_HABITACION (Intinerario_reserva_habitacion,Puntuacion,Habitacion_fk,Reserva_Usuario_fk) VALUES (intinerario(to_date('2019-04-13','yyyy-mm-dd'), to_date('2019-05-23','yyyy-mm-dd')),7,222,59);
+/*Reserva 25*/
+/*60*/ INSERT INTO RESERVA_USUARIO_HABITACION (Intinerario_reserva_habitacion,Puntuacion,Habitacion_fk,Reserva_Usuario_fk) VALUES (intinerario(to_date('2019-06-05','yyyy-mm-dd'), to_date('2019-07-05','yyyy-mm-dd')),8,1369,63);
+/*61*/ INSERT INTO RESERVA_USUARIO_HABITACION (Intinerario_reserva_habitacion,Puntuacion,Habitacion_fk,Reserva_Usuario_fk) VALUES (intinerario(to_date('2019-06-05','yyyy-mm-dd'), to_date('2019-07-05','yyyy-mm-dd')),8,1369,63);
+/*62*/ INSERT INTO RESERVA_USUARIO_HABITACION (Intinerario_reserva_habitacion,Puntuacion,Habitacion_fk,Reserva_Usuario_fk) VALUES (intinerario(to_date('2019-06-05','yyyy-mm-dd'), to_date('2019-07-05','yyyy-mm-dd')),8,1369,63);
+/*63*/ INSERT INTO RESERVA_USUARIO_HABITACION (Intinerario_reserva_habitacion,Puntuacion,Habitacion_fk,Reserva_Usuario_fk) VALUES (intinerario(to_date('2019-06-05','yyyy-mm-dd'), to_date('2019-07-05','yyyy-mm-dd')),8,1369,63);
 ----------------------------------------ESTATUS HABITACION----------------------------------------------------
 /*Reserva 1*/
 /*1*/ INSERT INTO ESTATUS_HABITACION (Fecha,Habitacion_fk,Estatus_fk) VALUES (to_date('2019-02-09','yyyy-mm-dd'),1414,5);
@@ -5024,23 +5206,53 @@ INSERT INTO TIPO_PAGO_TARJETA_DEBITO (Divisa,Numero_tarjeta,Usuario_fk) VALUES (
 /*25*/ INSERT INTO ESTATUS_HABITACION (Fecha,Habitacion_fk,Estatus_fk) VALUES (to_date('2019-02-09','yyyy-mm-dd'),1349,5);
 /*26*/ INSERT INTO ESTATUS_HABITACION (Fecha,Habitacion_fk,Estatus_fk) VALUES (to_date('2019-03-09','yyyy-mm-dd'),1349,6);
 /*Reserva 10*/
-/*25*/ INSERT INTO ESTATUS_HABITACION (Fecha,Habitacion_fk,Estatus_fk) VALUES (to_date('2019-05-12','yyyy-mm-dd'),777,5);
-/*26*/ INSERT INTO ESTATUS_HABITACION (Fecha,Habitacion_fk,Estatus_fk) VALUES (to_date('2019-06-12','yyyy-mm-dd'),777,6);
+/*27*/ INSERT INTO ESTATUS_HABITACION (Fecha,Habitacion_fk,Estatus_fk) VALUES (to_date('2019-05-12','yyyy-mm-dd'),777,5);
+/*28*/ INSERT INTO ESTATUS_HABITACION (Fecha,Habitacion_fk,Estatus_fk) VALUES (to_date('2019-06-12','yyyy-mm-dd'),777,6);
 /*Reserva 11*/
-/*27*/ INSERT INTO ESTATUS_HABITACION (Fecha,Habitacion_fk,Estatus_fk) VALUES (to_date('2019-05-12','yyyy-mm-dd'),778,5);
-/*28*/ INSERT INTO ESTATUS_HABITACION (Fecha,Habitacion_fk,Estatus_fk) VALUES (to_date('2019-06-12','yyyy-mm-dd'),778,6);
+/*29*/ INSERT INTO ESTATUS_HABITACION (Fecha,Habitacion_fk,Estatus_fk) VALUES (to_date('2019-05-12','yyyy-mm-dd'),778,5);
+/*30*/ INSERT INTO ESTATUS_HABITACION (Fecha,Habitacion_fk,Estatus_fk) VALUES (to_date('2019-06-12','yyyy-mm-dd'),778,6);
 /*Reserva 12*/
-/*29*/ INSERT INTO ESTATUS_HABITACION (Fecha,Habitacion_fk,Estatus_fk) VALUES (to_date('2019-05-12','yyyy-mm-dd'),779,5);
-/*30*/ INSERT INTO ESTATUS_HABITACION (Fecha,Habitacion_fk,Estatus_fk) VALUES (to_date('2019-06-12','yyyy-mm-dd'),779,6);
+/*31*/ INSERT INTO ESTATUS_HABITACION (Fecha,Habitacion_fk,Estatus_fk) VALUES (to_date('2019-05-12','yyyy-mm-dd'),779,5);
+/*32*/ INSERT INTO ESTATUS_HABITACION (Fecha,Habitacion_fk,Estatus_fk) VALUES (to_date('2019-06-12','yyyy-mm-dd'),779,6);
 /*Reserva 13*/
-/*31*/ INSERT INTO ESTATUS_HABITACION (Fecha,Habitacion_fk,Estatus_fk) VALUES (to_date('2018-11-20','yyyy-mm-dd'),200,5);
-/*32*/ INSERT INTO ESTATUS_HABITACION (Fecha,Habitacion_fk,Estatus_fk) VALUES (to_date('2018-12-10','yyyy-mm-dd'),200,6);
+/*33*/ INSERT INTO ESTATUS_HABITACION (Fecha,Habitacion_fk,Estatus_fk) VALUES (to_date('2018-11-20','yyyy-mm-dd'),200,5);
+/*34*/ INSERT INTO ESTATUS_HABITACION (Fecha,Habitacion_fk,Estatus_fk) VALUES (to_date('2018-12-10','yyyy-mm-dd'),200,6);
 /*Reserva 14*/
-/*31*/ INSERT INTO ESTATUS_HABITACION (Fecha,Habitacion_fk,Estatus_fk) VALUES (to_date('2018-11-20','yyyy-mm-dd'),199,5);
-/*32*/ INSERT INTO ESTATUS_HABITACION (Fecha,Habitacion_fk,Estatus_fk) VALUES (to_date('2018-12-10','yyyy-mm-dd'),199,6);
+/*35*/ INSERT INTO ESTATUS_HABITACION (Fecha,Habitacion_fk,Estatus_fk) VALUES (to_date('2018-11-20','yyyy-mm-dd'),199,5);
+/*36*/ INSERT INTO ESTATUS_HABITACION (Fecha,Habitacion_fk,Estatus_fk) VALUES (to_date('2018-12-10','yyyy-mm-dd'),199,6);
 /*Reserva 15*/
-/*31*/ INSERT INTO ESTATUS_HABITACION (Fecha,Habitacion_fk,Estatus_fk) VALUES (to_date('2018-11-20','yyyy-mm-dd'),198,5);
-/*32*/ INSERT INTO ESTATUS_HABITACION (Fecha,Habitacion_fk,Estatus_fk) VALUES (to_date('2018-12-10','yyyy-mm-dd'),198,6);
+/*37*/ INSERT INTO ESTATUS_HABITACION (Fecha,Habitacion_fk,Estatus_fk) VALUES (to_date('2018-11-20','yyyy-mm-dd'),198,5);
+/*38*/ INSERT INTO ESTATUS_HABITACION (Fecha,Habitacion_fk,Estatus_fk) VALUES (to_date('2018-12-10','yyyy-mm-dd'),198,6);
+/*Reserva 16*/
+/*39*/ INSERT INTO ESTATUS_HABITACION (Fecha,Habitacion_fk,Estatus_fk) VALUES (to_date('2018-07-19','yyyy-mm-dd'),1357,5);
+/*40*/ INSERT INTO ESTATUS_HABITACION (Fecha,Habitacion_fk,Estatus_fk) VALUES (to_date('2018-08-19','yyyy-mm-dd'),1357,6);
+/*Reserva 17*/
+/*41*/ INSERT INTO ESTATUS_HABITACION (Fecha,Habitacion_fk,Estatus_fk) VALUES (to_date('2018-07-19','yyyy-mm-dd'),1373,5);
+/*42*/ INSERT INTO ESTATUS_HABITACION (Fecha,Habitacion_fk,Estatus_fk) VALUES (to_date('2018-08-19','yyyy-mm-dd'),1373,6);
+/*Reserva 18*/
+/*43*/ INSERT INTO ESTATUS_HABITACION (Fecha,Habitacion_fk,Estatus_fk) VALUES (to_date('2019-03-03','yyyy-mm-dd'),801,5);
+/*44*/ INSERT INTO ESTATUS_HABITACION (Fecha,Habitacion_fk,Estatus_fk) VALUES (to_date('2019-04-03','yyyy-mm-dd'),801,6);
+/*Reserva 19*/
+/*45*/ INSERT INTO ESTATUS_HABITACION (Fecha,Habitacion_fk,Estatus_fk) VALUES (to_date('2018-06-07','yyyy-mm-dd'),213,5);
+/*46*/ INSERT INTO ESTATUS_HABITACION (Fecha,Habitacion_fk,Estatus_fk) VALUES (to_date('2018-07-10','yyyy-mm-dd'),213,6);
+/*Reserva 20*/
+/*47*/ INSERT INTO ESTATUS_HABITACION (Fecha,Habitacion_fk,Estatus_fk) VALUES (to_date('2019-01-09','yyyy-mm-dd'),1378,5);
+/*48*/ INSERT INTO ESTATUS_HABITACION (Fecha,Habitacion_fk,Estatus_fk) VALUES (to_date('2019-02-09','yyyy-mm-dd'),1378,6);
+/*Reserva 21*/
+/*49*/ INSERT INTO ESTATUS_HABITACION (Fecha,Habitacion_fk,Estatus_fk) VALUES (to_date('2019-05-12','yyyy-mm-dd'),845,5);
+/*50*/ INSERT INTO ESTATUS_HABITACION (Fecha,Habitacion_fk,Estatus_fk) VALUES (to_date('2019-06-13','yyyy-mm-dd'),845,6);
+/*Reserva 22*/
+/*51*/ INSERT INTO ESTATUS_HABITACION (Fecha,Habitacion_fk,Estatus_fk) VALUES (to_date('2019-04-13','yyyy-mm-dd'),265,5);
+/*52*/ INSERT INTO ESTATUS_HABITACION (Fecha,Habitacion_fk,Estatus_fk) VALUES (to_date('2019-05-23','yyyy-mm-dd'),265,6);
+/*Reserva 23*/
+/*53*/ INSERT INTO ESTATUS_HABITACION (Fecha,Habitacion_fk,Estatus_fk) VALUES (to_date('2019-06-07','yyyy-mm-dd'),221,5);
+/*55*/ INSERT INTO ESTATUS_HABITACION (Fecha,Habitacion_fk,Estatus_fk) VALUES (to_date('2019-07-10','yyyy-mm-dd'),221,6);
+/*Reserva 24*/
+/*51*/ INSERT INTO ESTATUS_HABITACION (Fecha,Habitacion_fk,Estatus_fk) VALUES (to_date('2019-04-13','yyyy-mm-dd'),222,5);
+/*52*/ INSERT INTO ESTATUS_HABITACION (Fecha,Habitacion_fk,Estatus_fk) VALUES (to_date('2019-05-23','yyyy-mm-dd'),222,6);
+/*Reserva 25*/
+/*53*/ INSERT INTO ESTATUS_HABITACION (Fecha,Habitacion_fk,Estatus_fk) VALUES (to_date('2019-06-05','yyyy-mm-dd'),1369,5);
+/*54*/ INSERT INTO ESTATUS_HABITACION (Fecha,Habitacion_fk,Estatus_fk) VALUES (to_date('2019-07-05','yyyy-mm-dd'),1369,6);
 ----------------------------------------RESERVA USUARIO AUTOMOVIL-----------------------------------------
 /*Reserva 1*/
 /*1*/ INSERT INTO RESERVA_USUARIO_AUTOMOVIL (Intinerario_reserva_automovil,Modelo_Auto_Oficina_fk,Oficina_fk,Reserva_Usuario_fk) VALUES (intinerario(to_date('2019-02-09','yyyy-mm-dd'), to_date('2019-03-09','yyyy-mm-dd')),227,28,1);
@@ -5068,3 +5280,17 @@ INSERT INTO TIPO_PAGO_TARJETA_DEBITO (Divisa,Numero_tarjeta,Usuario_fk) VALUES (
 /*12*/ INSERT INTO RESERVA_USUARIO_AUTOMOVIL (Intinerario_reserva_automovil,Modelo_Auto_Oficina_fk,Oficina_fk,Reserva_Usuario_fk) VALUES (intinerario(to_date('2019-05-12','yyyy-mm-dd'), to_date('2019-06-13','yyyy-mm-dd')),87,6,27);
 /*Reserva 13*/
 /*13*/ INSERT INTO RESERVA_USUARIO_AUTOMOVIL (Intinerario_reserva_automovil,Modelo_Auto_Oficina_fk,Oficina_fk,Reserva_Usuario_fk) VALUES (intinerario(to_date('2018-11-20','yyyy-mm-dd'), to_date('2019-12-10','yyyy-mm-dd')),240,23,28);
+/*Reserva 16*/
+/*14*/ INSERT INTO RESERVA_USUARIO_AUTOMOVIL (Intinerario_reserva_automovil,Modelo_Auto_Oficina_fk,Oficina_fk,Reserva_Usuario_fk) VALUES (intinerario(to_date('2018-07-19','yyyy-mm-dd'), to_date('2018-07-19','yyyy-mm-dd')),246,23,31);
+/*Reserva 17*/
+/*15*/ INSERT INTO RESERVA_USUARIO_AUTOMOVIL (Intinerario_reserva_automovil,Modelo_Auto_Oficina_fk,Oficina_fk,Reserva_Usuario_fk) VALUES (intinerario(to_date('2018-07-19','yyyy-mm-dd'), to_date('2018-07-19','yyyy-mm-dd')),242,23,33);
+/*Reserva 18*/
+/*16*/ INSERT INTO RESERVA_USUARIO_AUTOMOVIL (Intinerario_reserva_automovil,Modelo_Auto_Oficina_fk,Oficina_fk,Reserva_Usuario_fk) VALUES (intinerario(to_date('2019-03-03','yyyy-mm-dd'), to_date('2019-04-03','yyyy-mm-dd')),13,1,37);
+/*Reserva 19*/
+/*17*/ INSERT INTO RESERVA_USUARIO_AUTOMOVIL (Intinerario_reserva_automovil,Modelo_Auto_Oficina_fk,Oficina_fk,Reserva_Usuario_fk) VALUES (intinerario(to_date('2019-03-03','yyyy-mm-dd'), to_date('2019-04-03','yyyy-mm-dd')),252,23,48);
+/*Reserva 22*/
+/*18*/ INSERT INTO RESERVA_USUARIO_AUTOMOVIL (Intinerario_reserva_automovil,Modelo_Auto_Oficina_fk,Oficina_fk,Reserva_Usuario_fk) VALUES (intinerario(to_date('2019-04-13','yyyy-mm-dd'), to_date('2019-05-23','yyyy-mm-dd')),246,23,48);
+/*Reserva 23*/
+/*19*/ INSERT INTO RESERVA_USUARIO_AUTOMOVIL (Intinerario_reserva_automovil,Modelo_Auto_Oficina_fk,Oficina_fk,Reserva_Usuario_fk) VALUES (intinerario(to_date('2019-06-07','yyyy-mm-dd'), to_date('2019-07-10','yyyy-mm-dd')),245,23,52);
+/*Reserva 24*/
+/*20*/ INSERT INTO RESERVA_USUARIO_AUTOMOVIL (Intinerario_reserva_automovil,Modelo_Auto_Oficina_fk,Oficina_fk,Reserva_Usuario_fk) VALUES (intinerario(to_date('2019-04-13','yyyy-mm-dd'), to_date('2019-05-23','yyyy-mm-dd')),248,23,56);
