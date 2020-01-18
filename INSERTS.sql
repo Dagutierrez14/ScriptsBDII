@@ -4381,6 +4381,41 @@ VALUES (intinerario(to_date('2019-04-13 10:25:00','yyyy-mm-dd HH24:MI:SS'), to_d
 /*49x*/ INSERT INTO VUELO (Intinerario_estimado, Intinerario_real, Distancia_recorrida, Precio_base_vuelo, Aeropuerto_salida_fk, Aeropuerto_llegada_fk, Modelo_avion_aerolinea_fk) 
 VALUES (intinerario(to_date('2019-05-23 04:25:00','yyyy-mm-dd HH24:MI:SS'),  to_date('2019-05-23 05:50:00','yyyy-mm-dd HH24:MI:SS')), intinerario(to_date('2019-05-23 04:25:00','yyyy-mm-dd HH24:MI:SS'), to_date( '2019-05-23 05:50:00','yyyy-mm-dd HH24:MI:SS')), 572, datosprecio(195), 2, 9, 87);
 
+---NO INICIADO---
+/*50+*/  INSERT INTO VUELO (Intinerario_estimado, Intinerario_real, Distancia_recorrida, Precio_base_vuelo, Aeropuerto_salida_fk, Aeropuerto_llegada_fk, Modelo_avion_aerolinea_fk) 
+VALUES (intinerario(to_date('2020-01-18 18:00:00','yyyy-mm-dd HH24:MI:SS'), to_date( '2020-01-19 03:30:00','yyyy-mm-dd HH24:MI:SS')), intinerario(NULL, NULL), 8755, datosprecio(150), 6, 24, 65);
+/*51x*/ INSERT INTO VUELO (Intinerario_estimado, Intinerario_real, Distancia_recorrida, Precio_base_vuelo, Aeropuerto_salida_fk, Aeropuerto_llegada_fk, Modelo_avion_aerolinea_fk) 
+VALUES (intinerario(to_date('2020-01-18 15:50:00','yyyy-mm-dd HH24:MI:SS'), to_date( '2020-01-18 15:50:00','yyyy-mm-dd HH24:MI:SS')), intinerario(NULL, NULL), 915, datosprecio(260), 2, 10, 3);
+
+---RETRASADO----
+/*52x*/ INSERT INTO VUELO (Intinerario_estimado, Intinerario_real, Distancia_recorrida, Precio_base_vuelo, Aeropuerto_salida_fk, Aeropuerto_llegada_fk, Modelo_avion_aerolinea_fk) 
+VALUES (intinerario(to_date('2020-01-18 14:30:00','yyyy-mm-dd HH24:MI:SS'), to_date( '2020-01-18 16:30:00','yyyy-mm-dd HH24:MI:SS')), intinerario(NULL, NULL), 915, datosprecio(260), 10, 2, 3);
+/*53*/ INSERT INTO VUELO (Intinerario_estimado, Intinerario_real, Distancia_recorrida, Precio_base_vuelo, Aeropuerto_salida_fk, Aeropuerto_llegada_fk, Modelo_avion_aerolinea_fk) 
+VALUES (intinerario(to_date('2020-01-18 14:00:00','yyyy-mm-dd HH24:MI:SS'), to_date( '2020-01-19 10:50:00','yyyy-mm-dd HH24:MI:SS')), intinerario(NULL, NULL), 10003, datosprecio(395), 18, 20, 20);
+
+----ABORDANDO----
+/*54*/ INSERT INTO VUELO (Intinerario_estimado, Intinerario_real, Distancia_recorrida, Precio_base_vuelo, Aeropuerto_salida_fk, Aeropuerto_llegada_fk, Modelo_avion_aerolinea_fk) 
+VALUES (intinerario(to_date('2020-01-18 13:30:00','yyyy-mm-dd HH24:MI:SS'), to_date( '2020-01-19 00:50:00','yyyy-mm-dd HH24:MI:SS')), intinerario(NULL, NULL), 9655, datosprecio(410), 23, 27, 36);
+/*55*/ INSERT INTO VUELO (Intinerario_estimado, Intinerario_real, Distancia_recorrida, Precio_base_vuelo, Aeropuerto_salida_fk, Aeropuerto_llegada_fk, Modelo_avion_aerolinea_fk) 
+VALUES (intinerario(to_date('2020-01-18 14:15:00','yyyy-mm-dd HH24:MI:SS'), to_date( '2020-01-19 02:35:00','yyyy-mm-dd HH24:MI:SS')), intinerario(NULL, NULL), 9436, datosprecio(270), 15, 19, 76 );
+
+----EN TRANSITO---
+/*56*/ INSERT INTO VUELO (Intinerario_estimado, Intinerario_real, Distancia_recorrida, Precio_base_vuelo, Aeropuerto_salida_fk, Aeropuerto_llegada_fk, Modelo_avion_aerolinea_fk) 
+VALUES (intinerario(to_date('2020-01-18 04:00:00','yyyy-mm-dd HH24:MI:SS'), to_date( '2020-01-18 23:00:00','yyyy-mm-dd HH24:MI:SS')), intinerario(to_date('2020-01-18 04:00:00','yyyy-mm-dd HH24:MI:SS'), NULL), 13205, datosprecio(145), 22, 7, 37);
+
+----ATERRIZO------
+/*57x*/ INSERT INTO VUELO (Intinerario_estimado, Intinerario_real, Distancia_recorrida, Precio_base_vuelo, Aeropuerto_salida_fk, Aeropuerto_llegada_fk, Modelo_avion_aerolinea_fk) 
+VALUES (intinerario(to_date('2020-01-18 10:25:00','yyyy-mm-dd HH24:MI:SS'), to_date( '2020-01-18 11:50:00','yyyy-mm-dd HH24:MI:SS')), intinerario(to_date('2020-01-18 10:25:00','yyyy-mm-dd HH24:MI:SS'), to_date( '2020-01-18 11:50:00','yyyy-mm-dd HH24:MI:SS')), 572, datosprecio(195), 9, 4, 40);
+/*58x*/ INSERT INTO VUELO (Intinerario_estimado, Intinerario_real, Distancia_recorrida, Precio_base_vuelo, Aeropuerto_salida_fk, Aeropuerto_llegada_fk, Modelo_avion_aerolinea_fk) 
+VALUES (intinerario(to_date('2020-01-18 04:25:00','yyyy-mm-dd HH24:MI:SS'),  to_date('2020-01-18 05:50:00','yyyy-mm-dd HH24:MI:SS')), intinerario(to_date('2020-01-18 04:25:00','yyyy-mm-dd HH24:MI:SS'), to_date( '2020-01-18 05:50:00','yyyy-mm-dd HH24:MI:SS')), 572, datosprecio(195), 4, 9, 40);
+
+
+----EN TRANSITO---
+/*59*/ INSERT INTO VUELO (Intinerario_estimado, Intinerario_real, Distancia_recorrida, Precio_base_vuelo, Aeropuerto_salida_fk, Aeropuerto_llegada_fk, Modelo_avion_aerolinea_fk) 
+VALUES (intinerario(to_date('2020-01-18 10:25:00','yyyy-mm-dd HH24:MI:SS'), to_date( '2020-01-18 23:10:00','yyyy-mm-dd HH24:MI:SS')), intinerario(to_date('2020-01-18 10:25:00','yyyy-mm-dd HH24:MI:SS'), NULL), 8222, datosprecio(195), 16, 25, 40);
+/*60*/ INSERT INTO VUELO (Intinerario_estimado, Intinerario_real, Distancia_recorrida, Precio_base_vuelo, Aeropuerto_salida_fk, Aeropuerto_llegada_fk, Modelo_avion_aerolinea_fk) 
+VALUES (intinerario(to_date('2020-01-18 04:00:00','yyyy-mm-dd HH24:MI:SS'),  to_date('2020-01-18 15:50:00','yyyy-mm-dd HH24:MI:SS')), intinerario(to_date('2020-01-18 04:00:00','yyyy-mm-dd HH24:MI:SS'), NULL), 9460, datosprecio(195), 26, 19, 40);
+
 ---------------------------------------------------------Estatus Vuelo----------------------------------------------------------------------
 ----No iniciado - (1 dia antes)----
 /*1*/  INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-02-08 00:45:00','yyyy-mm-dd HH24:MI:SS'), 8, 1);
@@ -4408,8 +4443,8 @@ VALUES (intinerario(to_date('2019-05-23 04:25:00','yyyy-mm-dd HH24:MI:SS'),  to_
 /*22*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2018-08-18 04:00:00','yyyy-mm-dd HH24:MI:SS'), 8, 22);
 /*23*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-01-08 00:45:00','yyyy-mm-dd HH24:MI:SS'), 8, 23);
 /*24*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-02-08 04:00:00','yyyy-mm-dd HH24:MI:SS'), 8, 24);
-/*25*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-06-06 00:45:00','yyyy-mm-dd HH24:MI:SS'), 8, 25);
-/*26*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-07-06 04:00:00','yyyy-mm-dd HH24:MI:SS'), 8, 26);
+/*25*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-06-04 00:45:00','yyyy-mm-dd HH24:MI:SS'), 8, 25);
+/*26*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-07-04 04:00:00','yyyy-mm-dd HH24:MI:SS'), 8, 26);
 /*27*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-01-07 00:45:00','yyyy-mm-dd HH24:MI:SS'), 8, 27);
 /*28*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-02-08 04:00:00','yyyy-mm-dd HH24:MI:SS'), 8, 28);
 /*29*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-06-04 00:45:00','yyyy-mm-dd HH24:MI:SS'), 8, 29);
@@ -4434,10 +4469,27 @@ VALUES (intinerario(to_date('2019-05-23 04:25:00','yyyy-mm-dd HH24:MI:SS'),  to_
 /*48*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-04-12 10:25:00','yyyy-mm-dd HH24:MI:SS'), 8, 48);
 /*49*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-05-22 04:25:00','yyyy-mm-dd HH24:MI:SS'), 8, 49);
 
+
+/*10*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2020-01-17 18:00:00','yyyy-mm-dd HH24:MI:SS'), 8, 50);
+/*11*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2020-01-17 15:50:00','yyyy-mm-dd HH24:MI:SS'), 8, 51);
+/*12*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2020-01-17 14:30:00','yyyy-mm-dd HH24:MI:SS'), 8, 52);
+/*13*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2020-01-17 14:00:00','yyyy-mm-dd HH24:MI:SS'), 8, 53);
+/*14*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2020-01-17 13:30:00','yyyy-mm-dd HH24:MI:SS'), 8, 54);
+/*15*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2020-01-17 14:15:00','yyyy-mm-dd HH24:MI:SS'), 8, 55);
+/*16*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2020-01-17 04:00:00','yyyy-mm-dd HH24:MI:SS'), 8, 56);
+/*17*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2020-01-17 10:25:00','yyyy-mm-dd HH24:MI:SS'), 8, 57);
+/*18*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2020-01-17 04:25:00','yyyy-mm-dd HH24:MI:SS'), 8, 58);
+/*19*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2020-01-17 10:25:00','yyyy-mm-dd HH24:MI:SS'), 8, 59);
+/*20*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2020-01-17 04:00:00','yyyy-mm-dd HH24:MI:SS'), 8, 60);
+
 ----Retrasado- (2 horas antes)----
 /*50*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-07-10 02:00:00','yyyy-mm-dd HH24:MI:SS'), 3, 4);
 /*51*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2018-10-12 17:30:00','yyyy-mm-dd HH24:MI:SS'), 3, 7);
 /*52*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-04-16 11:00:00','yyyy-mm-dd HH24:MI:SS'), 3, 10);
+
+
+/*51*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2020-01-18 12:30:00','yyyy-mm-dd HH24:MI:SS'), 3, 52);
+/*52*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2020-01-18 12:00:00','yyyy-mm-dd HH24:MI:SS'), 3, 53);
 
 ----Abordando - (1 hora antes)----
 /*53*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-02-09 00:00:00','yyyy-mm-dd HH24:MI:SS'), 2, 1);
@@ -4491,6 +4543,19 @@ VALUES (intinerario(to_date('2019-05-23 04:25:00','yyyy-mm-dd HH24:MI:SS'),  to_
 /*100*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-04-13 09:25:00','yyyy-mm-dd HH24:MI:SS'), 2, 48);
 /*101*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-05-23 03:25:00','yyyy-mm-dd HH24:MI:SS'), 2, 49);
 
+
+
+
+/*14*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2020-01-18 12:30:00','yyyy-mm-dd HH24:MI:SS'), 2, 54);
+/*15*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2020-01-18 13:15:00','yyyy-mm-dd HH24:MI:SS'), 2, 55);
+/*16*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2020-01-18 03:00:00','yyyy-mm-dd HH24:MI:SS'), 2, 56);
+/*17*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2020-01-18 09:25:00','yyyy-mm-dd HH24:MI:SS'), 2, 57);
+/*18*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2020-01-18 03:25:00','yyyy-mm-dd HH24:MI:SS'), 2, 58);
+/*19*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2020-01-18 09:25:00','yyyy-mm-dd HH24:MI:SS'), 2, 59);
+/*20*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2020-01-18 03:00:00','yyyy-mm-dd HH24:MI:SS'), 2, 60);
+
+
+
 ----En tránsito (fecha inicio real deja de ser null)----
 /*102*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-02-09 00:45:00','yyyy-mm-dd HH24:MI:SS'), 7, 1);
 /*103*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-03-09 04:00:00','yyyy-mm-dd HH24:MI:SS'), 7, 2);
@@ -4543,6 +4608,16 @@ VALUES (intinerario(to_date('2019-05-23 04:25:00','yyyy-mm-dd HH24:MI:SS'),  to_
 /*149*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-04-13 10:25:00','yyyy-mm-dd HH24:MI:SS'), 7, 48);
 /*150*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-05-23 04:25:00','yyyy-mm-dd HH24:MI:SS'), 7, 49);
 
+
+
+
+/*16*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2020-01-18 04:00:00','yyyy-mm-dd HH24:MI:SS'), 7, 56);
+/*17*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2020-01-18 10:25:00','yyyy-mm-dd HH24:MI:SS'), 7, 57);
+/*18*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2020-01-18 04:25:00','yyyy-mm-dd HH24:MI:SS'), 7, 58);
+/*19*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2020-01-18 10:25:00','yyyy-mm-dd HH24:MI:SS'), 7, 59);
+/*20*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2020-01-18 04:00:00','yyyy-mm-dd HH24:MI:SS'), 7, 60);
+
+
 ----Aterrizo (fecha fin real deja de ser null)----
 /*151*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date( '2019-02-09 07:45:00','yyyy-mm-dd HH24:MI:SS'), 9, 1);
 /*152*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date( '2019-03-09 11:00:00','yyyy-mm-dd HH24:MI:SS'), 9, 2);
@@ -4565,36 +4640,40 @@ VALUES (intinerario(to_date('2019-05-23 04:25:00','yyyy-mm-dd HH24:MI:SS'),  to_
 /*169*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date( '2018-07-14 23:10:00','yyyy-mm-dd HH24:MI:SS'), 9, 19);
 /*170*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date( '2019-06-24 15:50:00','yyyy-mm-dd HH24:MI:SS'), 9, 20);
 
-/*171*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2018-07-19 00:45:00','yyyy-mm-dd HH24:MI:SS'), 9, 21);
-/*172*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2018-08-19 04:00:00','yyyy-mm-dd HH24:MI:SS'), 9, 22);
-/*173*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-01-09 00:45:00','yyyy-mm-dd HH24:MI:SS'), 9, 23);
-/*174*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-02-09 04:00:00','yyyy-mm-dd HH24:MI:SS'), 9, 24);
-/*175*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-06-05 00:45:00','yyyy-mm-dd HH24:MI:SS'), 9, 25);
-/*176*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-07-05 04:00:00','yyyy-mm-dd HH24:MI:SS'), 9, 26);
-/*177*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-01-09 00:45:00','yyyy-mm-dd HH24:MI:SS'), 9, 27);
-/*178*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-02-09 04:00:00','yyyy-mm-dd HH24:MI:SS'), 9, 28);
-/*179*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-06-05 00:45:00','yyyy-mm-dd HH24:MI:SS'), 9, 29);
-/*180*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-07-05 04:00:00','yyyy-mm-dd HH24:MI:SS'), 9, 30);
-/*181*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-03-03 02:50:00','yyyy-mm-dd HH24:MI:SS'), 9, 31);
-/*182*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-04-04 12:30:00','yyyy-mm-dd HH24:MI:SS'), 9, 32);
-/*183*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-05-12 02:50:00','yyyy-mm-dd HH24:MI:SS'), 9, 33);
-/*184*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-06-13 12:30:00','yyyy-mm-dd HH24:MI:SS'), 9, 34);
-/*185*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2018-12-12 02:50:00','yyyy-mm-dd HH24:MI:SS'), 9, 35);
-/*186*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-01-13 12:30:00','yyyy-mm-dd HH24:MI:SS'), 9, 36);
-/*187*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-07-17 02:50:00','yyyy-mm-dd HH24:MI:SS'), 9, 37);
-/*188*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-08-18 12:30:00','yyyy-mm-dd HH24:MI:SS'), 9, 38);
-/*189*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-01-13 12:30:00','yyyy-mm-dd HH24:MI:SS'), 9, 39);
-/*190*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-07-17 02:50:00','yyyy-mm-dd HH24:MI:SS'), 9, 40);
-/*191*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-08-18 12:30:00','yyyy-mm-dd HH24:MI:SS'), 9, 41);
-/*192*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2018-06-07 10:25:00','yyyy-mm-dd HH24:MI:SS'), 9, 42);
-/*193*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2018-07-10 04:25:00','yyyy-mm-dd HH24:MI:SS'), 9, 43);
-/*194*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-04-13 10:25:00','yyyy-mm-dd HH24:MI:SS'), 9, 44);
-/*195*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-05-23 04:25:00','yyyy-mm-dd HH24:MI:SS'), 9, 45);
-/*196*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2018-06-07 10:25:00','yyyy-mm-dd HH24:MI:SS'), 9, 46);
-/*197*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2018-07-10 04:25:00','yyyy-mm-dd HH24:MI:SS'), 9, 47);
-/*198*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-04-13 10:25:00','yyyy-mm-dd HH24:MI:SS'), 9, 48);
-/*199*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-05-23 04:25:00','yyyy-mm-dd HH24:MI:SS'), 9, 49);
+/*171*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2018-07-19 07:45:00','yyyy-mm-dd HH24:MI:SS'), 9, 21);
+/*172*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2018-08-19 11:00:00','yyyy-mm-dd HH24:MI:SS'), 9, 22);
+/*173*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-01-09 07:45:00','yyyy-mm-dd HH24:MI:SS'), 9, 23);
+/*174*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-02-09 11:00:00','yyyy-mm-dd HH24:MI:SS'), 9, 24);
+/*175*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-06-05 07:45:00','yyyy-mm-dd HH24:MI:SS'), 9, 25);
+/*176*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-07-05 11:00:00','yyyy-mm-dd HH24:MI:SS'), 9, 26);
+/*177*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-01-09 07:45:00','yyyy-mm-dd HH24:MI:SS'), 9, 27);
+/*178*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-02-09 11:00:00','yyyy-mm-dd HH24:MI:SS'), 9, 28);
+/*179*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-06-05 07:45:00','yyyy-mm-dd HH24:MI:SS'), 9, 29);
+/*180*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-07-05 11:00:00','yyyy-mm-dd HH24:MI:SS'), 9, 30);
+/*181*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-03-03 04:50:00','yyyy-mm-dd HH24:MI:SS'), 9, 31);
+/*182*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-04-04 14:30:00','yyyy-mm-dd HH24:MI:SS'), 9, 32);
+/*183*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-05-12 04:50:00','yyyy-mm-dd HH24:MI:SS'), 9, 33);
+/*184*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-06-13 14:30:00','yyyy-mm-dd HH24:MI:SS'), 9, 34);
+/*185*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2018-12-12 04:50:00','yyyy-mm-dd HH24:MI:SS'), 9, 35);
+/*186*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-01-13 14:30:00','yyyy-mm-dd HH24:MI:SS'), 9, 36);
+/*187*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-07-17 04:50:00','yyyy-mm-dd HH24:MI:SS'), 9, 37);
+/*188*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-08-18 14:30:00','yyyy-mm-dd HH24:MI:SS'), 9, 38);
+/*189*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-01-13 14:30:00','yyyy-mm-dd HH24:MI:SS'), 9, 39);
+/*190*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-07-17 04:50:00','yyyy-mm-dd HH24:MI:SS'), 9, 40);
+/*191*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-08-18 14:30:00','yyyy-mm-dd HH24:MI:SS'), 9, 41);
+/*192*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2018-06-07 11:50:00','yyyy-mm-dd HH24:MI:SS'), 9, 42);
+/*193*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2018-07-10 05:50:00','yyyy-mm-dd HH24:MI:SS'), 9, 43);
+/*194*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-04-13 11:50:00','yyyy-mm-dd HH24:MI:SS'), 9, 44);
+/*195*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-05-23 05:50:00','yyyy-mm-dd HH24:MI:SS'), 9, 45);
+/*196*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2018-06-07 11:50:00','yyyy-mm-dd HH24:MI:SS'), 9, 46);
+/*197*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2018-07-10 05:50:00','yyyy-mm-dd HH24:MI:SS'), 9, 47);
+/*198*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-04-13 11:50:00','yyyy-mm-dd HH24:MI:SS'), 9, 48);
+/*199*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2019-05-23 05:50:00','yyyy-mm-dd HH24:MI:SS'), 9, 49);
 
+
+
+/*17*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2020-01-18 11:50:00','yyyy-mm-dd HH24:MI:SS'), 9, 57);
+/*18*/ INSERT INTO ESTATUS_VUELO (Fecha, Estatus_fk, Vuelo_fk) VALUES (to_date('2020-01-18 05:50:00','yyyy-mm-dd HH24:MI:SS'), 9, 58);
 
 ---------------------------------------------Tipo_Pago_Tarjeta_Credito------------------------------------------
 INSERT INTO TIPO_PAGO_TARJETA_CREDITO (Divisa,Tipo,Numero_tarjeta,Usuario_fk) VALUES ('Dolar','Master Card','54667962197788962115',1);

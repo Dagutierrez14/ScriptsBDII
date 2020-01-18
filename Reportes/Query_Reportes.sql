@@ -293,14 +293,58 @@ ROUND(MAO.precio_dia_auto.precio_por_dia(MAO.precio_dia_auto.precio, RUA.intiner
 -----------------------------QUERY REPORTE 12--------------------------- 
 
 
-SELECT V.intinerario_estimado.fecha_inicio, LOC.nombre || ' (' || AEO.iata || '), ' || LOP.nombre AS "Origen", LDC.nombre || ' (' || AED.iata || '), ' || LDP.nombre AS "Destino", A.datos_aerolinea
+SELECT V.intinerario_estimado.fecha_inicio, LOC.nombre || ' (' || AEO.iata || '), ' || LOP.nombre AS "Origen", LDC.nombre || ' (' || AED.iata || '), ' || LDP.nombre AS "Destino", A.datos_aerolinea.nombre AS "Logo Aerolinea", tabla_estatus."nombre_estatus" AS "Estado", V.intinerario_real.fecha_fin AS "Hora estimada de llegada"
+    FROM (SELECT E.nombre AS "nombre_estatus", EV.clave AS "clave_estatus_vuelo", V.clave AS "clave_vuelo"
+            FROM ESTATUS_VUELO EV, ESTATUS E, VUELO V
+                WHERE V.clave = EV.vuelo_fk AND E.clave = EV.estatus_fk
+                    ORDER BY EV.fecha DESC
+                     FETCH NEXT 1 ROWS ONLY
+         ) tabla_estatus, VUELO V, AEROPUERTO AEO, AEROPUERTO AED, LUGAR LOC, LUGAR LOP, LUGAR LDC, LUGAR LDP, ESTATUS_VUELO EV, ESTATUS E, MODELO_AVION_AEROLINEA MAA, AEROLINEA A
+        WHERE AEO.clave = V.aeropuerto_salida_fk AND AED.clave = V.aeropuerto_llegada_fk AND AED.lugar_fk = LDC.clave AND LDC.lugar_fk = LDP.clave AND  AEO.lugar_fk = LOC.clave AND LOC.lugar_fk = LOP.clave
+        AND V.clave = EV.vuelo_fk AND E.clave = EV.estatus_fk AND A.clave = MAA.aerolinea_fk AND MAA.clave = V.modelo_avion_aerolinea_fk AND tabla_estatus."clave_vuelo" = V.clave;
 
 
-SELECT E.*, EV.*
+------------------------
+SELECT tabla_vuelos."Fecha y hora de vuelo" AS "Fecha y hora de vuelo", tabla_vuelos."Origen" AS "Origen", tabla_vuelos."Destino" AS "Destino", tabla_vuelos."Destino" AS "Destino", AE.logo AS "Logo de Aerolinea", tabla_vuelos."Estado" AS "Estado", tabla_vuelos."Hora estimada de llegada" AS "Hora estimada de llegada" 
+ FROM (SELECT DISTINCT VU.intinerario_estimado.fecha_inicio AS "Fecha y hora de vuelo", LOC.nombre || ' (' || AEO.iata || '), ' || LOP.nombre AS "Origen", LDC.nombre || ' (' || AED.iata || '), ' || LDP.nombre AS "Destino", A.clave AS "clave_aerolinea", 
+        (SELECT E.nombre AS "nombre_estatus"
+            FROM ESTATUS_VUELO EV, ESTATUS E, VUELO V
+                WHERE V.clave = EV.vuelo_fk AND E.clave = EV.estatus_fk AND V.clave = VU.clave
+                GROUP BY V.clave, E.nombre, EV.fecha
+                ORDER BY EV.fecha DESC
+                             FETCH NEXT 1 ROWS ONLY
+                 ) AS "Estado", CASE WHEN VU.intinerario_real.fecha_fin IS NOT NULL THEN to_char(VU.intinerario_real.fecha_fin)ELSE 'Por calcular' END AS  "Hora estimada de llegada"
+            FROM  VUELO VU, AEROPUERTO AEO, AEROPUERTO AED, LUGAR LOC, LUGAR LOP, LUGAR LDC, LUGAR LDP, ESTATUS_VUELO EV, ESTATUS E, MODELO_AVION_AEROLINEA MAA, AEROLINEA A
+                WHERE AEO.clave = VU.aeropuerto_salida_fk AND AED.clave = VU.aeropuerto_llegada_fk AND AED.lugar_fk = LDC.clave AND LDC.lugar_fk = LDP.clave AND  AEO.lugar_fk = LOC.clave AND LOC.lugar_fk = LOP.clave
+                AND VU.clave = EV.vuelo_fk AND E.clave = EV.estatus_fk AND A.clave = MAA.aerolinea_fk AND MAA.clave = VU.modelo_avion_aerolinea_fk AND VU.intinerario_estimado.fecha_inicio >= '18/01/2020' AND VU.intinerario_estimado.fecha_inicio < TO_DATE('18/01/2020')+1
+                ORDER BY VU.intinerario_estimado.fecha_inicio 
+        ) tabla_vuelos, AEROLINEA AE
+    WHERE tabla_vuelos."clave_aerolinea" = AE.clave;
+
+
+
+
+
+
+
+
+
+
+
+
+SELECT DISTINCT VU.intinerario_estimado.fecha_inicio, VU.clave, LOC.nombre || ' (' || AEO.iata || '), ' || LOP.nombre AS "Origen", LDC.nombre || ' (' || AED.iata || '), ' || LDP.nombre AS "Destino", A.datos_aerolinea.nombre AS "Logo Aerolinea", 
+ VU.intinerario_real.fecha_fin AS "Hora estimada de llegada", case when VU.intinerario_real.fecha_fin = NULL then 'Por calcular' else to_char(VU.intinerario_real.fecha_fin) end AS "de"
+    FROM  VUELO VU, AEROPUERTO AEO, AEROPUERTO AED, LUGAR LOC, LUGAR LOP, LUGAR LDC, LUGAR LDP, ESTATUS_VUELO EV, ESTATUS E, MODELO_AVION_AEROLINEA MAA, AEROLINEA A
+        WHERE AEO.clave = VU.aeropuerto_salida_fk AND AED.clave = VU.aeropuerto_llegada_fk AND AED.lugar_fk = LDC.clave AND LDC.lugar_fk = LDP.clave AND  AEO.lugar_fk = LOC.clave AND LOC.lugar_fk = LOP.clave
+        AND VU.clave = EV.vuelo_fk AND E.clave = EV.estatus_fk AND A.clave = MAA.aerolinea_fk AND MAA.clave = VU.modelo_avion_aerolinea_fk
+        ORDER BY VU.clave;
+
+
+SELECT E.nombre AS "nombre_estatus", V.clave
     FROM ESTATUS_VUELO EV, ESTATUS E, VUELO V
-        WHERE V.clave = EV.vuelo_fk AND E.clave = EV.estatus_fk AND V.clave = 4
-        order by EV.fecha DESC
-        FETCH NEXT 1 ROWS ONLY;
+        WHERE V.clave = EV.vuelo_fk AND E.clave = EV.estatus_fk AND V.clave = 22
+        GROUP BY V.clave, E.nombre, EV.fecha
+        ORDER BY EV.fecha DESC;
 -----------------------------QUERY REPORTE 13--------------------------- 
 
 
@@ -318,7 +362,7 @@ SELECT ASE.logo, tabla_aseguradora."Fecha (desde - hasta)" AS "Fecha (desde - ha
 
 
 
-
+select * from vuelo;
 
 
 
@@ -328,10 +372,10 @@ SELECT ASE.logo, tabla_aseguradora."Fecha (desde - hasta)" AS "Fecha (desde - ha
 
 -----------------------------QUERY REPORTE 7---------------------------
 
-SELECT '02/02/2017' || ' - ' || '08/02/2020' AS "Fecha", LO.nombre AS "Lugar de origen", LD.nombre AS "Lugar de destino", COUNT(FR.clave) AS "Cantidad de reservaciones"
+SELECT '02/02/2017' || ' - ' || '08/01/2019' AS "Fecha", LO.nombre AS "Lugar de origen", LD.nombre AS "Lugar de destino", COUNT(FR.clave) AS "Cantidad de reservaciones"
     FROM VUELO V, AEROPUERTO AEO, AEROPUERTO AED, LUGAR LO, LUGAR LD, RESERVA_USUARIO_VUELO RUV, RESERVA_USUARIO RU, FACTURA_RESERVA FR
         WHERE AEO.clave = V.Aeropuerto_salida_fk AND AED.clave = V.Aeropuerto_llegada_fk AND AEO.lugar_fk = LO.clave AND
-            AED.lugar_fk = LD.clave AND V.intinerario_estimado.fecha_inicio >= '02/02/2017' AND V.intinerario_estimado.fecha_inicio <= '02/08/2020' AND
+            AED.lugar_fk = LD.clave AND V.intinerario_estimado.fecha_inicio >= '02/02/2017' AND V.intinerario_estimado.fecha_inicio <= '08/01/2020' AND
                 RUV.vuelo_fk = V.clave AND RUV.reserva_usuario_fk = RU.clave AND RU.factura_reserva_fk = FR.clave
                     GROUP BY LD.nombre, LO.nombre
                         ORDER BY COUNT(FR.clave) DESC
@@ -399,6 +443,26 @@ ROUND(MAO.precio_dia_auto.precio_por_dia(MAO.precio_dia_auto.precio, RUA.intiner
         AND OFR.clave = MAO.oficina_fk AND OFD.clave = RUA.oficina_fk AND LR.clave = OFR.lugar_fk AND LD.clave = OFD.lugar_fk AND U.correo = 'luisrf@gmail.com' AND 
         RUA.intinerario_reserva_automovil.fecha_inicio>= '02/02/2017' AND RUA.intinerario_reserva_automovil.fecha_inicio <= '09/08/2020';
 
+
+
+-----------------------------QUERY REPORTE 12---------------------------
+
+SELECT tabla_vuelos."Fecha y hora de vuelo" AS "Fecha y hora de vuelo", tabla_vuelos."Origen" AS "Origen", tabla_vuelos."Destino" AS "Destino", tabla_vuelos."Destino" AS "Destino", AE.logo AS "Logo de Aerolinea", tabla_vuelos."Estado" AS "Estado", tabla_vuelos."Hora estimada de llegada" AS "Hora estimada de llegada" 
+ FROM (SELECT DISTINCT VU.intinerario_estimado.fecha_inicio AS "Fecha y hora de vuelo", LOC.nombre || ' (' || AEO.iata || '), ' || LOP.nombre AS "Origen", LDC.nombre || ' (' || AED.iata || '), ' || LDP.nombre AS "Destino", A.clave AS "clave_aerolinea", 
+        (SELECT E.nombre AS "nombre_estatus"
+            FROM ESTATUS_VUELO EV, ESTATUS E, VUELO V
+                WHERE V.clave = EV.vuelo_fk AND E.clave = EV.estatus_fk AND V.clave = VU.clave
+                GROUP BY V.clave, E.nombre, EV.fecha
+                ORDER BY EV.fecha DESC
+                             FETCH NEXT 1 ROWS ONLY
+                 ) AS "Estado", CASE WHEN VU.intinerario_real.fecha_fin IS NOT NULL THEN to_char(VU.intinerario_real.fecha_fin)ELSE 'Por calcular' END AS  "Hora estimada de llegada"
+            FROM  VUELO VU, AEROPUERTO AEO, AEROPUERTO AED, LUGAR LOC, LUGAR LOP, LUGAR LDC, LUGAR LDP, ESTATUS_VUELO EV, ESTATUS E, MODELO_AVION_AEROLINEA MAA, AEROLINEA A
+                WHERE AEO.clave = VU.aeropuerto_salida_fk AND AED.clave = VU.aeropuerto_llegada_fk AND AED.lugar_fk = LDC.clave AND LDC.lugar_fk = LDP.clave AND  AEO.lugar_fk = LOC.clave AND LOC.lugar_fk = LOP.clave
+                AND VU.clave = EV.vuelo_fk AND E.clave = EV.estatus_fk AND A.clave = MAA.aerolinea_fk AND MAA.clave = VU.modelo_avion_aerolinea_fk AND VU.intinerario_estimado.fecha_inicio >= '18/01/2020' AND VU.intinerario_estimado.fecha_inicio < TO_DATE('18/01/2020')+1
+                ORDER BY VU.intinerario_estimado.fecha_inicio 
+        ) tabla_vuelos, AEROLINEA AE
+    WHERE tabla_vuelos."clave_aerolinea" = AE.clave;
+    
 -----------------------------QUERY REPORTE 13--------------------------- 
 
 SELECT ASE.logo, tabla_aseguradora."Fecha (desde - hasta)" AS "Fecha (desde - hasta)", tabla_aseguradora."Lugar de origen" AS "Lugar de origen", tabla_aseguradora."Lugar de destino" AS "Lugar de destino", tabla_aseguradora."Cantidad de servicios contratados" AS "Cantidad de servicios contratados"

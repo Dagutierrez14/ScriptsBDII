@@ -142,7 +142,26 @@ BEGIN
 
 END;
 -----------------------------PROCEDURE REPORTE 12---------------------------
-
+CREATE OR REPLACE PROCEDURE REPORTE11(FECHA_VUELO IN DATE, c OUT SYS_REFCURSOR)
+IS
+BEGIN
+    OPEN c FOR
+    SELECT tabla_vuelos."Fecha y hora de vuelo" AS "Fecha y hora de vuelo", tabla_vuelos."Origen" AS "Origen", tabla_vuelos."Destino" AS "Destino", tabla_vuelos."Destino" AS "Destino", AE.logo AS "Logo de Aerolinea", tabla_vuelos."Estado" AS "Estado", tabla_vuelos."Hora estimada de llegada" AS "Hora estimada de llegada" 
+     FROM (SELECT DISTINCT VU.intinerario_estimado.fecha_inicio AS "Fecha y hora de vuelo", LOC.nombre || ' (' || AEO.iata || '), ' || LOP.nombre AS "Origen", LDC.nombre || ' (' || AED.iata || '), ' || LDP.nombre AS "Destino", A.clave AS "clave_aerolinea", 
+            (SELECT E.nombre AS "nombre_estatus"
+                FROM ESTATUS_VUELO EV, ESTATUS E, VUELO V
+                    WHERE V.clave = EV.vuelo_fk AND E.clave = EV.estatus_fk AND V.clave = VU.clave
+                    GROUP BY V.clave, E.nombre, EV.fecha
+                    ORDER BY EV.fecha DESC
+                                 FETCH NEXT 1 ROWS ONLY
+                     ) AS "Estado", CASE WHEN VU.intinerario_real.fecha_fin IS NOT NULL THEN to_char(VU.intinerario_real.fecha_fin)ELSE 'Por calcular' END AS  "Hora estimada de llegada"
+                FROM  VUELO VU, AEROPUERTO AEO, AEROPUERTO AED, LUGAR LOC, LUGAR LOP, LUGAR LDC, LUGAR LDP, ESTATUS_VUELO EV, ESTATUS E, MODELO_AVION_AEROLINEA MAA, AEROLINEA A
+                    WHERE AEO.clave = VU.aeropuerto_salida_fk AND AED.clave = VU.aeropuerto_llegada_fk AND AED.lugar_fk = LDC.clave AND LDC.lugar_fk = LDP.clave AND  AEO.lugar_fk = LOC.clave AND LOC.lugar_fk = LOP.clave
+                    AND VU.clave = EV.vuelo_fk AND E.clave = EV.estatus_fk AND A.clave = MAA.aerolinea_fk AND MAA.clave = VU.modelo_avion_aerolinea_fk AND VU.intinerario_estimado.fecha_inicio >= FECHA_VUELO AND VU.intinerario_estimado.fecha_inicio < TO_DATE(FECHA_VUELO)+1
+                    ORDER BY VU.intinerario_estimado.fecha_inicio 
+            ) tabla_vuelos, AEROLINEA AE
+        WHERE tabla_vuelos."clave_aerolinea" = AE.clave;
+END;
 -----------------------------PROCEDURE REPORTE 13---------------------------
 CREATE OR REPLACE PROCEDURE REPORTE13(FECHA_INICIO IN DATE, FECHA_FIN IN DATE, c OUT SYS_REFCURSOR)
 IS
