@@ -293,10 +293,14 @@ ROUND(MAO.precio_dia_auto.precio_por_dia(MAO.precio_dia_auto.precio, RUA.intiner
 -----------------------------QUERY REPORTE 12--------------------------- 
 
 
-SELECT V.intinerario_estimado.fecha_inicio, LOC.nombre || ' (' || AEO.iata || '), ' || LOP.nombre AS "Origen", LDC.nombre || ' (' || AED.iata || '), ' || LDP.nombre AS "Destino"
+SELECT V.intinerario_estimado.fecha_inicio, LOC.nombre || ' (' || AEO.iata || '), ' || LOP.nombre AS "Origen", LDC.nombre || ' (' || AED.iata || '), ' || LDP.nombre AS "Destino", A.datos_aerolinea
 
 
-
+SELECT E.*, EV.*
+    FROM ESTATUS_VUELO EV, ESTATUS E, VUELO V
+        WHERE V.clave = EV.vuelo_fk AND E.clave = EV.estatus_fk AND V.clave = 4
+        order by EV.fecha DESC
+        FETCH NEXT 1 ROWS ONLY;
 -----------------------------QUERY REPORTE 13--------------------------- 
 
 
@@ -312,6 +316,101 @@ SELECT ASE.logo, tabla_aseguradora."Fecha (desde - hasta)" AS "Fecha (desde - ha
     WHERE ASE.clave = tabla_aseguradora."clave_aseguradora" FETCH NEXT 1 ROWS ONLY;
 
 
+
+
+
+
+
+
+
+---------------------------------------------------REPORTES ENTREGA 2-----------------------------------------------------------------
+
+
+-----------------------------QUERY REPORTE 7---------------------------
+
+SELECT '02/02/2017' || ' - ' || '08/02/2020' AS "Fecha", LO.nombre AS "Lugar de origen", LD.nombre AS "Lugar de destino", COUNT(FR.clave) AS "Cantidad de reservaciones"
+    FROM VUELO V, AEROPUERTO AEO, AEROPUERTO AED, LUGAR LO, LUGAR LD, RESERVA_USUARIO_VUELO RUV, RESERVA_USUARIO RU, FACTURA_RESERVA FR
+        WHERE AEO.clave = V.Aeropuerto_salida_fk AND AED.clave = V.Aeropuerto_llegada_fk AND AEO.lugar_fk = LO.clave AND
+            AED.lugar_fk = LD.clave AND V.intinerario_estimado.fecha_inicio >= '02/02/2017' AND V.intinerario_estimado.fecha_inicio <= '02/08/2020' AND
+                RUV.vuelo_fk = V.clave AND RUV.reserva_usuario_fk = RU.clave AND RU.factura_reserva_fk = FR.clave
+                    GROUP BY LD.nombre, LO.nombre
+                        ORDER BY COUNT(FR.clave) DESC
+                        FETCH NEXT 10 ROWS ONLY;
+                        
+-----------------------------QUERY REPORTE 8---------------------------                        
+
+SELECT AERO.logo AS "Logo de aerolinea", tabla."Fecha", tabla."Lugar de origen", tabla."Lugar de destino", tabla."Cantidad de servicios"
+        FROM AEROLINEA AERO, (SELECT A.clave AS "clave", A.datos_aerolinea.nombre AS "Logo de aerolinea", '02/02/2017' || ' - ' || '08/02/2020' AS "Fecha", LO.nombre AS "Lugar de origen", LD.nombre AS "Lugar de destino", COUNT(FR.clave) AS "Cantidad de servicios"
+    FROM VUELO V, AEROLINEA A, MODELO_AVION_AEROLINEA MAA, AEROPUERTO AEO, AEROPUERTO AED, LUGAR LO, LUGAR LD, RESERVA_USUARIO_VUELO RUV, RESERVA_USUARIO RU,  FACTURA_RESERVA FR
+        WHERE MAA.clave = V.modelo_avion_aerolinea_fk AND MAA.aerolinea_fk = A.clave AND AEO.clave = V.Aeropuerto_salida_fk AND AED.clave = V.Aeropuerto_llegada_fk AND AEO.lugar_fk = LO.clave AND
+            AED.lugar_fk = LD.clave AND V.intinerario_estimado.fecha_inicio >= '02/02/2017' AND V.intinerario_estimado.fecha_inicio <= '02/08/2020' AND LO.nombre = 'Milan' AND LD.nombre = 'Buenos Aires' AND
+                RUV.vuelo_fk = V.clave AND RUV.reserva_usuario_fk = RU.clave AND RU.factura_reserva_fk = FR.clave
+                    GROUP BY A.clave, A.datos_aerolinea.nombre, LD.nombre, LO.nombre
+                        ORDER BY COUNT(RU.clave) DESC
+                        FETCH NEXT 10 ROWS ONLY) tabla where AERO.clave = tabla."clave" ;
+                        
+-----------------------------QUERY REPORTE 9---------------------------
+SELECT HT.foto AS "Foto del lugar", tabla_hotel."Nombre del lugar" AS "Nombre del lugar", tabla_hotel."Correo" AS "Correo",tabla_hotel."Fecha de entrada" AS "Fecha de entrada",tabla_hotel."Fecha de salida" AS "Fecha de salida", 
+tabla_hotel."Huéspedes" AS "Huéspedes", tabla_hotel."Descripcion" AS "Descripcion", tabla_hotel."Direccion Exacta" AS "Direccion Exacta", tabla_hotel."Puntuacion" AS "Puntuacion", tabla_hotel."Precio total"  AS "Precio total"
+    FROM HOTEL HT, (SELECT H.clave "clave hotel", H.datos_hotel.nombre AS "Nombre del lugar", US.correo AS "Correo", RUSH.intinerario_reserva_habitacion.fecha_inicio AS "Fecha de entrada", RUSH.intinerario_reserva_habitacion.fecha_fin AS "Fecha de salida", 
+COUNT(RUS.clave)|| ' huéspedes' AS "Huéspedes", H.datos_hotel.descripcion AS "Descripcion", LC.nombre || ', ' || LP.nombre AS "Direccion Exacta", puntuacion."Puntuacion" AS "Puntuacion", ROUND(precio_total_pagado."Precio Total", 2) || ' USD'AS "Precio total"
+   FROM (SELECT HO.clave AS "clave_hotel", ROUND(AVG(RUH.puntuacion),1) || '/10' AS "Puntuacion"
+            FROM RESERVA_USUARIO_HABITACION RUH, HABITACION HA, TIPO_HABITACION TH, HOTEL HO
+                WHERE RUH.habitacion_fk = HA.clave AND HA.tipo_habitacion_fk = TH.clave AND TH.hotel_fk = HO.clave group by HO.clave 
+        ) puntuacion, 
+        (select tabla."clave_hotel", tabla."clave_factura_reserva",SUM(tabla."Precio Total") AS "Precio Total"FROM (SELECT HO.clave AS "clave_hotel", FR.clave AS "clave_factura_reserva", TH.precio_dia_habitacion.precio_por_dia(TH.precio_dia_habitacion.precio, RUH.intinerario_reserva_habitacion.fecha_inicio,  RUH.intinerario_reserva_habitacion.fecha_fin) * COUNT(TH.clave) AS "Precio Total"
+FROM  RESERVA_USUARIO RU, RESERVA_USUARIO_HABITACION RUH, HABITACION HA, TIPO_HABITACION TH, HOTEL HO,  FACTURA_RESERVA FR, USUARIO U
+  WHERE RUH.reserva_usuario_fk = RU.clave AND RUH.habitacion_fk = HA.clave AND HA.tipo_habitacion_fk = TH.clave AND TH.hotel_fk = HO.clave AND RU.factura_reserva_fk = FR.clave AND FR.usuario_fk = U.clave AND U.correo = 'anthonyagr@gmail.com' group by HO.clave, TH.clave, FR.clave,TH.precio_dia_habitacion.precio_por_dia(TH.precio_dia_habitacion.precio, RUH.intinerario_reserva_habitacion.fecha_inicio,  RUH.intinerario_reserva_habitacion.fecha_fin) 
+) tabla group by tabla."clave_hotel", tabla."clave_factura_reserva"
+ ) precio_total_pagado,
+         HOTEL H, HABITACION HAB, TIPO_HABITACION THA, USUARIO US, RESERVA_USUARIO_HABITACION RUSH, RESERVA_USUARIO RUS, LUGAR LC, LUGAR LP, FACTURA_RESERVA FAR
+            WHERE RUSH.reserva_usuario_fk = RUS.clave AND RUSH.habitacion_fk = HAB.clave AND HAB.tipo_habitacion_fk = THA.clave AND THA.hotel_fk = H.clave AND RUS.factura_reserva_fk = FAR.clave
+                AND FAR.usuario_fk = US.clave AND LP.clave = LC.lugar_fk AND H.lugar_fk = LC.clave AND  puntuacion."clave_hotel" = H.clave AND precio_total_pagado."clave_hotel" = H.clave AND  precio_total_pagado."clave_factura_reserva" =FAR.clave AND US.correo = 'anthonyagr@gmail.com' 
+                AND RUSH.intinerario_reserva_habitacion.fecha_inicio >= '02/02/2017' AND RUSH.intinerario_reserva_habitacion.fecha_inicio<= '09/08/2020'
+                
+                    GROUP BY precio_total_pagado."clave_hotel", precio_total_pagado."clave_factura_reserva", H.datos_hotel.nombre,US.correo,  RUSH.intinerario_reserva_habitacion.fecha_inicio,RUSH.intinerario_reserva_habitacion.fecha_fin,
+                    H.datos_hotel.descripcion, LC.nombre, LP.nombre, puntuacion."Puntuacion",precio_total_pagado."Precio Total", H.clave
+) tabla_hotel
+        WHERE HT.clave = tabla_hotel."clave hotel";
+
+-----------------------------QUERY REPORTE 10--------------------------- 
+SELECT HT.foto AS "Foto del lugar", tabla_hotel."Nombre del lugar" AS "Nombre del lugar", '02/02/2017' AS "Fecha de inicio", '09/08/2020' AS "Fecha de fin", tabla_hotel."Cantidad de Reservas" AS "Cantidad de Reservas", tabla_hotel."Puntuacion" AS "Puntuacion"
+    FROM (SELECT H.clave "clave hotel", H.datos_hotel.nombre || ' - ' || LC.nombre || ', ' || LP.nombre AS "Nombre del lugar",RUSH.intinerario_reserva_habitacion.fecha_inicio AS "Fecha de inicio", RUSH.intinerario_reserva_habitacion.fecha_fin AS "Fecha de fin", COUNT(FAR.clave) AS "Cantidad de Reservas", puntuacion."Puntuacion" AS "Puntuacion"
+            FROM (SELECT HO.clave AS "clave_hotel", ROUND(AVG(RUH.puntuacion),1) || '/10' AS "Puntuacion"
+                    FROM RESERVA_USUARIO_HABITACION RUH, HABITACION HA, TIPO_HABITACION TH, HOTEL HO
+                        WHERE RUH.habitacion_fk = HA.clave AND HA.tipo_habitacion_fk = TH.clave AND TH.hotel_fk = HO.clave group by HO.clave 
+                 ) puntuacion,
+                HOTEL H, HABITACION HAB, TIPO_HABITACION THA, USUARIO US, RESERVA_USUARIO_HABITACION RUSH, RESERVA_USUARIO RUS, LUGAR LC, LUGAR LP, FACTURA_RESERVA FAR
+                    WHERE RUSH.reserva_usuario_fk = RUS.clave AND RUSH.habitacion_fk = HAB.clave AND LP.clave = LC.lugar_fk AND H.lugar_fk = LC.clave AND HAB.tipo_habitacion_fk = THA.clave AND THA.hotel_fk = H.clave AND RUS.factura_reserva_fk = FAR.clave
+                        AND FAR.usuario_fk = US.clave AND  puntuacion."clave_hotel" = H.clave AND RUSH.intinerario_reserva_habitacion.fecha_inicio >= '02/02/2017' AND RUSH.intinerario_reserva_habitacion.fecha_inicio<= '09/08/2020' AND LC.nombre = 'New York'
+                 GROUP BY H.clave, H.datos_hotel.nombre, RUSH.intinerario_reserva_habitacion.fecha_inicio,  RUSH.intinerario_reserva_habitacion.fecha_fin, puntuacion."Puntuacion", LC.nombre, LP.nombre
+                    ORDER BY COUNT(FAR.clave) DESC
+         ) tabla_hotel, HOTEL HT
+         WHERE HT.clave = tabla_hotel."clave hotel";
+-----------------------------QUERY REPORTE 11--------------------------- 
+
+
+SELECT MA.foto AS "Foto del automovil", MA.datos_modelo_auto.nombre || ', ' || M.datos_marca.nombre AS "Marca-Modelo Automovil", R.logo AS "Proveedor de servicio de alquiler", U.correo AS "Correo de usuario", 
+LR.nombre AS "Dirección de recogida", LD.nombre AS "Dirección de devolución", RUA.intinerario_reserva_automovil.fecha_inicio AS "Fecha y hora de inicio",
+RUA.intinerario_reserva_automovil.fecha_fin AS "Fecha y hora de fin", ROUND(MAO.precio_dia_auto.precio, 2) || ' USD/dia' AS "Precio por dia", 
+ROUND(MAO.precio_dia_auto.precio_por_dia(MAO.precio_dia_auto.precio, RUA.intinerario_reserva_automovil.fecha_inicio, RUA.intinerario_reserva_automovil.fecha_fin)) || ' USD' AS "Precio total"
+    FROM MARCA M, MODELO_AUTO MA, RENTADORA R, MODELO_AUTO_OFICINA MAO, RESERVA_USUARIO_AUTOMOVIL RUA, OFICINA OFR, OFICINA OFD, LUGAR LR, LUGAR LD, RESERVA_USUARIO RU, USUARIO U, FACTURA_RESERVA FR
+        WHERE U.clave = RU.usuario_fk AND FR.clave = RU.factura_reserva_fk AND U.clave = FR.usuario_fk AND RU.clave = RUA.reserva_usuario_fk AND MAO.clave = RUA.modelo_auto_oficina_fk AND MA.clave = MAO.modelo_auto_fk AND M.clave = MA.marca_fk
+        AND OFR.clave = MAO.oficina_fk AND OFD.clave = RUA.oficina_fk AND LR.clave = OFR.lugar_fk AND LD.clave = OFD.lugar_fk AND U.correo = 'luisrf@gmail.com' AND 
+        RUA.intinerario_reserva_automovil.fecha_inicio>= '02/02/2017' AND RUA.intinerario_reserva_automovil.fecha_inicio <= '09/08/2020';
+
+-----------------------------QUERY REPORTE 13--------------------------- 
+
+SELECT ASE.logo, tabla_aseguradora."Fecha (desde - hasta)" AS "Fecha (desde - hasta)", tabla_aseguradora."Lugar de origen" AS "Lugar de origen", tabla_aseguradora."Lugar de destino" AS "Lugar de destino", tabla_aseguradora."Cantidad de servicios contratados" AS "Cantidad de servicios contratados"
+    FROM (SELECT A.clave AS "clave_aseguradora", '02/02/2017' || ' - ' || '09/08/2020' AS "Fecha (desde - hasta)", LO.nombre AS "Lugar de origen", LD.nombre AS "Lugar de destino", COUNT(RU.clave) AS "Cantidad de servicios contratados"
+            FROM RESERVA_USUARIO RU, FACTURA_RESERVA FR, SEGURO S, ASEGURADORA A, RESERVA_USUARIO_VUELO RUV, VUELO V, AEROPUERTO AEO, AEROPUERTO AED, LUGAR LO, LUGAR LD
+                WHERE A.clave = S.aseguradora_fk AND S.clave = RU.seguro_fk AND RU.clave = RUV.reserva_usuario_fk AND v.clave = RUV.vuelo_fk AND AEO.clave = V.aeropuerto_salida_fk AND AED.clave = V.aeropuerto_llegada_fk
+                AND LO.clave = AEO.lugar_fk AND LD.clave = AED.lugar_fk AND FR.clave = RU.factura_reserva_fk AND V.intinerario_real.fecha_inicio >= '02/02/2017' AND V.intinerario_real.fecha_fin <= '09/08/2020'
+                    GROUP BY A.clave, LO.nombre, LD.nombre
+                        ORDER BY COUNT(RU.clave)DESC 
+                        
+         ) tabla_aseguradora, ASEGURADORA ASE
+    WHERE ASE.clave = tabla_aseguradora."clave_aseguradora" FETCH NEXT 1 ROWS ONLY;
 
 
 
