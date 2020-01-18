@@ -81,7 +81,11 @@ CREATE OR REPLACE TYPE BODY DatosPrecio IS
     
     MEMBER FUNCTION precio_por_dia(precio NUMBER, Fecha_inicio DATE, Fecha_fin DATE) RETURN NUMBER IS
     BEGIN
-        RETURN precio* ROUND(Fecha_fin - Fecha_inicio);
+        IF(ROUND(Fecha_fin - Fecha_inicio)!=0)THEN
+            RETURN precio* ROUND(Fecha_fin - Fecha_inicio);
+        ELSE
+            RETURN precio*1;
+        END IF;
     END;
 END;
 /
